@@ -14,22 +14,31 @@ const navItems = [
 </script>
 
 <template>
-  <!-- Menambahkan bayangan (shadow) halus dan blur yang lebih rapi -->
-  <header
-  class="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-white/95 shadow-sm backdrop-blur-md">
-  <div class="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-8">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-white/95 shadow-sm backdrop-blur-md">
+    <div class="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-8">
 
-      <!-- Logo -->
+      <!-- Logo & Teks Perusahaan (Hybrid: Gambar Ikon + Teks HTML) -->
       <NuxtLink
-          to="/"
-          class="flex shrink-0 items-center"
-          aria-label="Beranda"
-        >
-          <img
-            src="/images/PT. MULTI KREASINDO.png"
-            alt="PT Multi Artha Kreasindo"
-            class="h-16 w-auto object-contain lg:h-30"
-          />
+        to="/"
+        class="flex items-center gap-3 shrink-0 group"
+        aria-label="Beranda PT Multi Artha Kreasindo"
+      >
+        <!-- Bagian Gambar Ikon Segitiga MAK saja (Potong gambar aslinya atau gunakan file terpisah jika ada, atau gunakan yang sekarang) -->
+        <img
+          src="/images/PT. MULTI KREASINDO.png"
+          alt="Logo MAK"
+          class="h-25 w-auto sm:h-14 object-contain"
+        />
+
+        <!-- Bagian Teks Perusahaan menggunakan HTML agar tajam & responsif -->
+        <div class="flex flex-col">
+          <span class="font-bold text-blue-950 text-xs sm:text-sm lg:text-base tracking-tight leading-tight uppercase">
+            PT. MULTI ARTHA KREASINDO
+          </span>
+          <span class="text-[9px] sm:text-[10px] text-red-950 font-medium tracking-wide">
+            TRADING & MANUFACTURE CAT | JASA PENGECATAN
+          </span>
+        </div>
       </NuxtLink>
 
       <!-- Desktop Navigation -->
@@ -64,11 +73,9 @@ const navItems = [
           :aria-expanded="isOpen"
           aria-label="Toggle navigation"
         >
-          <!-- Ikon Hamburger (menu tertutup) -->
           <svg v-if="!isOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <!-- Ikon X (menu terbuka) -->
           <svg v-else class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -86,8 +93,7 @@ const navItems = [
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-2"
     >
-      <!-- Posisi absolute membuat menu mengambang di atas konten, bukan mendorong konten -->
-      <div v-if="isOpen" class="absolute inset-x-0 top-20 border-b border-neutral-200 bg-white px-6 py-4 shadow-lg lg:hidden">
+      <div v-if="isOpen" class="absolute inset-x-0 top-24 border-b border-neutral-200 bg-white px-6 py-4 shadow-lg lg:hidden">
         <nav class="flex flex-col space-y-1">
           <NuxtLink
             v-for="item in navItems"
