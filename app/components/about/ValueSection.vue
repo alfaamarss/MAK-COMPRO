@@ -54,7 +54,7 @@ const values = [
   width: 100%;
   padding: 4rem 2rem;
 
-  background: #fff;
+  background: #f7f7f7;
 }
 
 .value-container {
