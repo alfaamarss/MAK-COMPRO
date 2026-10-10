@@ -81,7 +81,7 @@
           <!-- Gambar Utama (Digeser ke kiri dengan -translate-x-4 atau -translate-x-6) -->
           <div class="relative z-10 w-[75%] rounded-2xl overflow-hidden border border-neutral-700/60 shadow-2xl bg-neutral-900 -translate-x-6 sm:-translate-x-8">
             <img
-              src="/images/Services/EpoxyFLooring.jpg"
+              src="/images/Services/EpoxyFlooring.jpg"
               alt="Layanan Epoxy Flooring"
               class="w-full h-[260px] sm:h-[300px] object-cover hover:scale-105 transition-transform duration-500"
             />
