@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Navbar from '~/components/layout/Navbar.vue'
-import HeroSection from '~/components/about/HeroSection.vue'
-import AboutSection from '~/components/about/AboutSection.vue';
-import ValueSection from '~/components/about/ValueSection.vue';
-import Footer from '~/components/home/footer.vue';
+import Navbar from "~/components/layout/Navbar.vue";
+import HeroSection from "~/components/about/HeroSection.vue";
+import AboutSection from "~/components/about/AboutSection.vue";
+import ValueSection from "~/components/about/ValueSection.vue";
+import Footer from "~/components/home/footer.vue";
 </script>
 
 <template>
@@ -15,8 +15,6 @@ import Footer from '~/components/home/footer.vue';
       <AboutSection />
       <ValueSection />
       <Footer />
-
-
     </main>
   </div>
 </template>

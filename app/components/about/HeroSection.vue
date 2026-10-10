@@ -12,25 +12,40 @@
       <!-- Main Headline -->
       <h1 class="hero-title">
         Mengenal <span class="highlight">Multi Artha Kreasindo</span><br />
-
       </h1>
 
       <!-- Description -->
       <p class="hero-description">
-        Kami menghadirkan aplikasi pelapisan lantai berstandar industri dengan eksekusi teknis presisi. Mulai dari persiapan substrat mekanis, penambalan retak, hingga finishing kilap cermin tanpa pori bergaransi resmi.
+        Kami menghadirkan aplikasi pelapisan lantai berstandar industri dengan
+        eksekusi teknis presisi. Mulai dari persiapan substrat mekanis,
+        penambalan retak, hingga finishing kilap cermin tanpa pori bergaransi
+        resmi.
       </p>
-
 
       <!-- Divider -->
       <hr class="divider" />
 
       <!-- Bottom Stats / Features Grid -->
       <div class="features-row">
-        <div class="feature-item" v-for="(feature, index) in features" :key="index">
+        <div
+          class="feature-item"
+          v-for="(feature, index) in features"
+          :key="index"
+        >
           <div class="feature-icon-box">
             <!-- Icon SVG Placeholder -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="svg-icon">
-              <path stroke-linecap="round" stroke-linejoin="round" :d="feature.iconPath" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="svg-icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                :d="feature.iconPath"
+              />
             </svg>
           </div>
           <div class="feature-text">
@@ -44,32 +59,36 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 // Data fitur di bagian bawah Hero
 const features = ref([
   {
-    title: 'Aplikator Ahli',
-    subtitle: 'TENAGA KERJA BERPENGALAMAN',
-    iconPath: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' // Check badge icon
+    title: "Aplikator Ahli",
+    subtitle: "TENAGA KERJA BERPENGALAMAN",
+    iconPath:
+      "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", // Check badge icon
   },
   {
-    title: 'Aplikator Ahli',
-    subtitle: 'TENAGA KERJA BERPENGALAMAN',
-    iconPath: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' // Check badge icon
+    title: "Aplikator Ahli",
+    subtitle: "TENAGA KERJA BERPENGALAMAN",
+    iconPath:
+      "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", // Check badge icon
   },
 
   {
-    title: 'Garansi Pekerjaan',
-    subtitle: 'JAMINAN DAYA REKAT PENUH',
-    iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' // Shield icon
+    title: "Garansi Pekerjaan",
+    subtitle: "JAMINAN DAYA REKAT PENUH",
+    iconPath:
+      "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", // Shield icon
   },
   {
-    title: 'Survey & Moisture Test',
-    subtitle: 'TANPA BIAYA TAMBAHAN',
-    iconPath: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4' // Clipboard icon
-  }
-])
+    title: "Survey & Moisture Test",
+    subtitle: "TANPA BIAYA TAMBAHAN",
+    iconPath:
+      "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", // Clipboard icon
+  },
+]);
 </script>
 
 <style scoped>
@@ -77,7 +96,7 @@ const features = ref([
 /* GENERAL SETUP */
 .hero-section {
   position: relative;
-  background-image: url('/images/Services/HeroServices.jpg');
+  background-image: url("/images/Services/HeroServices.jpg");
 
   /* PENTING: Memastikan gambar menutup area dengan proporsional */
   background-size: cover;
@@ -103,11 +122,14 @@ const features = ref([
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-    rgba(12, 12, 12, 0.98) 0%,    /* Hitam pekat di paling kiri untuk keterbacaan teks */
-    rgba(12, 12, 12, 0.85) 35%,   /* Tetap gelap di bawah teks */
-    rgba(12, 12, 12, 0.2) 60%,    /* Mulai memudar tanpa rona merah */
-    rgba(0, 0, 0, 0) 80%          /* 100% bening/clear murni sebelum mencapai sisi paling kanan */
+  background: linear-gradient(
+    90deg,
+    rgba(12, 12, 12, 0.98) 0%,
+    /* Hitam pekat di paling kiri untuk keterbacaan teks */
+    rgba(12, 12, 12, 0.85) 35%,
+    /* Tetap gelap di bawah teks */ rgba(12, 12, 12, 0.2) 60%,
+    /* Mulai memudar tanpa rona merah */ rgba(0, 0, 0, 0) 80%
+      /* 100% bening/clear murni sebelum mencapai sisi paling kanan */
   );
   z-index: 1;
 }
@@ -124,7 +146,8 @@ const features = ref([
   max-width: 1200px;
 }
 
-.hero-title, .hero-description {
+.hero-title,
+.hero-description {
   /* Batasi lebar teks secara eksplisit agar menyisakan ruang di kanan */
   max-width: 650px;
 }
@@ -309,7 +332,12 @@ const features = ref([
     background-position: left center;
   }
   .hero-overlay {
-    background: linear-gradient(180deg, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.95) 70%, rgba(130,25,25,0.8) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(15, 15, 15, 0.9) 0%,
+      rgba(15, 15, 15, 0.95) 70%,
+      rgba(130, 25, 25, 0.8) 100%
+    );
   }
   .hero-title {
     font-size: 32px;
@@ -317,7 +345,8 @@ const features = ref([
   .hero-actions {
     flex-direction: column;
   }
-  .btn-primary, .btn-outline {
+  .btn-primary,
+  .btn-outline {
     width: 100%;
     justify-content: center;
   }

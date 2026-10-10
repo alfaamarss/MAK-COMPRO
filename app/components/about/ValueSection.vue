@@ -1,36 +1,36 @@
 <script setup lang="ts">
 const values = [
   {
-    number: '01',
-    title: 'Kualitas Pekerjaan',
-    description: 'Menggunakan material berkualitas untuk hasil yang kuat dan tahan lama.'
+    number: "01",
+    title: "Kualitas Pekerjaan",
+    description:
+      "Menggunakan material berkualitas untuk hasil yang kuat dan tahan lama.",
   },
   {
-    number: '02',
-    title: 'Pengerjaan Profesional',
-    description: 'Dikerjakan oleh aplikator berpengalaman dengan proses kerja yang profesional.'
+    number: "02",
+    title: "Pengerjaan Profesional",
+    description:
+      "Dikerjakan oleh aplikator berpengalaman dengan proses kerja yang profesional.",
   },
   {
-    number: '03',
-    title: 'Finishing Berkualitas',
-    description: 'Menghasilkan permukaan seamless, rapi, presisi, dan mudah dirawat.'
+    number: "03",
+    title: "Finishing Berkualitas",
+    description:
+      "Menghasilkan permukaan seamless, rapi, presisi, dan mudah dirawat.",
   },
   {
-    number: '04',
-    title: 'Solusi Sesuai Proyek',
-    description: 'Spesifikasi dan metode pengerjaan disesuaikan dengan kebutuhan setiap proyek.'
-  }
-]
+    number: "04",
+    title: "Solusi Sesuai Proyek",
+    description:
+      "Spesifikasi dan metode pengerjaan disesuaikan dengan kebutuhan setiap proyek.",
+  },
+];
 </script>
 
 <template>
   <section class="value-section">
     <div class="value-container">
-      <article
-        v-for="value in values"
-        :key="value.number"
-        class="value-card"
-      >
+      <article v-for="value in values" :key="value.number" class="value-card">
         <span class="value-number">
           {{ value.number }}
         </span>

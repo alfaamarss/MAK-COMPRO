@@ -1,60 +1,59 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
-const currentSlide = ref(0)
+const currentSlide = ref(0);
 
 const slides = [
   {
-    image: '/images/Hero1.jpeg',
-    eyebrow: 'SOLUSI EPOXY & CAT INDUSTRIAL',
-    title: 'Solusi Epoxy & Cat Industrial',
-    highlight: 'Profesional',
-    titleAfter: 'untuk Berbagai Kebutuhan Industri',
+    image: "/images/Hero1.jpeg",
+    eyebrow: "SOLUSI EPOXY & CAT INDUSTRIAL",
+    title: "Solusi Epoxy & Cat Industrial",
+    highlight: "Profesional",
+    titleAfter: "untuk Berbagai Kebutuhan Industri",
     description:
-      'Menghadirkan solusi epoxy flooring, epoxy coating, dan cat industrial untuk kebutuhan industri, gudang, workshop, dan berbagai fasilitas lainnya. Dengan aplikasi profesional untuk hasil yang kuat, tahan lama, dan rapi.'
+      "Menghadirkan solusi epoxy flooring, epoxy coating, dan cat industrial untuk kebutuhan industri, gudang, workshop, dan berbagai fasilitas lainnya. Dengan aplikasi profesional untuk hasil yang kuat, tahan lama, dan rapi.",
   },
   {
-    image: '/images/Hero2.jpeg',
-    eyebrow: 'EPOXY FLOORING',
-    title: 'Lantai Industrial yang',
-    highlight: 'Kuat & Tahan Lama',
-    titleAfter: '',
+    image: "/images/Hero2.jpeg",
+    eyebrow: "EPOXY FLOORING",
+    title: "Lantai Industrial yang",
+    highlight: "Kuat & Tahan Lama",
+    titleAfter: "",
     description:
-      'Solusi epoxy flooring dengan permukaan seamless, mudah dibersihkan, dan dirancang untuk menghadapi aktivitas industri dengan intensitas tinggi.'
+      "Solusi epoxy flooring dengan permukaan seamless, mudah dibersihkan, dan dirancang untuk menghadapi aktivitas industri dengan intensitas tinggi.",
   },
   {
-    image: '/images/Hero3.jpeg',
-    eyebrow: 'INDUSTRIAL COATING',
-    title: 'Perlindungan Permukaan',
-    highlight: 'Profesional & Berkualitas',
-    titleAfter: '',
+    image: "/images/Hero3.jpeg",
+    eyebrow: "INDUSTRIAL COATING",
+    title: "Perlindungan Permukaan",
+    highlight: "Profesional & Berkualitas",
+    titleAfter: "",
     description:
-      'Layanan coating dan pengecatan industrial untuk membantu melindungi permukaan sekaligus memberikan hasil akhir yang rapi dan profesional.'
-  }
-]
+      "Layanan coating dan pengecatan industrial untuk membantu melindungi permukaan sekaligus memberikan hasil akhir yang rapi dan profesional.",
+  },
+];
 
-let sliderInterval: ReturnType<typeof setInterval>
+let sliderInterval: ReturnType<typeof setInterval>;
 
 const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % slides.length
-}
+  currentSlide.value = (currentSlide.value + 1) % slides.length;
+};
 
 const prevSlide = () => {
-  currentSlide.value =
-    (currentSlide.value - 1 + slides.length) % slides.length
-}
+  currentSlide.value = (currentSlide.value - 1 + slides.length) % slides.length;
+};
 
 const goToSlide = (index: number) => {
-  currentSlide.value = index
-}
+  currentSlide.value = index;
+};
 
 onMounted(() => {
-  sliderInterval = setInterval(nextSlide, 6000)
-})
+  sliderInterval = setInterval(nextSlide, 6000);
+});
 
 onBeforeUnmount(() => {
-  clearInterval(sliderInterval)
-})
+  clearInterval(sliderInterval);
+});
 </script>
 
 <template>
@@ -99,10 +98,7 @@ onBeforeUnmount(() => {
       </Transition>
 
       <Transition name="content-fade" mode="out-in">
-        <p
-          :key="`description-${currentSlide}`"
-          class="hero-description"
-        >
+        <p :key="`description-${currentSlide}`" class="hero-description">
           {{ slides[currentSlide].description }}
         </p>
       </Transition>
@@ -122,36 +118,28 @@ onBeforeUnmount(() => {
       <!-- Features -->
       <div class="hero-features">
         <div class="feature-item">
-          <span class="icon">
-            ✓
-          </span>
+          <span class="icon"> ✓ </span>
           <span>Material Berkualitas</span>
         </div>
 
         <span class="dot"></span>
 
         <div class="feature-item">
-          <span class="icon">
-            ✓
-          </span>
+          <span class="icon"> ✓ </span>
           <span>Pengerjaan Profesional</span>
         </div>
 
         <span class="dot"></span>
 
         <div class="feature-item">
-          <span class="icon">
-            ✓
-          </span>
+          <span class="icon"> ✓ </span>
           <span>Finishing Rapi</span>
         </div>
 
         <span class="dot"></span>
 
         <div class="feature-item">
-          <span class="icon">
-            ✓
-          </span>
+          <span class="icon"> ✓ </span>
           <span>Sesuai Kebutuhan</span>
         </div>
       </div>
@@ -193,13 +181,13 @@ onBeforeUnmount(() => {
     <!-- Counter -->
     <div class="slide-counter">
       <span>
-        {{ String(currentSlide + 1).padStart(2, '0') }}
+        {{ String(currentSlide + 1).padStart(2, "0") }}
       </span>
 
       <span class="counter-line"></span>
 
       <span>
-        {{ String(slides.length).padStart(2, '0') }}
+        {{ String(slides.length).padStart(2, "0") }}
       </span>
     </div>
   </section>
@@ -246,14 +234,13 @@ onBeforeUnmount(() => {
   inset: 0;
   z-index: 1;
 
-  background:
-    linear-gradient(
-      to right,
-      rgba(10, 10, 10, 0.97) 0%,
-      rgba(10, 10, 10, 0.88) 35%,
-      rgba(10, 10, 10, 0.60) 60%,
-      rgba(10, 10, 10, 0.15) 100%
-    );
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 10, 0.97) 0%,
+    rgba(10, 10, 10, 0.88) 35%,
+    rgba(10, 10, 10, 0.6) 60%,
+    rgba(10, 10, 10, 0.15) 100%
+  );
 }
 
 /* Content */
@@ -571,12 +558,11 @@ onBeforeUnmount(() => {
   }
 
   .hero-overlay {
-    background:
-      linear-gradient(
-        to right,
-        rgba(10, 10, 10, 0.92),
-        rgba(10, 10, 10, 0.70)
-      );
+    background: linear-gradient(
+      to right,
+      rgba(10, 10, 10, 0.92),
+      rgba(10, 10, 10, 0.7)
+    );
   }
 
   .hero-eyebrow {

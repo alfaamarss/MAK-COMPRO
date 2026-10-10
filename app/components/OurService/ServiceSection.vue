@@ -6,7 +6,9 @@
         <span class="category-badge">LAYANAN KAMI</span>
         <h2 class="title">Layanan Flooring & Coating Profesional</h2>
         <p class="description">
-          Solusi pengerjaan lantai dan pelapisan berkualitas tinggi yang disesuaikan dengan kebutuhan area industri, komersial, maupun hunian Anda.
+          Solusi pengerjaan lantai dan pelapisan berkualitas tinggi yang
+          disesuaikan dengan kebutuhan area industri, komersial, maupun hunian
+          Anda.
         </p>
       </div>
 
@@ -30,7 +32,10 @@
 
             <!-- Highlights / Feature List -->
             <ul class="highlights-list" v-if="service.highlights">
-              <li v-for="(highlight, hIndex) in service.highlights" :key="hIndex">
+              <li
+                v-for="(highlight, hIndex) in service.highlights"
+                :key="hIndex"
+              >
                 <span class="check-icon">✓</span> {{ highlight }}
               </li>
             </ul>
@@ -50,99 +55,107 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 const services = ref([
   {
-    slug: 'epoxy-flooring',
-    title: 'Epoxy Flooring',
-    badge: 'BEST SELLER',
-    image: '/images/Services/EpoxyFlooring.jpg',
-    description: 'Pengecatan lantai berbasis resin epoxy dan polimer yang melekat kuat pada lapisan beton. Melindungi lantai dari goresan, benturan, dan tumpahan bahan kimia dengan ketebalan 300 - 2000 micron.',
+    slug: "epoxy-flooring",
+    title: "Epoxy Flooring",
+    badge: "BEST SELLER",
+    image: "/images/Services/EpoxyFlooring.jpg",
+    description:
+      "Pengecatan lantai berbasis resin epoxy dan polimer yang melekat kuat pada lapisan beton. Melindungi lantai dari goresan, benturan, dan tumpahan bahan kimia dengan ketebalan 300 - 2000 micron.",
     highlights: [
-      'Tahan goresan & benturan berat',
-      'Lantai higienis & tanpa sambungan',
-      'Tahan bahan kimia & mudah dibersihkan'
-    ]
+      "Tahan goresan & benturan berat",
+      "Lantai higienis & tanpa sambungan",
+      "Tahan bahan kimia & mudah dibersihkan",
+    ],
   },
   {
-    slug: 'waterproofing-system',
-    title: 'Waterproofing System',
-    image: '/images/Services/WaterProof.png',
-    description: 'Solusi penanganan kelembapan ekstrem pada struktur bangunan. Menggunakan berbagai metode seperti Membran Bakar (3mm-4mm), Membran Tempel, Poliuretana, hingga Flexible Coating Cement Based.',
+    slug: "waterproofing-system",
+    title: "Waterproofing System",
+    image: "/images/Services/WaterProof.png",
+    description:
+      "Solusi penanganan kelembapan ekstrem pada struktur bangunan. Menggunakan berbagai metode seperti Membran Bakar (3mm-4mm), Membran Tempel, Poliuretana, hingga Flexible Coating Cement Based.",
     highlights: [
-      'Mencegah kebocoran struktur beton',
-      'Pilihan lapisan membran & cair',
-      'Ideal untuk atap, balkon, & basement'
-    ]
+      "Mencegah kebocoran struktur beton",
+      "Pilihan lapisan membran & cair",
+      "Ideal untuk atap, balkon, & basement",
+    ],
   },
   {
-    slug: 'road-line-marking',
-    title: 'Road Line Marking',
-    image: '/images/Services/LineMarking.jpeg',
-    description: 'Pemasangan marka dan garis batas presisi untuk jalan, gudang, pabrik, serta showroom. Berfungsi mengarahkan alur lalu lintas internal dan membatasi area kerja secara aman.',
+    slug: "road-line-marking",
+    title: "Road Line Marking",
+    image: "/images/Services/LineMarking.jpeg",
+    description:
+      "Pemasangan marka dan garis batas presisi untuk jalan, gudang, pabrik, serta showroom. Berfungsi mengarahkan alur lalu lintas internal dan membatasi area kerja secara aman.",
     highlights: [
-      'Memenuhi standar K3 & lalu lintas',
-      'Warna cerah & high-visibility',
-      'Tahan gesekan roda kendaraan / forklift'
-    ]
+      "Memenuhi standar K3 & lalu lintas",
+      "Warna cerah & high-visibility",
+      "Tahan gesekan roda kendaraan / forklift",
+    ],
   },
   {
-    slug: 'protective-coating',
-    title: 'Protective Coating',
-    image: '/images/Services/Protective.jpeg',
-    description: 'Pelapisan khusus permukaan logam maupun non-logam untuk mencegah korosi dan karat akibat cuaca ekstrem atau lingkungan kimia. Cocok untuk pipa, tangki, dan struktur baja.',
+    slug: "protective-coating",
+    title: "Protective Coating",
+    image: "/images/Services/Protective.jpeg",
+    description:
+      "Pelapisan khusus permukaan logam maupun non-logam untuk mencegah korosi dan karat akibat cuaca ekstrem atau lingkungan kimia. Cocok untuk pipa, tangki, dan struktur baja.",
     highlights: [
-      'Perlindungan anti-korosi jangka panjang',
-      'Metode aplikasi yang fleksibel',
-      'Ideal untuk area industri & pipa tangki'
-    ]
+      "Perlindungan anti-korosi jangka panjang",
+      "Metode aplikasi yang fleksibel",
+      "Ideal untuk area industri & pipa tangki",
+    ],
   },
   {
-    slug: 'sport-flooring',
-    title: 'Sport Flooring',
-    image: '/images/Services/SportFlooring.jpg',
-    description: 'Pengecatan khusus lapangan olahraga outdoor dan indoor (tenis, basket, dll) menggunakan metode Plexipave berkualitas tinggi yang terjamin anti-retak dan bebas genangan air.',
+    slug: "sport-flooring",
+    title: "Sport Flooring",
+    image: "/images/Services/SportFlooring.jpg",
+    description:
+      "Pengecatan khusus lapangan olahraga outdoor dan indoor (tenis, basket, dll) menggunakan metode Plexipave berkualitas tinggi yang terjamin anti-retak dan bebas genangan air.",
     highlights: [
-      'Metode aplikasi Plexipave',
-      'Anti-retak & ramah cuaca',
-      'Permukaan presisi bebas genangan'
-    ]
+      "Metode aplikasi Plexipave",
+      "Anti-retak & ramah cuaca",
+      "Permukaan presisi bebas genangan",
+    ],
   },
   {
-    slug: 'decorative-flooring',
-    title: 'Decorative Flooring',
-    image: '/images/Services/Decorative.jpeg',
-    description: 'Solusi pelapisan lantai dekoratif berestetika tinggi seperti Flakes system, Metallic epoxy, atau Quartz sand untuk showroom, kantor, hotel, dan area komersial.',
+    slug: "decorative-flooring",
+    title: "Decorative Flooring",
+    image: "/images/Services/Decorative.jpeg",
+    description:
+      "Solusi pelapisan lantai dekoratif berestetika tinggi seperti Flakes system, Metallic epoxy, atau Quartz sand untuk showroom, kantor, hotel, dan area komersial.",
     highlights: [
-      'Estetika mewah & eksklusif',
-      'Pilihan motif flakes & metallic unik',
-      'Mudah dibersihkan & berkilau'
-    ]
+      "Estetika mewah & eksklusif",
+      "Pilihan motif flakes & metallic unik",
+      "Mudah dibersihkan & berkilau",
+    ],
   },
   {
-    slug: 'floor-hardener',
-    title: 'Floor Hardener',
-    image: '/images/Services/Floor.png',
-    description: 'Pengerasan permukaan beton basah menggunakan material floor hardener yang ditaburkan dan diratakan dengan mesin trowel. Meningkatkan ketahanan beban dan abrasi secara maksimal.',
+    slug: "floor-hardener",
+    title: "Floor Hardener",
+    image: "/images/Services/Floor.png",
+    description:
+      "Pengerasan permukaan beton basah menggunakan material floor hardener yang ditaburkan dan diratakan dengan mesin trowel. Meningkatkan ketahanan beban dan abrasi secara maksimal.",
     highlights: [
-      'Meningkatkan kepadatan & kekuatan beton',
-      'Finishing halus memakai mesin trowel',
-      'Memperpanjang usia pakai lantai'
-    ]
+      "Meningkatkan kepadatan & kekuatan beton",
+      "Finishing halus memakai mesin trowel",
+      "Memperpanjang usia pakai lantai",
+    ],
   },
   {
-    slug: 'membran-bakar-waterproofing',
-    title: 'Membran Bakar Waterproofing',
-    image: '/images/Services/Membran.png',
-    description: 'Metode pelapisan kedap air menggunakan lembaran bitumen dan polimer yang diaplikasikan dengan cara dibakar. Memberikan perlindungan total dari risiko kebocoran air.',
+    slug: "membran-bakar-waterproofing",
+    title: "Membran Bakar Waterproofing",
+    image: "/images/Services/Membran.png",
+    description:
+      "Metode pelapisan kedap air menggunakan lembaran bitumen dan polimer yang diaplikasikan dengan cara dibakar. Memberikan perlindungan total dari risiko kebocoran air.",
     highlights: [
-      'Bahan Bitumen & Polimer berkualitas',
-      'Tahan cuaca ekstrem & genangan',
-      'Untuk atap, dak beton, & pondasi'
-    ]
-  }
-])
+      "Bahan Bitumen & Polimer berkualitas",
+      "Tahan cuaca ekstrem & genangan",
+      "Untuk atap, dak beton, & pondasi",
+    ],
+  },
+]);
 </script>
 
 <style scoped>
@@ -150,7 +163,7 @@ const services = ref([
 .services-section {
   padding: 80px 20px;
   background-color: #f8fafc;
-  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #1e293b;
 }
 
@@ -236,7 +249,9 @@ const services = ref([
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.03),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
@@ -244,7 +259,9 @@ const services = ref([
 
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.08),
+    0 10px 10px -5px rgba(0, 0, 0, 0.03);
   border-color: #cbd5e1;
 }
 

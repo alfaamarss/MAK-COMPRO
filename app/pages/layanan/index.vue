@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Navbar from '~/components/layout/Navbar.vue'
-import HeroService from '~/components/OurService/HeroService.vue';
-import BeforeAfter from '~/components/OurService/BeforeAfterSlider.vue';
-import Footer from '~/components/home/footer.vue';
-import ServiceSection from '~/components/OurService/ServiceSection.vue';
+import Navbar from "~/components/layout/Navbar.vue";
+import HeroService from "~/components/OurService/HeroService.vue";
+import BeforeAfter from "~/components/OurService/BeforeAfterSlider.vue";
+import Footer from "~/components/home/footer.vue";
+import ServiceSection from "~/components/OurService/ServiceSection.vue";
 </script>
 
 <template>
@@ -11,8 +11,8 @@ import ServiceSection from '~/components/OurService/ServiceSection.vue';
     <Navbar />
     <main class="pt-16">
       <HeroService />
-      <ServiceSection
-      <BeforeAfter  />
+      <ServiceSection />
+      <BeforeAfter />
       <Footer />
     </main>
   </div>

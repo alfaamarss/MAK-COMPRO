@@ -10,11 +10,17 @@
           Butuh Bantuan Memilih Produk Cat & Coating yang Tepat?
         </h2>
         <p class="cta-description">
-          Konsultasikan kebutuhan spesifikasi material, luas area, estimasi jumlah pail cat, atau permintaan kustomisasi formulasi batch khusus bersama tim teknis PT Multi Artha Kreasindo.
+          Konsultasikan kebutuhan spesifikasi material, luas area, estimasi
+          jumlah pail cat, atau permintaan kustomisasi formulasi batch khusus
+          bersama tim teknis PT Multi Artha Kreasindo.
         </p>
 
         <div class="cta-actions">
-          <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="btn-whatsapp">
+          <a
+            href="https://wa.me/628xxxxxxxxxx"
+            target="_blank"
+            class="btn-whatsapp"
+          >
             <span>💬 Konsultasi Sekarang via WhatsApp &rarr;</span>
           </a>
           <a href="#kontak" class="btn-outline">
@@ -40,11 +46,10 @@
           <div class="footer-col brand-col">
             <h3 class="footer-brand-title">PT Multi Artha Kreasindo</h3>
             <p class="footer-brand-desc">
-              Solusi profesional epoxy flooring dan coating untuk berbagai kebutuhan industri, komersial, dan fasilitas lainnya.
+              Solusi profesional epoxy flooring dan coating untuk berbagai
+              kebutuhan industri, komersial, dan fasilitas lainnya.
             </p>
-            <div class="certified-badge">
-              INDUSTRIAL CERTIFIED QUALITY
-            </div>
+            <div class="certified-badge">INDUSTRIAL CERTIFIED QUALITY</div>
           </div>
 
           <!-- Col 2: Layanan -->
@@ -63,9 +68,7 @@
           <!-- Col 3: Perusahaan -->
           <div class="footer-col">
             <h4 class="footer-heading">Perusahaan</h4>
-            <ul class="footer-links">
-
-            </ul>
+            <ul class="footer-links"></ul>
           </div>
 
           <!-- Col 4: Hubungi Kami -->
@@ -100,7 +103,7 @@
 
 <style scoped>
 .site-footer {
-  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
   color: #ffffff;
 }
 
@@ -272,7 +275,7 @@
 
 /* Garis aksen merah tipis di sebelah kiri judul heading */
 .footer-heading::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -12px;
   top: 2px;
@@ -281,7 +284,8 @@
   background-color: #dc2626;
 }
 
-.footer-links, .footer-contact-links {
+.footer-links,
+.footer-contact-links {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -290,14 +294,16 @@
   gap: 12px;
 }
 
-.footer-links li a, .footer-contact-links li a {
+.footer-links li a,
+.footer-contact-links li a {
   color: #94a3b8;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s ease;
 }
 
-.footer-links li a:hover, .footer-contact-links li a:hover {
+.footer-links li a:hover,
+.footer-contact-links li a:hover {
   color: #ffffff;
 }
 

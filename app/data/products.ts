@@ -197,8 +197,14 @@ export const products: Product[] = [
     image: "/images/produk/produk1.png",
     images: ["/images/produk/produk3.png"],
     title: "POLYURETHANE 2K",
-    description: "Produk polyurethane dua komponen yang digunakan sebagai bagian dari sistem perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
-    features: ["Ketahanan Permukaan", "Perlindungan Tambahan", "Finishing Rapi", "Cocok untuk Kebutuhan Industrial"],
+    description:
+      "Produk polyurethane dua komponen yang digunakan sebagai bagian dari sistem perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
+    features: [
+      "Ketahanan Permukaan",
+      "Perlindungan Tambahan",
+      "Finishing Rapi",
+      "Cocok untuk Kebutuhan Industrial",
+    ],
     specifications: [
       { label: "Kategori Produk", value: "Polyurethane" },
       { label: "Tipe Produk", value: "2K" },
@@ -216,8 +222,14 @@ export const products: Product[] = [
     image: "/images/produk/produk1.png",
     images: ["/images/produk/produk3.png"],
     title: "ZINCHROMATE 1K",
-    description: "Produk primer satu komponen yang digunakan sebagai lapisan dasar untuk membantu memberikan perlindungan pada permukaan sebelum aplikasi lapisan berikutnya.",
-    features: ["Lapisan Dasar", "Perlindungan Permukaan", "Aplikasi Praktis", "Cocok untuk Kebutuhan Coating"],
+    description:
+      "Produk primer satu komponen yang digunakan sebagai lapisan dasar untuk membantu memberikan perlindungan pada permukaan sebelum aplikasi lapisan berikutnya.",
+    features: [
+      "Lapisan Dasar",
+      "Perlindungan Permukaan",
+      "Aplikasi Praktis",
+      "Cocok untuk Kebutuhan Coating",
+    ],
     specifications: [
       { label: "Kategori Produk", value: "Primer" },
       { label: "Tipe Produk", value: "1K" },
@@ -235,8 +247,14 @@ export const products: Product[] = [
     image: "/images/produk/produk1.png",
     images: ["/images/produk/produk3.png"],
     title: "SYNTHETIC 1K",
-    description: "Cat synthetic satu komponen yang digunakan untuk kebutuhan perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
-    features: ["Mudah Diaplikasikan", "Finishing Rapi", "Perlindungan Permukaan", "Praktis Digunakan"],
+    description:
+      "Cat synthetic satu komponen yang digunakan untuk kebutuhan perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
+    features: [
+      "Mudah Diaplikasikan",
+      "Finishing Rapi",
+      "Perlindungan Permukaan",
+      "Praktis Digunakan",
+    ],
     specifications: [
       { label: "Kategori Produk", value: "Synthetic Paint" },
       { label: "Tipe Produk", value: "1K" },

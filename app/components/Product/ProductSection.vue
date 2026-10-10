@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { products } from '~/data/products'
+import { ref, onMounted } from "vue";
+import { products } from "~/data/products";
 
 // State untuk mendeteksi apakah section sudah masuk viewport
-const isVisible = ref(false)
-const sectionRef = ref<HTMLElement | null>(null)
+const isVisible = ref(false);
+const sectionRef = ref<HTMLElement | null>(null);
 
 onMounted(() => {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          isVisible.value = true
-          observer.disconnect() // Hentikan observasi setelah animasi berjalan sekali
+          isVisible.value = true;
+          observer.disconnect(); // Hentikan observasi setelah animasi berjalan sekali
         }
-      })
+      });
     },
     {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    }
-  )
+      rootMargin: "0px 0px -50px 0px",
+    },
+  );
 
   if (sectionRef.value) {
-    observer.observe(sectionRef.value)
+    observer.observe(sectionRef.value);
   }
-})
+});
 </script>
 
 <template>
@@ -34,13 +34,14 @@ onMounted(() => {
     class="bg-gradient-to-b from-[#f9f9fb] to-[#f2f2f5] py-24 px-6 lg:px-8 font-sans overflow-hidden"
   >
     <div class="mx-auto max-w-7xl">
-
       <!-- =========================================
            HEADER SECTION
       ========================================= -->
       <div
         class="text-center mb-16 transition-all duration-1000 ease-out transform"
-        :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+        :class="
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        "
       >
         <span
           class="inline-block bg-amber-50 text-amber-700 border border-amber-200/60 text-[11px] font-bold px-3.5 py-1.5 mb-4 tracking-widest uppercase rounded-full shadow-sm"
@@ -57,36 +58,34 @@ onMounted(() => {
         <p
           class="text-neutral-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed"
         >
-          Solusi sistem coating dan cat berkualitas tinggi untuk ketahanan maksimal serta finishing estetis pada berbagai permukaan industri maupun komersial.
+          Solusi sistem coating dan cat berkualitas tinggi untuk ketahanan
+          maksimal serta finishing estetis pada berbagai permukaan industri
+          maupun komersial.
         </p>
       </div>
-
 
       <!-- =========================================
            GRID PRODUK
       ========================================= -->
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- CARD PRODUK -->
         <div
           v-for="(product, index) in products"
           :key="product.id"
           class="bg-white border border-neutral-200/80 rounded-2xl shadow-sm flex flex-col overflow-hidden hover:-translate-y-1.5 hover:shadow-xl transition-all duration-500 ease-out transform group"
-          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
+          :class="
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          "
           :style="{
-            transitionDelay: `${(index + 1) * 100}ms`
+            transitionDelay: `${(index + 1) * 100}ms`,
           }"
         >
-
           <!-- =====================================
                GAMBAR & LABEL
           ====================================== -->
           <div
             class="relative bg-gradient-to-br from-neutral-50 to-neutral-100 aspect-[4/3] flex items-center justify-center p-8 overflow-hidden border-b border-neutral-100"
           >
-
             <!-- IMAGE -->
             <img
               :src="product.image"
@@ -108,15 +107,12 @@ onMounted(() => {
             >
               {{ product.weight }}
             </div>
-
           </div>
-
 
           <!-- =====================================
                CONTENT
           ====================================== -->
           <div class="p-6 flex flex-col flex-1 justify-between">
-
             <div>
               <!-- TITLE -->
               <h3
@@ -142,7 +138,9 @@ onMounted(() => {
                   class="flex items-start gap-2.5 text-[12.5px] text-neutral-700 leading-snug"
                 >
                   <!-- CHECK ICON -->
-                  <div class="bg-emerald-50 text-emerald-600 p-0.5 rounded-full shrink-0 mt-0.5">
+                  <div
+                    class="bg-emerald-50 text-emerald-600 p-0.5 rounded-full shrink-0 mt-0.5"
+                  >
                     <svg
                       class="w-3 h-3"
                       fill="none"
@@ -163,7 +161,6 @@ onMounted(() => {
                 </li>
               </ul>
             </div>
-
 
             <!-- =================================
                  FOOTER CARD
@@ -190,15 +187,10 @@ onMounted(() => {
                   &rarr;
                 </span>
               </NuxtLink>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
   </section>
 </template>

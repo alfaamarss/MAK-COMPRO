@@ -1,83 +1,69 @@
-
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import { useRoute, createError, useSeoMeta } from '#imports'
-import Navbar from '~/components/layout/Navbar.vue'
-import Footer from '~/components/home/footer.vue'
-import { services } from '~/data/services'
+import { computed, ref, watch } from "vue";
+import { useRoute, createError, useSeoMeta } from "#imports";
+import Navbar from "~/components/layout/Navbar.vue";
+import Footer from "~/components/home/footer.vue";
+import { services } from "~/data/services";
 
-const route = useRoute()
-const slug = computed(() => String(route.params.slug))
+const route = useRoute();
+const slug = computed(() => String(route.params.slug));
 
 const service = computed(() =>
-  services.find((item) => item.slug === slug.value)
-)
+  services.find((item) => item.slug === slug.value),
+);
 
 if (!service.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Layanan tidak ditemukan',
-  })
+    statusMessage: "Layanan tidak ditemukan",
+  });
 }
 
-const activeVariant = ref(service.value.variants?.[0] || null)
-const activeImage = ref(
-  activeVariant.value?.image || service.value.image
-)
+const activeVariant = ref(service.value.variants?.[0] || null);
+const activeImage = ref(activeVariant.value?.image || service.value.image);
 
 const currentBadge = computed(
-  () => activeVariant.value?.badge || service.value?.badge
-)
+  () => activeVariant.value?.badge || service.value?.badge,
+);
 
 const selectVariant = (variant: any) => {
-  activeVariant.value = variant
-  activeImage.value = variant.image || service.value?.image
-}
+  activeVariant.value = variant;
+  activeImage.value = variant.image || service.value?.image;
+};
 
 watch(service, (newService) => {
-  if (!newService) return
+  if (!newService) return;
 
-  activeVariant.value = newService.variants?.[0] || null
-  activeImage.value =
-    activeVariant.value?.image || newService.image
-})
+  activeVariant.value = newService.variants?.[0] || null;
+  activeImage.value = activeVariant.value?.image || newService.image;
+});
 
 useSeoMeta({
   title: () =>
-    `${service.value?.title ?? 'Layanan'} | PT Multi Artha Kreasindo`,
+    `${service.value?.title ?? "Layanan"} | PT Multi Artha Kreasindo`,
   description: () =>
     service.value?.description ??
-    'Informasi layanan flooring dan coating industri.',
-})
+    "Informasi layanan flooring dan coating industri.",
+});
 </script>
 
 <template>
-  <div
-    v-if="service"
-    class="min-h-screen bg-white font-sans text-[#202020]"
-  >
+  <div v-if="service" class="min-h-screen bg-white font-sans text-[#202020]">
     <Navbar />
 
     <main class="pt-20 lg:pt-24">
       <!-- Breadcrumb -->
       <div class="border-b border-gray-100">
         <div
-          class="mx-auto flex max-w-7xl items-center gap-2 px-5 py-4
-          text-sm text-gray-500 sm:px-8 lg:px-10"
+          class="mx-auto flex max-w-7xl items-center gap-2 px-5 py-4 text-sm text-gray-500 sm:px-8 lg:px-10"
         >
-          <NuxtLink
-            to="/"
-            class="transition hover:text-[#9B1C1C]"
-          >
+          <NuxtLink to="/" class="transition hover:text-[#9B1C1C]">
             Beranda
           </NuxtLink>
 
           <span>/</span>
 
-          <NuxtLink
-            to="/layanan"
-            class="transition hover:text-[#9B1C1C]"
-          >
+          <NuxtLink to="/layanan" class="transition hover:text-[#9B1C1C]">
             Layanan
           </NuxtLink>
 
@@ -90,44 +76,32 @@ useSeoMeta({
       </div>
 
       <!-- Main Detail -->
-     <section
-  class="mx-auto max-w-7xl px-5 pt-6 pb-10
-  sm:px-8 sm:pt-8 sm:pb-12 lg:px-10 lg:pt-10 lg:pb-16"
->
+      <section
+        class="mx-auto max-w-7xl px-5 pt-6 pb-10 sm:px-8 sm:pt-8 sm:pb-12 lg:px-10 lg:pt-10 lg:pb-16"
+      >
         <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-
           <!-- Image Gallery -->
           <div class="lg:sticky lg:top-28">
             <div
-              class="group relative flex aspect-[4/3] items-center
-              justify-center overflow-hidden rounded-2xl
-              border border-gray-100 bg-[#F6F5F2] p-5 sm:p-8"
+              class="group relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-[#F6F5F2] p-5 sm:p-8"
             >
               <div
-                class="pointer-events-none absolute -right-16 -top-16
-                h-56 w-56 rounded-full bg-[#C9A227]/10 blur-3xl"
+                class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#C9A227]/10 blur-3xl"
               />
 
               <img
                 :src="activeImage"
                 :alt="service.title"
-                class="relative z-10 h-full w-full rounded-xl
-                object-contain transition duration-500
-                group-hover:scale-[1.03]"
+                class="relative z-10 h-full w-full rounded-xl object-contain transition duration-500 group-hover:scale-[1.03]"
               />
-
             </div>
-
-
 
             <!-- Trust Information -->
             <div
-              class="mt-5 flex items-center gap-4 rounded-xl
-              border border-gray-100 p-4"
+              class="mt-5 flex items-center gap-4 rounded-xl border border-gray-100 p-4"
             >
               <div
-                class="flex h-11 w-11 shrink-0 items-center
-                justify-center rounded-full bg-red-50 text-[#9B1C1C]"
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-50 text-[#9B1C1C]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -152,8 +126,8 @@ useSeoMeta({
                   Standar pengerjaan profesional
                 </p>
                 <p class="mt-1 text-xs leading-relaxed text-gray-500">
-                  Penyesuaian metode berdasarkan kondisi dan
-                  kebutuhan area proyek.
+                  Penyesuaian metode berdasarkan kondisi dan kebutuhan area
+                  proyek.
                 </p>
               </div>
             </div>
@@ -162,25 +136,19 @@ useSeoMeta({
           <!-- Service Information -->
           <div class="flex min-w-0 flex-col">
             <div
-              class="mb-3 flex items-center gap-3 text-xs
-              font-bold uppercase tracking-[0.18em] text-[#9B1C1C]"
+              class="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-[#9B1C1C]"
             >
               <span class="h-[2px] w-8 bg-[#C9A227]" />
               Layanan Kami
             </div>
 
             <h1
-              class="max-w-2xl text-3xl font-extrabold leading-tight
-              tracking-tight text-gray-950 sm:text-4xl
-              lg:text-[46px]"
+              class="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-gray-950 sm:text-4xl lg:text-[46px]"
             >
               {{ service.title }}
             </h1>
 
-            <p
-              class="mt-6 text-base leading-8 text-gray-600
-              sm:text-[17px]"
-            >
+            <p class="mt-6 text-base leading-8 text-gray-600 sm:text-[17px]">
               {{ service.description }}
             </p>
 
@@ -204,9 +172,7 @@ useSeoMeta({
                   class="flex items-start gap-3"
                 >
                   <span
-                    class="mt-0.5 flex h-5 w-5 shrink-0
-                    items-center justify-center rounded-full
-                    bg-emerald-50 text-emerald-700"
+                    class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-700"
                   >
                     <svg
                       class="h-3 w-3"
@@ -236,9 +202,7 @@ useSeoMeta({
               v-if="service.specifications?.length"
               class="mt-9 border-t border-gray-200 pt-7"
             >
-              <h2 class="text-lg font-bold text-gray-900">
-                Parameter Teknis
-              </h2>
+              <h2 class="text-lg font-bold text-gray-900">Parameter Teknis</h2>
 
               <div class="mt-4 divide-y divide-gray-100">
                 <div
@@ -251,8 +215,7 @@ useSeoMeta({
                   </span>
 
                   <span
-                    class="max-w-[60%] text-right text-sm
-                    font-semibold leading-6 text-gray-900"
+                    class="max-w-[60%] text-right text-sm font-semibold leading-6 text-gray-900"
                   >
                     {{ spec.value }}
                   </span>
@@ -267,24 +230,18 @@ useSeoMeta({
               </p>
 
               <p class="mt-2 text-sm leading-6 text-gray-600">
-                Diskusikan kebutuhan flooring atau coating Anda
-                bersama tim kami.
+                Diskusikan kebutuhan flooring atau coating Anda bersama tim
+                kami.
               </p>
 
               <NuxtLink
                 to="/kontak"
-                class="group mt-5 flex w-full items-center justify-center
-                gap-3 rounded-xl bg-[#9B1C1C] px-5 py-4
-                text-sm font-bold text-white shadow-sm
-                transition duration-300 hover:-translate-y-0.5
-                hover:bg-[#7A1515] hover:shadow-lg
-                sm:w-auto"
+                class="group mt-5 flex w-full items-center justify-center gap-3 rounded-xl bg-[#9B1C1C] px-5 py-4 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[#7A1515] hover:shadow-lg sm:w-auto"
               >
                 Konsultasi & Jadwalkan Survey
 
                 <svg
-                  class="h-4 w-4 transition-transform
-                  group-hover:translate-x-1"
+                  class="h-4 w-4 transition-transform group-hover:translate-x-1"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -299,8 +256,7 @@ useSeoMeta({
               </NuxtLink>
 
               <div
-                class="mt-5 flex items-start gap-2 border-t
-                border-gray-200 pt-4"
+                class="mt-5 flex items-start gap-2 border-t border-gray-200 pt-4"
               >
                 <svg
                   class="mt-0.5 h-4 w-4 shrink-0 text-[#9B1C1C]"
@@ -318,9 +274,9 @@ useSeoMeta({
                 </svg>
 
                 <p class="text-xs leading-5 text-gray-500">
-                  Setiap proyek perlu mempertimbangkan kondisi
-                  substrat dan persiapan permukaan. Metode pengerjaan
-                  ditentukan berdasarkan hasil pemeriksaan lapangan.
+                  Setiap proyek perlu mempertimbangkan kondisi substrat dan
+                  persiapan permukaan. Metode pengerjaan ditentukan berdasarkan
+                  hasil pemeriksaan lapangan.
                 </p>
               </div>
             </div>
@@ -331,9 +287,7 @@ useSeoMeta({
       <!-- Bottom Brand Strip -->
       <section class="border-t border-gray-100 bg-white">
         <div
-          class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-7
-          sm:flex-row sm:items-center sm:justify-between
-          sm:px-8 lg:px-10"
+          class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10"
         >
           <div>
             <p class="text-sm font-bold text-gray-900">
@@ -346,9 +300,7 @@ useSeoMeta({
 
           <NuxtLink
             to="/layanan"
-            class="inline-flex items-center gap-2 text-sm
-            font-semibold text-[#9B1C1C] transition
-            hover:gap-3"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-[#9B1C1C] transition hover:gap-3"
           >
             Lihat layanan lainnya
             <span aria-hidden="true">→</span>

@@ -1,20 +1,19 @@
 <template>
   <section class="transformation-section">
     <div class="container">
-
       <!-- Section Header -->
       <div class="header-section">
         <span class="subtitle">HASIL PEKERJAAN NYATA</span>
         <h2 class="title">Transformasi Permukaan Lantai</h2>
         <p class="description">
-          Bukti nyata keahlian perbaikan dan pelapisan epoxy oleh tim aplikator profesional PT Multi Artha Kreasindo.
+          Bukti nyata keahlian perbaikan dan pelapisan epoxy oleh tim aplikator
+          profesional PT Multi Artha Kreasindo.
         </p>
       </div>
 
       <!-- Interactive Slider Box -->
       <div class="slider-wrapper">
         <div class="slider-container">
-
           <!-- Gambar AFTER (Background Base) -->
           <img
             src="/images/Services/After.jpeg"
@@ -25,7 +24,9 @@
           <!-- Gambar BEFORE (Clipped Overlay) -->
           <div
             class="img-layer img-before-wrapper"
-            :style="{ clipPath: `polygon(0 0, ${sliderValue}% 0, ${sliderValue}% 100%, 0 100%)` }"
+            :style="{
+              clipPath: `polygon(0 0, ${sliderValue}% 0, ${sliderValue}% 100%, 0 100%)`,
+            }"
           >
             <img
               src="/images/Services/Before.png"
@@ -39,12 +40,35 @@
           <div class="label badge-after">AFTER</div>
 
           <!-- Slider Handle (Garis & Tombol Kuning) -->
-          <div class="slider-handle-visual" :style="{ left: `${sliderValue}%` }">
+          <div
+            class="slider-handle-visual"
+            :style="{ left: `${sliderValue}%` }"
+          >
             <div class="slider-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#1a1a1a"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#1a1a1a"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </div>
@@ -64,14 +88,15 @@
 
       <!-- Footer Details Card -->
       <div class="footer-details">
-
         <!-- Kondisi Awal -->
         <div class="detail-box">
           <h3 class="detail-title">
             <span class="dot dot-red"></span> KONDISI AWAL (SEBELUM)
           </h3>
           <p class="detail-text">
-            Lantai beton berumur 8 tahun mengalami keretakan rambut luas, pelepasan debu semen terus-menerus yang merusak inventaris, dan noda oli mesin yang meresap ke dalam pori beton.
+            Lantai beton berumur 8 tahun mengalami keretakan rambut luas,
+            pelepasan debu semen terus-menerus yang merusak inventaris, dan noda
+            oli mesin yang meresap ke dalam pori beton.
           </p>
         </div>
 
@@ -84,21 +109,21 @@
             <span class="dot dot-yellow"></span> HASIL EKSEKUSI (SESUDAH)
           </h3>
           <p class="detail-text">
-            Selesai dalam 4 hari kerja seluas 3.500 m². Substrat diperbaiki dengan mortar epoxy, diaplikasikan self-leveling 2.000 mikron, menghasilkan lantai mulus bergaransi 2 tahun penuh.
+            Selesai dalam 4 hari kerja seluas 3.500 m². Substrat diperbaiki
+            dengan mortar epoxy, diaplikasikan self-leveling 2.000 mikron,
+            menghasilkan lantai mulus bergaransi 2 tahun penuh.
           </p>
         </div>
-
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 // Nilai awal slider (50% tepat di tengah)
-const sliderValue = ref(50)
+const sliderValue = ref(50);
 </script>
 
 <style scoped>
@@ -106,7 +131,7 @@ const sliderValue = ref(50)
 .transformation-section {
   padding: 80px 20px;
   background-color: #ffffff;
-  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
   color: #1e293b;
   width: 100%;
   box-sizing: border-box;
@@ -214,11 +239,15 @@ const sliderValue = ref(50)
   border-radius: 8px;
   z-index: 5;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.badge-before { left: 24px; }
-.badge-after { right: 24px; }
+.badge-before {
+  left: 24px;
+}
+.badge-after {
+  right: 24px;
+}
 
 /* SLIDER HANDLE (GARIS & TOMBOL KUNING EMAS) */
 .slider-handle-visual {
@@ -312,8 +341,12 @@ const sliderValue = ref(50)
   flex-shrink: 0;
 }
 
-.dot-red { background-color: #dc2626; }
-.dot-yellow { background-color: #f59e0b; }
+.dot-red {
+  background-color: #dc2626;
+}
+.dot-yellow {
+  background-color: #f59e0b;
+}
 
 .detail-text {
   font-size: 14px;
@@ -324,15 +357,23 @@ const sliderValue = ref(50)
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 900px) {
-  .title { font-size: 28px; }
-  .slider-wrapper { border-radius: 12px; }
+  .title {
+    font-size: 28px;
+  }
+  .slider-wrapper {
+    border-radius: 12px;
+  }
   .label {
     font-size: 12px;
     padding: 6px 14px;
     top: 14px;
   }
-  .badge-before { left: 14px; }
-  .badge-after { right: 14px; }
+  .badge-before {
+    left: 14px;
+  }
+  .badge-after {
+    right: 14px;
+  }
 
   .slider-button {
     width: 38px;
