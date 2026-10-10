@@ -4,7 +4,7 @@
 
     <div class="absolute inset-0 z-0">
       <img
-        src="/images/services/SportFlooring.jpg"
+        src="/images/Services/SportFlooring.jpg"
         alt="Background Pabrik"
         class="w-full h-full object-cover opacity-40 mix-blend-overlay"
       />
