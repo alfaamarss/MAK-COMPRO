@@ -18,10 +18,10 @@
           :key="index"
         >
           <!-- Card Image Container -->
-         <div class="card-image-wrapper">
+          <div class="card-image-wrapper">
             <img :src="service.image" :alt="service.title" class="card-img" />
             <span class="badge" v-if="service.badge">{{ service.badge }}</span>
-         </div>
+          </div>
 
           <!-- Card Content -->
           <div class="card-content">
@@ -35,12 +35,12 @@
               </li>
             </ul>
 
-            <!-- Card Footer CTA -->
+            <!-- Card Footer CTA (Diubah menggunakan NuxtLink dengan dynamic slug) -->
             <div class="card-footer">
-              <a href="#kategori" class="btn-detail">
+              <NuxtLink :to="`/layanan/${service.slug}`" class="btn-detail">
                 <span>Lihat Detail</span>
                 <span class="arrow">&rarr;</span>
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -54,6 +54,7 @@ import { ref } from 'vue'
 
 const services = ref([
   {
+    slug: 'epoxy-flooring',
     title: 'Epoxy Flooring',
     badge: 'BEST SELLER',
     image: '/images/Services/EpoxyFlooring.jpg',
@@ -65,6 +66,7 @@ const services = ref([
     ]
   },
   {
+    slug: 'waterproofing-system',
     title: 'Waterproofing System',
     image: '/images/Services/WaterProof.png',
     description: 'Solusi penanganan kelembapan ekstrem pada struktur bangunan. Menggunakan berbagai metode seperti Membran Bakar (3mm-4mm), Membran Tempel, Poliuretana, hingga Flexible Coating Cement Based.',
@@ -75,6 +77,7 @@ const services = ref([
     ]
   },
   {
+    slug: 'road-line-marking',
     title: 'Road Line Marking',
     image: '/images/Services/LineMarking.jpeg',
     description: 'Pemasangan marka dan garis batas presisi untuk jalan, gudang, pabrik, serta showroom. Berfungsi mengarahkan alur lalu lintas internal dan membatasi area kerja secara aman.',
@@ -85,6 +88,7 @@ const services = ref([
     ]
   },
   {
+    slug: 'protective-coating',
     title: 'Protective Coating',
     image: '/images/Services/Protective.jpeg',
     description: 'Pelapisan khusus permukaan logam maupun non-logam untuk mencegah korosi dan karat akibat cuaca ekstrem atau lingkungan kimia. Cocok untuk pipa, tangki, dan struktur baja.',
@@ -95,6 +99,7 @@ const services = ref([
     ]
   },
   {
+    slug: 'sport-flooring',
     title: 'Sport Flooring',
     image: '/images/Services/SportFlooring.jpg',
     description: 'Pengecatan khusus lapangan olahraga outdoor dan indoor (tenis, basket, dll) menggunakan metode Plexipave berkualitas tinggi yang terjamin anti-retak dan bebas genangan air.',
@@ -105,16 +110,18 @@ const services = ref([
     ]
   },
   {
+    slug: 'decorative-flooring',
     title: 'Decorative Flooring',
     image: '/images/Services/Decorative.jpeg',
-    description: 'Pengecatan khusus lapangan olahraga outdoor dan indoor (tenis, basket, dll) menggunakan metode Plexipave berkualitas tinggi yang terjamin anti-retak dan bebas genangan air.',
+    description: 'Solusi pelapisan lantai dekoratif berestetika tinggi seperti Flakes system, Metallic epoxy, atau Quartz sand untuk showroom, kantor, hotel, dan area komersial.',
     highlights: [
-      'Metode aplikasi Plexipave',
-      'Anti-retak & ramah cuaca',
-      'Permukaan presisi bebas genangan'
+      'Estetika mewah & eksklusif',
+      'Pilihan motif flakes & metallic unik',
+      'Mudah dibersihkan & berkilau'
     ]
   },
   {
+    slug: 'floor-hardener',
     title: 'Floor Hardener',
     image: '/images/Services/Floor.png',
     description: 'Pengerasan permukaan beton basah menggunakan material floor hardener yang ditaburkan dan diratakan dengan mesin trowel. Meningkatkan ketahanan beban dan abrasi secara maksimal.',
@@ -125,21 +132,12 @@ const services = ref([
     ]
   },
   {
-    title: 'Floor Hardener',
-    image: '/images/Services/Floor.png',
-    description: 'Pengerasan permukaan beton basah menggunakan material floor hardener yang ditaburkan dan diratakan dengan mesin trowel. Meningkatkan ketahanan beban dan abrasi secara maksimal.',
-    highlights: [
-      'Meningkatkan kepadatan & kekuatan beton',
-      'Finishing halus memakai mesin trowel',
-      'Memperpanjang usia pakai lantai'
-    ]
-  },
-  {
+    slug: 'membran-bakar-waterproofing',
     title: 'Membran Bakar Waterproofing',
     image: '/images/Services/Membran.png',
     description: 'Metode pelapisan kedap air menggunakan lembaran bitumen dan polimer yang diaplikasikan dengan cara dibakar. Memberikan perlindungan total dari risiko kebocoran air.',
     highlights: [
-      'BahanBitumen & Polimer berkualitas',
+      'Bahan Bitumen & Polimer berkualitas',
       'Tahan cuaca ekstrem & genangan',
       'Untuk atap, dak beton, & pondasi'
     ]
@@ -199,17 +197,16 @@ const services = ref([
   position: relative;
   height: 190px;
   background-color: #f1f5f9;
-  overflow: hidden; /* Penting agar gambar tidak keluar batas */
+  overflow: hidden;
 }
 
 .card-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Menjaga proporsi gambar agar menutupi area dengan rapi */
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-/* Efek zoom saat card di-hover (opsional) */
 .service-card:hover .card-img {
   transform: scale(1.05);
 }
@@ -249,31 +246,6 @@ const services = ref([
   transform: translateY(-6px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
   border-color: #cbd5e1;
-}
-
-/* IMAGE CONTAINER */
-.card-image-wrapper {
-  position: relative;
-  height: 190px;
-  background-color: #f1f5f9;
-}
-
-.img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #64748b;
-  font-weight: 600;
-  font-size: 14px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  gap: 6px;
-}
-
-.placeholder-icon {
-  font-size: 28px;
 }
 
 .badge {
@@ -366,11 +338,11 @@ const services = ref([
   transition: transform 0.2s ease;
 }
 
-.service-card:hover .btn-detail  {
+.service-card:hover .btn-detail {
   color: #800000;
 }
 
-.service-card:hover .btn-consult .arrow {
+.service-card:hover .btn-detail .arrow {
   transform: translateX(4px);
 }
 </style>

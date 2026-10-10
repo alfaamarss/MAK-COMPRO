@@ -5,21 +5,21 @@ const featuredProducts = [
   {
     tag: 'MULTI PAINT PRIMER',
     tagColor: 'bg-[#cfa426]', // Emas
-    image: '/images/product/produk1.png',
+    image: '/images/produk/produk1.png',
     title: 'Epoxy Primer Series',
     description: 'Cat dasar berdaya penetrasi tinggi sebagai pengunci pori substrat dan memastikan daya lekat (adhesi) maksimal untuk lapisan berikutnya.'
   },
   {
     tag: 'MULTI PAINT BODYCOAT',
     tagColor: 'bg-[#8b1515]', // Merah gelap
-    image: '/images/product/produk1.png',
+    image: '/images/produk/produk1.png',
     title: 'Epoxy Bodycoat Series',
     description: 'Lapisan tengah struktural yang diformulasikan sangat kuat untuk menahan beban berat (heavy-duty) dan menciptakan permukaan tanpa sambungan.'
   },
   {
     tag: 'MULTI PAINT TOPCOAT',
     tagColor: 'bg-[#333333]', // Abu-abu gelap
-    image: '/images/product/produk1.png',
+    image: '/images/produk/produk1.png',
     title: 'Epoxy Topcoat Series',
     description: 'Lapisan pelindung akhir dengan hasil kilap prima. Memberikan perlindungan ekstra terhadap abrasi, goresan, dan paparan zat kimia.'
   }
