@@ -3,6 +3,7 @@ import Navbar from '~/components/layout/Navbar.vue'
 import HeroSection from '~/components/about/HeroSection.vue'
 import AboutSection from '~/components/about/AboutSection.vue';
 import ValueSection from '~/components/about/ValueSection.vue';
+import Footer from '~/components/home/footer.vue';
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import ValueSection from '~/components/about/ValueSection.vue';
       <HeroSection />
       <AboutSection />
       <ValueSection />
+      <Footer />
 
 
     </main>

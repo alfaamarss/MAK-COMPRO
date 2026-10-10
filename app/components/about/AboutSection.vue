@@ -8,7 +8,7 @@
           <!-- Badge Judul -->
           <div class="flex items-center gap-3 mb-5">
             <span class="w-8 h-[2px] bg-[#991b1b]"></span>
-            <span class="text-[#991b1b] text-xs font-bold tracking-widest uppercase">
+            <span class="text-[#991b1b] text-xl font-bold tracking-widest uppercase">
               TENTANG PERUSAHAAN
             </span>
           </div>
@@ -70,7 +70,7 @@
 
             <!-- Menggunakan object-contain agar ukuran gambar pas, tidak terpotong, dan tidak terlalu zoom -->
             <img
-              src="/images/PT. MULTI KREASINDO.png"
+              src="/images/LogoMAK.png"
               alt="Profil PT Multi Artha Kreasindo"
               class="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
             >

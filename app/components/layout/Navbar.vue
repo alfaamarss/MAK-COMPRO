@@ -9,6 +9,7 @@ const navItems = [
   { label: 'Produk', href: '/produk' },
   { label: 'Layanan Kami', href: '/layanan' },
   { label: 'Tentang Kami', href: '/tentang-kami' },
+
   { label: 'Proyek', href: '/layanan' },
   { label: 'Kontak', href: '/layanan' }
 ]
@@ -34,13 +35,13 @@ const navItems = [
             PT Multi Artha Kreasindo
           </span>
           <span class="text-[9px] sm:text-[10px] text-[#7a2021] font-semibold tracking-wider uppercase mt-0.5 whitespace-nowrap">
-            INDUSTRIAL FLOORING SPECIALIST
+            INDUSTRIAL CAT FLOORING & COATING SPECIALIST
           </span>
         </div>
       </NuxtLink>
 
       <!-- 2. TENGAH: Desktop Navigation (Menggunakan exact-active-class bawaan Nuxt 3 yang bersih) -->
-      <nav class="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-6 xl:gap-8 z-0 w-max">
+      <nav class="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-8 items-center gap-6 xl:gap-8 z-0 w-max">
         <NuxtLink
           v-for="item in navItems"
           :key="item.href"
@@ -58,7 +59,7 @@ const navItems = [
       <div class="flex items-center justify-end shrink-0 z-10">
         <!-- Desktop CTA -->
         <NuxtLink
-          to="/kontak"
+          to="/"
           class="hidden lg:inline-flex items-center justify-center rounded-md bg-[#c41215] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#a00f11]"
         >
           Konsultasi Sekarang
@@ -110,7 +111,7 @@ const navItems = [
           <!-- Pemisah dan Tombol CTA untuk Mobile -->
           <div class="pt-4 pb-2">
             <NuxtLink
-              to="/kontak"
+              to="/"
               class="flex w-full items-center justify-center rounded-md bg-[#c41215] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#a00f11]"
               @click="isOpen = false"
             >
