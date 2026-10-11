@@ -10,29 +10,21 @@ const navItems = [
   { label: "Layanan Kami", href: "/layanan" },
   { label: "Tentang Kami", href: "/tentang-kami" },
 
-  { label: "Proyek", href: "/layanan" },
+  { label: "Proyek", href: "/proyek" },
   { label: "Kontak", href: "/layanan" },
 ];
 </script>
 
 <template>
-  <header
-    class="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-white/95 shadow-sm backdrop-blur-md"
-  >
-    <div
-      class="mx-auto flex h-20 sm:h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 relative w-full"
-    >
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-white/95 shadow-sm backdrop-blur-md">
+    <div class="mx-auto flex h-20 sm:h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 relative w-full">
       <!-- 1. KIRI: Logo & Teks Perusahaan -->
       <NuxtLink
         to="/"
         class="flex items-center gap-3 shrink-0 group -ml-2 sm:-ml-3 z-10"
         aria-label="Beranda PT Multi Artha Kreasindo"
       >
-        <img
-          src="/images/PT. MULTI KREASINDO.png"
-          alt="Logo MAK"
-          class="h-12 sm:h-16 lg:h-20 w-auto object-contain"
-        />
+        <img src="/images/PT. MULTI KREASINDO.png" alt="Logo MAK" class="h-12 sm:h-16 lg:h-20 w-auto object-contain" />
         <div class="flex flex-col max-[380px]:hidden">
           <span
             class="font-bold text-[#1a2b4c] text-xs sm:text-sm lg:text-base tracking-tight leading-tight uppercase whitespace-nowrap"
@@ -82,33 +74,11 @@ const navItems = [
           :aria-expanded="isOpen"
           aria-label="Toggle navigation"
         >
-          <svg
-            v-if="!isOpen"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+          <svg v-if="!isOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <svg
-            v-else
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
+          <svg v-else class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>

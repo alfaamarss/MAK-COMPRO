@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import Navbar from "~/components/layout/Navbar.vue";
 import HeroSection from "~/components/home/HeroSection.vue";
-import AboutSection from "~/components/about/AboutSection.vue";
+import ProyekSection from "~/components/proyek/ProyekSection.vue";
 import FeaturedProductSection from "~/components/home/FeaturedProductSection.vue";
+import ProyekClient from "~/components/proyek/ProyekClient.vue";
 import Footer from "~/components/home/footer.vue";
+import ServiceSection from "~/components/OurService/ServiceSection.vue";
 </script>
 
 <template>
@@ -14,8 +16,10 @@ import Footer from "~/components/home/footer.vue";
     <!-- Main Content Wrapper (Otomatis mengisi ruang kosong) -->
     <main class="flex-grow">
       <HeroSection />
-      <AboutSection />
+      <ServiceSection />
       <FeaturedProductSection />
+      <ProyekSection />
+      <ProyekClient />
     </main>
 
     <!-- Footer (Selalu menempel di bawah) -->
