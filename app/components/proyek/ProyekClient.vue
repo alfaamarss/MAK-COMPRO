@@ -31,7 +31,7 @@
     <div class="bg-white border border-gray-200/80 rounded-2xl p-6 sm:p-10 shadow-sm">
       <div class="w-full flex items-center justify-center overflow-hidden py-4">
         <img
-          src="/images/OurClient/client.png"
+          src="/images/ourClient/client.png"
           alt="Daftar Klien PT Multi Artha Kreasindo"
           class="w-full max-w-5xl h-auto object-contain"
         />
