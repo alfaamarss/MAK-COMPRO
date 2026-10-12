@@ -1,14 +1,19 @@
+export interface ServiceSpecification {
+  label: string;
+  value: string;
+}
+
 export interface ServiceItem {
   slug: string;
   title: string;
   badge?: string;
   tagColor?: string;
   image: string;
+  images?: string[];
   description: string;
   highlights: string[];
   features: string[];
-  specifications: { label: string; value: string }[];
-  variants?: { label: string; image: string; badge?: string }[];
+  specifications: ServiceSpecification[];
 }
 
 export const services: ServiceItem[] = [
@@ -17,7 +22,12 @@ export const services: ServiceItem[] = [
     title: "Epoxy Flooring",
     badge: "BEST SELLER",
     tagColor: "bg-red-700",
-    image: "/images/Services/EpoxyFlooring.jpg",
+    image: "/images/Services/epoxy/EpoxyFlooring1.jpg",
+    images: [
+      "/images/Services/epoxy/EpoxyFlooring1.jpg",
+      "/images/Services/epoxy/EpoxyFlooring2.jpeg",
+      "/images/Services/epoxy/EpoxyFlooring3.jpeg",
+    ],
     description:
       "Pengecatan lantai berbasis resin epoxy dan polimer yang melekat kuat pada lapisan beton. Melindungi lantai dari goresan, benturan, dan tumpahan bahan kimia dengan ketebalan 300 - 2000 micron.",
     highlights: [
@@ -37,61 +47,13 @@ export const services: ServiceItem[] = [
       { label: "Ketebalan (DFT)", value: "300 – 2000 Micron" },
       { label: "Rekomendasi Area", value: "Pabrik, Gudang, Warehouse & Lab" },
     ],
-    variants: [
-      {
-        label: "Epoxy Self Leveling",
-        image: "/images/Services/EpoxyFlooring.jpg",
-        badge: "Leveling 1-2mm",
-      },
-      {
-        label: "Epoxy Coating Standard",
-        image: "/images/Services/EpoxyFLooring.jpg",
-        badge: "300-500 Micron",
-      },
-    ],
   },
-  {
-    slug: "waterproofing-system",
-    title: "Waterproofing System",
-    image: "/images/Services/WaterProof.png",
-    description:
-      "Solusi penanganan kelembapan ekstrem pada struktur bangunan. Menggunakan berbagai metode seperti Membran Bakar (3mm-4mm), Membran Tempel, Poliuretana, hingga Flexible Coating Cement Based.",
-    highlights: [
-      "Mencegah kebocoran struktur beton",
-      "Pilihan lapisan membran & cair",
-      "Ideal untuk atap, balkon, & basement",
-    ],
-    features: [
-      "Daya rekat sangat kuat pada media beton basah maupun kering",
-      "Elastisitas tinggi guna mengantisipasi muai-susut struktur beton",
-      "Tahan terhadap genangan air dan paparan sinar UV langsung",
-    ],
-    specifications: [
-      {
-        label: "Metode Pelapisan",
-        value: "Membran Bakar & Liquid Polyurethane",
-      },
-      { label: "Ketebalan Standar", value: "3 mm – 4 mm (Membran)" },
-      { label: "Daya Tahan", value: "Anti-UV & Tahan Genangan" },
-      { label: "Area Aplikasi", value: "Dak Beton, Basement & Rooftop" },
-    ],
-    variants: [
-      {
-        label: "Membran Bakar 3mm",
-        image: "/images/Services/WaterProof.png",
-        badge: "Bitumen Modified",
-      },
-      {
-        label: "Polyurethane Liquid",
-        image: "/images/Services/WaterProof.png",
-        badge: "Seamless Coating",
-      },
-    ],
-  },
+
   {
     slug: "road-line-marking",
     title: "Road Line Marking",
     image: "/images/Services/LineMarking.jpeg",
+    images: ["/images/Services/LineMarking.jpeg"],
     description:
       "Pemasangan marka dan garis batas presisi untuk jalan, gudang, pabrik, serta showroom. Berfungsi mengarahkan alur lalu lintas internal dan membatasi area kerja secara aman.",
     highlights: [
@@ -118,6 +80,7 @@ export const services: ServiceItem[] = [
     slug: "protective-coating",
     title: "Protective Coating",
     image: "/images/Services/Protective.jpeg",
+    images: ["/images/Services/Protective.jpeg"],
     description:
       "Pelapisan khusus permukaan logam maupun non-logam untuk mencegah korosi dan karat akibat cuaca ekstrem atau lingkungan kimia. Cocok untuk pipa, tangki, dan struktur baja.",
     highlights: [
@@ -145,14 +108,15 @@ export const services: ServiceItem[] = [
   {
     slug: "sport-flooring",
     title: "Sport Flooring",
-    image: "/images/Services/SportFlooring.jpg",
-    description:
-      "Pengecatan khusus lapangan olahraga outdoor dan indoor (tenis, basket, dll) menggunakan metode Plexipave berkualitas tinggi yang terjamin anti-retak dan bebas genangan air.",
-    highlights: [
-      "Metode aplikasi Plexipave",
-      "Anti-retak & ramah cuaca",
-      "Permukaan presisi bebas genangan",
+    image: "/images/Services/sport/sportflooring1.jpg",
+    images: [
+      "/images/Services/sport/sportflooring1.jpg",
+      "/images/Services/sport/sportflooring2.PNG",
+      "/images/Services/sport/sportflooring3.jpeg",
     ],
+    description:
+      "Pengecatan khusus lapangan olahraga outdoor dan indoor (badminton, basket, dll) menggunakan metode Plexipave berkualitas tinggi yang terjamin anti-retak dan bebas genangan air.",
+    highlights: ["Metode aplikasi Plexipave", "Anti-retak & ramah cuaca", "Permukaan presisi bebas genangan"],
     features: [
       "Tekstur permukaan dengan tingkat cengkeraman (friction) optimal untuk atlet",
       "Sistem akrilik khusus yang tahan terhadap perubahan cuaca ekstrem",
@@ -168,13 +132,10 @@ export const services: ServiceItem[] = [
     slug: "decorative-flooring",
     title: "Decorative Flooring",
     image: "/images/Services/Decorative.jpeg",
+    images: ["/images/Services/Decorative.jpeg"],
     description:
       "Solusi pelapisan lantai dekoratif berestetika tinggi seperti Flakes system, Metallic epoxy, atau Quartz sand untuk showroom, kantor, hotel, dan area komersial.",
-    highlights: [
-      "Estetika mewah & eksklusif",
-      "Pilihan motif flakes & metallic unik",
-      "Mudah dibersihkan & berkilau",
-    ],
+    highlights: ["Estetika mewah & eksklusif", "Pilihan motif flakes & metallic unik", "Mudah dibersihkan & berkilau"],
     features: [
       "Desain visual custom yang elegan untuk meningkatkan prestise interior",
       "Kombinasi warna dan tekstur yang dapat disesuaikan tema ruangan",
@@ -190,6 +151,7 @@ export const services: ServiceItem[] = [
     slug: "floor-hardener",
     title: "Floor Hardener",
     image: "/images/Services/Floor.png",
+    images: ["/images/Services/Floor.png"],
     description:
       "Pengerasan permukaan beton basah menggunakan material floor hardener yang ditaburkan dan diratakan dengan mesin trowel. Meningkatkan ketahanan beban dan abrasi secara maksimal.",
     highlights: [
@@ -212,6 +174,7 @@ export const services: ServiceItem[] = [
     slug: "membran-bakar-waterproofing",
     title: "Membran Bakar Waterproofing",
     image: "/images/Services/Membran.png",
+    images: ["/images/Services/Membran.png", "/images/Services/WaterProof.png"],
     description:
       "Metode pelapisan kedap air menggunakan lembaran bitumen dan polimer yang diaplikasikan dengan cara dibakar. Memberikan perlindungan total dari risiko kebocoran air.",
     highlights: [
