@@ -47,7 +47,7 @@ const row2Logos = [
 
       <!-- ==================== DUAL ROW CLIENT LOGO SLIDER ==================== -->
       <div
-        class="relative w-full overflow-hidden bg-white border border-gray-200/80 rounded-2xl py-8 shadow-sm flex flex-col gap-6"
+        class="relative w-full overflow-hidden bg-white border border-gray-200/80 rounded-2xl py-10 md:py-12 shadow-sm flex flex-col gap-8 md:gap-10"
       >
         <!-- Efek Bayangan Transparan di Kiri & Kanan -->
         <div
@@ -63,7 +63,7 @@ const row2Logos = [
             <div
               v-for="logo in row1Logos"
               :key="logo.id + '-r1-' + i"
-              class="h-16 sm:h-20 w-36 sm:w-44 bg-white-50 border border-gray-100 rounded-xl flex items-center justify-center p-3 shadow-2xs hover:scale-105 transition-transform duration-300"
+              class="h-24 sm:h-32 md:h-36 w-48 sm:w-64 md:w-72 bg-white border border-gray-200 rounded-2xl flex items-center justify-center p-4 sm:p-6 shadow-sm hover:scale-105 transition-transform duration-300"
             >
               <img :src="logo.src" :alt="logo.name" class="max-h-full max-w-full object-contain" />
             </div>
@@ -76,7 +76,7 @@ const row2Logos = [
             <div
               v-for="logo in row2Logos"
               :key="logo.id + '-r2-' + i"
-              class="h-16 sm:h-20 w-36 sm:w-44 bg-white-50 border border-gray-100 rounded-xl flex items-center justify-center p-3 shadow-2xs hover:scale-105 transition-transform duration-300"
+              class="h-24 sm:h-32 md:h-36 w-48 sm:w-64 md:w-72 bg-white border border-gray-200 rounded-2xl flex items-center justify-center p-4 sm:p-6 shadow-sm hover:scale-105 transition-transform duration-300"
             >
               <img :src="logo.src" :alt="logo.name" class="max-h-full max-w-full object-contain" />
             </div>
@@ -116,9 +116,15 @@ const row2Logos = [
   animation: tickerRight 30s linear infinite;
 }
 
-/* Berhenti bergerak saat kursor diarahkan ke area slider */
-.animate-ticker-left:hover,
-.animate-ticker-right:hover {
-  animation-play-state: paused;
+/*
+  SOLUSI: Gunakan @media (hover: hover)
+  Agar animasi berhenti HANYA jika kursor mouse (di laptop/PC) diarahkan.
+  Di HP (layar sentuh), ditekan seperti apa pun slider tidak akan macet/berhenti.
+*/
+@media (hover: hover) and (pointer: fine) {
+  .animate-ticker-left:hover,
+  .animate-ticker-right:hover {
+    animation-play-state: paused;
+  }
 }
 </style>
