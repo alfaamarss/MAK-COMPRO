@@ -192,6 +192,7 @@ const prevImage = () => {
       </div>
 
       <!-- ==================== PROJECT GRID ==================== -->
+      <!-- ==================== PROJECT GRID ==================== -->
       <div class="relative w-full group/slider">
         <div
           ref="sliderRef"
@@ -199,7 +200,7 @@ const prevImage = () => {
           @touchend="startAutoSlide"
           @mouseenter="stopAutoSlide"
           @mouseleave="startAutoSlide"
-          class="flex md:grid md:grid-cols-2 lg:grid-cols-3 md:grid-flow-dense gap-5 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-6 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0"
+          class="flex md:grid md:grid-cols-2 lg:grid-cols-3 md:grid-flow-dense gap-5 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-6 md:pb-0 hide-scrollbar"
         >
           <div
             v-for="(item, index) in filteredProjects"
@@ -208,7 +209,7 @@ const prevImage = () => {
             :class="[
               item.featured ? 'lg:col-span-2' : 'lg:col-span-1',
               'group cursor-pointer flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200/80 shadow-sm hover:shadow-lg transition-all duration-300',
-              'min-w-[85vw] sm:min-w-[60vw] md:min-w-0 shrink-0 md:shrink snap-center relative',
+              'min-w-full md:min-w-0 shrink-0 md:shrink snap-center relative',
             ]"
           >
             <!-- Image Container -->
