@@ -39,13 +39,6 @@ const filteredProjects = computed(() => {
 });
 
 // --- LOGIKA SLIDER MOBILE ---
-const slideLeft = () => {
-  if (sliderRef.value) {
-    sliderRef.value.scrollBy({ left: -320, behavior: "smooth" });
-    resetAutoSlide();
-  }
-};
-
 const slideRight = () => {
   if (sliderRef.value) {
     const { scrollLeft, scrollWidth, clientWidth } = sliderRef.value;
@@ -84,34 +77,30 @@ onUnmounted(() => stopAutoSlide());
 const isModalOpen = ref(false);
 const currentImageIndex = ref(0);
 
-// Buka Modal dengan index dari item yang diklik
 const openModal = (index: number) => {
   currentImageIndex.value = index;
   isModalOpen.value = true;
-  document.body.style.overflow = "hidden"; // Kunci scroll halaman belakang
+  document.body.style.overflow = "hidden";
 };
 
-// Tutup Modal
 const closeModal = () => {
   isModalOpen.value = false;
-  document.body.style.overflow = "auto"; // Buka kunci scroll
+  document.body.style.overflow = "auto";
 };
 
-// Geser Kanan (Next) - membaca array filteredProjects
 const nextImage = () => {
   if (currentImageIndex.value < filteredProjects.value.length - 1) {
     currentImageIndex.value++;
   } else {
-    currentImageIndex.value = 0; // Looping kembali ke awal
+    currentImageIndex.value = 0;
   }
 };
 
-// Geser Kiri (Prev) - membaca array filteredProjects
 const prevImage = () => {
   if (currentImageIndex.value > 0) {
     currentImageIndex.value--;
   } else {
-    currentImageIndex.value = filteredProjects.value.length - 1; // Looping ke gambar terakhir
+    currentImageIndex.value = filteredProjects.value.length - 1;
   }
 };
 </script>
@@ -124,13 +113,13 @@ const prevImage = () => {
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 tracking-tight">
           PROYEK YANG TELAH <span class="text-[#c41215]">KAMI KERJAKAN</span>
         </h2>
-        <p class="text-neutral-500 text-sm sm:text-base mt-3 max-w-2xl">
+        <p class="text-neutral-500 text-sm sm:text-base mt-3 max-w-2xl mx-auto sm:mx-0">
           Dokumentasi aktual hasil pengerjaan aplikasi flooring, coating, dan waterproofing di berbagai sektor industri.
         </p>
       </div>
 
-      <!-- HEADER TABS (PILIHAN 2: Sleek Minimalist Underline) -->
-      <div class="border-b border-gray-200 flex gap-8 md:gap-12 mb-8">
+      <!-- HEADER TABS -->
+      <div class="border-b border-gray-200 flex gap-8 md:gap-12 mb-8 justify-center sm:justify-start">
         <button
           @click="activeTab = 'AREA'"
           :class="[
@@ -138,7 +127,6 @@ const prevImage = () => {
             activeTab === 'AREA' ? 'text-[#b31b1b]' : 'text-gray-400 hover:text-gray-700',
           ]"
         >
-          <!-- Titik Indikator Merah Kecil -->
           <span
             :class="[
               'w-1.5 h-1.5 rounded-full transition-all duration-300',
@@ -147,8 +135,6 @@ const prevImage = () => {
           ></span>
           AREA
           <span class="text-[11px] font-normal normal-case text-gray-400 hidden sm:inline">(Lokasi & Fisik)</span>
-
-          <!-- Garis Bawah Animasi Aktif -->
           <span
             v-if="activeTab === 'AREA'"
             class="absolute bottom-0 left-0 w-full h-[3px] bg-[#b31b1b] rounded-t-full transition-all"
@@ -162,7 +148,6 @@ const prevImage = () => {
             activeTab === 'MARKET' ? 'text-[#b31b1b]' : 'text-gray-400 hover:text-gray-700',
           ]"
         >
-          <!-- Titik Indikator Merah Kecil -->
           <span
             :class="[
               'w-1.5 h-1.5 rounded-full transition-all duration-300',
@@ -171,8 +156,6 @@ const prevImage = () => {
           ></span>
           MARKET
           <span class="text-[11px] font-normal normal-case text-gray-400 hidden sm:inline">(Sektor Industri)</span>
-
-          <!-- Garis Bawah Animasi Aktif -->
           <span
             v-if="activeTab === 'MARKET'"
             class="absolute bottom-0 left-0 w-full h-[3px] bg-[#b31b1b] rounded-t-full transition-all"
@@ -181,7 +164,7 @@ const prevImage = () => {
       </div>
 
       <!-- PILL FILTERS -->
-      <div class="flex flex-wrap gap-2.5 mb-10">
+      <div class="flex flex-wrap justify-center sm:justify-start gap-2.5 mb-10">
         <button
           @click="activeCategory = 'Semua Proyek'"
           :class="[
@@ -216,7 +199,7 @@ const prevImage = () => {
           @touchend="startAutoSlide"
           @mouseenter="stopAutoSlide"
           @mouseleave="startAutoSlide"
-          class="flex md:grid md:grid-cols-2 lg:grid-cols-3 md:grid-flow-dense gap-5 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-4 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0"
+          class="flex md:grid md:grid-cols-2 lg:grid-cols-3 md:grid-flow-dense gap-5 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-6 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0"
         >
           <div
             v-for="(item, index) in filteredProjects"
@@ -235,7 +218,7 @@ const prevImage = () => {
                 :alt="item.title"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
 
               <!-- Top Badges -->
               <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
@@ -248,7 +231,6 @@ const prevImage = () => {
 
               <!-- Text Content -->
               <div class="absolute bottom-4 left-4 right-4 z-10">
-                <!-- ======= MASUKKIN LAGI KODE TAG INI DI SINI ======= -->
                 <div class="flex flex-wrap gap-2 mb-2.5">
                   <span
                     v-for="tag in item.tags"
@@ -258,17 +240,6 @@ const prevImage = () => {
                     {{ tag }}
                   </span>
                 </div>
-                <!-- ==================================================== -->
-
-                <h3
-                  class="text-white font-bold text-lg sm:text-[22px] leading-snug mb-1.5 group-hover:text-red-200 transition-colors"
-                >
-                  {{ item.title }}
-                </h3>
-              </div>
-
-              <!-- Text Content -->
-              <div class="absolute bottom-4 left-4 right-4 z-10">
                 <h3
                   class="text-white font-bold text-lg sm:text-[22px] leading-snug mb-1.5 group-hover:text-red-200 transition-colors"
                 >
@@ -276,8 +247,6 @@ const prevImage = () => {
                 </h3>
               </div>
             </div>
-
-            <!-- Bottom Footer -->
           </div>
         </div>
       </div>
@@ -288,13 +257,13 @@ const prevImage = () => {
   <Teleport to="body">
     <div
       v-if="isModalOpen"
-      class="fixed inset-0 z-100 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-8 transition-opacity"
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-8 transition-opacity"
     >
       <button
         @click="closeModal"
-        class="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white z-50 transition-colors"
+        class="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white z-[110] transition-colors p-2 bg-black/50 md:bg-transparent rounded-full md:rounded-none"
       >
-        <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
@@ -302,16 +271,16 @@ const prevImage = () => {
       <!-- Container Gambar -->
       <div
         v-if="filteredProjects.length > 0"
-        class="relative w-full max-w-5xl flex flex-col items-center justify-center"
+        class="relative w-full max-w-5xl flex flex-col items-center justify-center px-4"
       >
-        <!-- Perbaikan Error TypeScript TS2532 dengan tanda tanya (?) -->
+        <!-- Penambahan max-w-[90vw] dan w-auto agar gambar tidak melebar ke pinggir layar HP -->
         <img
           :src="filteredProjects[currentImageIndex]?.image"
           :alt="filteredProjects[currentImageIndex]?.title"
-          class="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain rounded-md shadow-2xl transition-all"
+          class="w-auto max-w-[90vw] md:max-w-full max-h-[60vh] md:max-h-[85vh] object-contain rounded-lg shadow-2xl transition-all"
         />
 
-        <div class="mt-6 flex flex-col items-center gap-3">
+        <div class="mt-6 flex flex-col items-center gap-3 w-full">
           <h4 class="text-white font-bold text-lg md:text-xl text-center">
             {{ filteredProjects[currentImageIndex]?.title }}
           </h4>
@@ -329,25 +298,30 @@ const prevImage = () => {
           </div>
         </div>
 
-        <button
-          v-if="filteredProjects.length > 1"
-          @click.stop="prevImage"
-          class="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-[#b31b1b] text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all shadow-lg backdrop-blur-md"
+        <!-- Tombol Next/Prev (Disesuaikan posisinya ke top-[40%] untuk HP agar tidak menimpa teks) -->
+        <div
+          class="absolute w-full flex justify-between top-[40%] md:top-1/2 -translate-y-1/2 px-0 md:-mx-16 pointer-events-none"
         >
-          <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
+          <button
+            v-if="filteredProjects.length > 1"
+            @click.stop="prevImage"
+            class="pointer-events-auto bg-black/50 hover:bg-[#b31b1b] text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all shadow-lg backdrop-blur-md"
+          >
+            <svg class="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
 
-        <button
-          v-if="filteredProjects.length > 1"
-          @click.stop="nextImage"
-          class="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-[#b31b1b] text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all shadow-lg backdrop-blur-md"
-        >
-          <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
+          <button
+            v-if="filteredProjects.length > 1"
+            @click.stop="nextImage"
+            class="pointer-events-auto bg-black/50 hover:bg-[#b31b1b] text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all shadow-lg backdrop-blur-md"
+          >
+            <svg class="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </Teleport>
