@@ -290,7 +290,12 @@ export const products: Product[] = [
     title: "CAT MARKA JALAN",
     description:
       "Cat khusus untuk pembuatan marka jalan yang digunakan untuk memberikan garis pembatas, tanda, dan petunjuk visual pada jalan maupun area parkir agar lebih mudah terlihat.",
-    features: ["Mudah Diaplikasikan", "Finishing Rapi", "Perlindungan Permukaan", "Praktis Digunakan"],
+    features: [
+      "Untuk Marka Jalan dan Area Parkir",
+      "Membantu Memperjelas Garis Marka",
+      "Mendukung Visibilitas Penandaan",
+      "Untuk Penandaan Area Lalu Lintas",
+    ],
     specifications: [
       { label: "Kategori Produk", value: "Cat Marka Jalan" },
       { label: "Tipe Produk", value: "1K" },

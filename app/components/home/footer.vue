@@ -1,96 +1,168 @@
 <template>
-  <footer class="site-footer">
+  <footer class="w-full font-sans text-white bg-neutral-950">
     <!-- CTA Callout Banner -->
-    <div class="footer-cta-section">
-      <div class="container">
-        <div class="cta-badge">
-          <span>KONSULTASI TEKNIS & PENGADAAN MATERIAL</span>
+    <div
+      class="relative overflow-hidden bg-gradient-to-r from-[#7a2021] via-[#c41215] to-[#7a2021] border-b-4 border-[#e5c158] py-8 sm:py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Badge -->
+        <div
+          class="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 backdrop-blur-md px-3 py-1 rounded-full mb-3"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-[#e5c158] animate-pulse"></span>
+          <span class="text-[9px] sm:text-xs font-bold text-white tracking-widest uppercase">
+            KONSULTASI TEKNIS & PENGADAAN
+          </span>
         </div>
-        <h2 class="cta-title">
-          Butuh Bantuan Memilih Produk Cat & Coating yang Tepat?
+
+        <!-- Title & Desc -->
+        <h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug mb-2 sm:mb-3">
+          Butuh Bantuan Memilih Produk Coating?
         </h2>
-        <p class="cta-description">
-          Konsultasikan kebutuhan spesifikasi material, luas area, estimasi
-          jumlah pail cat, atau permintaan kustomisasi formulasi batch khusus
-          bersama tim teknis PT Multi Artha Kreasindo.
+        <p class="text-neutral-200 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-5">
+          Konsultasikan spesifikasi material, estimasi kebutuhan, atau custom formulasi bersama tim teknis PT Multi
+          Artha Kreasindo.
         </p>
 
-        <div class="cta-actions">
+        <!-- CTA Actions -->
+        <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-2.5 sm:gap-4 mb-5">
           <a
-            href="https://wa.me/628xxxxxxxxxx"
+            href="https://wa.me/6281234567890"
             target="_blank"
-            class="btn-whatsapp"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 bg-white text-[#7a2021] hover:bg-neutral-100 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md transition-all"
           >
-            <span>💬 Konsultasi Sekarang via WhatsApp &rarr;</span>
+            <svg class="w-4 h-4 fill-current text-emerald-600" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+              />
+            </svg>
+            <span>Konsultasi WhatsApp</span>
           </a>
-          <a href="#kontak" class="btn-outline">
-            <span>📞 Hubungi Tim Penjualan & Distribusi</span>
-          </a>
+          <NuxtLink
+            to="/kontak"
+            class="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white font-semibold text-xs sm:text-sm px-5 py-3 rounded-xl border border-white/40 transition-all"
+          >
+            <span>Hubungi Sales</span>
+          </NuxtLink>
         </div>
 
-        <div class="cta-features">
-          <span>PENGIRIMAN SELURUH INDONESIA</span>
-          <span class="dot">&bull;</span>
-          <span>DUKUNGAN APLIKATOR MITRA</span>
-          <span class="dot">&bull;</span>
-          <span>FORMULA STANDAR PABRIKAN</span>
+        <!-- Features Badges -->
+        <div
+          class="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-[10px] sm:text-xs font-semibold text-neutral-200"
+        >
+          <span>PENGIRIMAN INDONESIA</span>
+          <span class="text-[#e5c158]">•</span>
+          <span>APLIKATOR MITRA</span>
+          <span class="text-[#e5c158]">•</span>
+          <span>STANDAR PABRIKAN</span>
         </div>
       </div>
     </div>
 
     <!-- Main Footer Links & Info -->
-    <div class="footer-main-section">
-      <div class="container">
-        <div class="footer-grid">
-          <!-- Col 1: Brand Info -->
-          <div class="footer-col brand-col">
-            <h3 class="footer-brand-title">PT Multi Artha Kreasindo</h3>
-            <p class="footer-brand-desc">
-              Solusi profesional epoxy flooring dan coating untuk berbagai
-              kebutuhan industri, komersial, dan fasilitas lainnya.
-            </p>
-            <div class="certified-badge">INDUSTRIAL CERTIFIED QUALITY</div>
-          </div>
-
-          <!-- Col 2: Layanan -->
-          <div class="footer-col">
-            <h4 class="footer-heading">Layanan</h4>
-            <ul class="footer-links">
-              <li><a href="#">Epoxy Flooring</a></li>
-              <li><a href="#">Epoxy Self Leveling</a></li>
-              <li><a href="#">Epoxy Coating</a></li>
-              <li><a href="#">Industrial Flooring</a></li>
-              <li><a href="#">Warehouse Flooring</a></li>
-              <li><a href="#">Floor Repair</a></li>
-            </ul>
-          </div>
-
-          <!-- Col 3: Perusahaan -->
-          <div class="footer-col">
-            <h4 class="footer-heading">Perusahaan</h4>
-            <ul class="footer-links"></ul>
-          </div>
-
-          <!-- Col 4: Hubungi Kami -->
-          <div class="footer-col">
-            <h4 class="footer-heading">Hubungi Kami</h4>
-            <ul class="footer-contact-links">
-              <li><a href="#">💬 WhatsApp Official</a></li>
-              <li><a href="#">📞 Telepon Kantor</a></li>
-              <li><a href="#">✉️ Email Rekanan</a></li>
-              <li><a href="#">📍 Lokasi & Workshop</a></li>
-            </ul>
+    <div class="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-8 lg:gap-8 pb-8 sm:pb-12 border-b border-neutral-800">
+        <!-- Col 1: Brand Info (Full Width di Mobile / 5 Cols di Desktop) -->
+        <div class="col-span-2 lg:col-span-5 space-y-3">
+          <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">PT Multi Artha Kreasindo</h3>
+          <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Solusi profesional epoxy flooring dan coating pelapis permukaan untuk kebutuhan industri, komersial, dan
+            fasilitas khusus.
+          </p>
+          <div class="inline-block border border-[#e5c158]/50 bg-[#e5c158]/10 px-2.5 py-1 rounded-md">
+            <span class="text-[10px] sm:text-xs font-bold text-[#e5c158] tracking-wider uppercase">
+              Industrial Certified Quality
+            </span>
           </div>
         </div>
 
-        <!-- Footer Bottom Bar -->
-        <div class="footer-bottom">
-          <p class="copyright">
-            &copy; 2026 PT Multi Artha Kreasindo. All Rights Reserved.
-          </p>
-          <div class="footer-bottom-right">
-            <span>HEAVY INDUSTRIAL STANDARD</span>
-          </div>
+        <!-- Col 2: Layanan (Kolom Kiri di Mobile / 3 Cols di Desktop) -->
+        <div class="col-span-1 lg:col-span-3">
+          <h4
+            class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-3 pl-2.5 border-l-2 border-[#c41215]"
+          >
+            Layanan
+          </h4>
+          <ul class="space-y-1.5 text-xs sm:text-sm">
+            <li>
+              <NuxtLink to="/layanan" class="text-neutral-400 hover:text-white transition-colors"
+                >Epoxy Flooring</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/layanan" class="text-neutral-400 hover:text-white transition-colors"
+                >Self Leveling</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/layanan" class="text-neutral-400 hover:text-white transition-colors"
+                >Coating & Paint</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/layanan" class="text-neutral-400 hover:text-white transition-colors"
+                >Industrial Floor</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/layanan" class="text-neutral-400 hover:text-white transition-colors"
+                >Warehouse Floor</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/layanan" class="text-neutral-400 hover:text-white transition-colors"
+                >Floor Repair</NuxtLink
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Hubungi Kami (Kolom Kanan di Mobile / 4 Cols di Desktop) -->
+        <div class="col-span-1 lg:col-span-4">
+          <h4
+            class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-3 pl-2.5 border-l-2 border-[#c41215]"
+          >
+            Hubungi Kami
+          </h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-neutral-400">
+            <li class="flex items-center gap-2">
+              <span class="text-emerald-400">💬</span>
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-white transition-colors"
+                >+62 812-3456-7890</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#e5c158]">📞</span>
+              <a href="tel:+62211234567" class="hover:text-white transition-colors">(021) 1234-567</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#c41215]">✉️</span>
+              <a href="mailto:info@multiarthakreasindo.com" class="hover:text-white transition-colors truncate"
+                >info@multiarthakreasindo.com</a
+              >
+            </li>
+            <li class="flex items-start gap-2 pt-0.5">
+              <span>📍</span>
+              <span class="text-[11px] sm:text-xs leading-relaxed"
+                >Kawasan Industri & Pergudangan, Jakarta, Indonesia</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div
+        class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs text-neutral-500 text-center sm:text-left"
+      >
+        <p>&copy; {{ currentYear }} PT Multi Artha Kreasindo. All Rights Reserved.</p>
+        <div class="font-semibold tracking-wider text-neutral-400">
+          <span>HEAVY INDUSTRIAL STANDARD</span>
         </div>
       </div>
     </div>
@@ -98,240 +170,5 @@
 </template>
 
 <script setup>
-// Tambahkan logika interaktif jika diperlukan di sini
+const currentYear = new Date().getFullYear();
 </script>
-
-<style scoped>
-.site-footer {
-  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
-  color: #ffffff;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ================= CTA BANNER SECTION ================= */
-.footer-cta-section {
-  background-color: #781c1c; /* Warna merah marun khas industri */
-  background-image: linear-gradient(135deg, #8a1f1f 0%, #611313 100%);
-  padding: 70px 20px 60px 20px;
-  text-align: center;
-  position: relative;
-  border-bottom: 3px solid #f59e0b; /* Garis aksen kuning emas */
-}
-
-.cta-badge {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.cta-badge span {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cta-title {
-  font-size: 32px;
-  font-weight: 800;
-  color: #ffffff;
-  max-width: 800px;
-  margin: 0 auto 16px auto;
-  line-height: 1.3;
-}
-
-.cta-description {
-  font-size: 15px;
-  color: #e2e8f0;
-  max-width: 750px;
-  margin: 0 auto 35px auto;
-  line-height: 1.6;
-}
-
-.cta-actions {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 35px;
-}
-
-.btn-whatsapp {
-  background-color: #ffffff;
-  color: #781c1c;
-  padding: 14px 28px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn-whatsapp:hover {
-  background-color: #f1f5f9;
-  transform: translateY(-2px);
-}
-
-.btn-outline {
-  background-color: transparent;
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  transition: all 0.2s ease;
-}
-
-.btn-outline:hover {
-  border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.cta-features {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  color: #cbd5e1;
-}
-
-.cta-features .dot {
-  color: #f59e0b;
-}
-
-/* ================= MAIN FOOTER SECTION ================= */
-.footer-main-section {
-  background-color: #121212; /* Warna latar belakang gelap hitam */
-  padding: 60px 20px 30px 20px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 40px;
-  margin-bottom: 50px;
-}
-
-@media (min-width: 640px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  }
-}
-
-.footer-brand-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 12px 0;
-}
-
-.footer-brand-desc {
-  font-size: 14px;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin: 0 0 20px 0;
-}
-
-.certified-badge {
-  display: inline-block;
-  background: transparent;
-  border: 1px solid #ca8a04;
-  color: #eab308;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 4px;
-  letter-spacing: 0.5px;
-}
-
-.footer-heading {
-  font-size: 15px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 20px 0;
-  position: relative;
-}
-
-/* Garis aksen merah tipis di sebelah kiri judul heading */
-.footer-heading::before {
-  content: "";
-  position: absolute;
-  left: -12px;
-  top: 2px;
-  bottom: 2px;
-  width: 3px;
-  background-color: #dc2626;
-}
-
-.footer-links,
-.footer-contact-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-links li a,
-.footer-contact-links li a {
-  color: #94a3b8;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s ease;
-}
-
-.footer-links li a:hover,
-.footer-contact-links li a:hover {
-  color: #ffffff;
-}
-
-/* ================= FOOTER BOTTOM ================= */
-.footer-bottom {
-  border-top: 1px solid #262626;
-  padding-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  color: #737373;
-}
-
-@media (min-width: 768px) {
-  .footer-bottom {
-    flex-direction: row;
-  }
-}
-
-.copyright {
-  margin: 0;
-}
-
-.footer-bottom-right {
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-</style>
