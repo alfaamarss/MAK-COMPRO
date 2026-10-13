@@ -9,9 +9,8 @@ const navItems = [
   { label: "Produk", href: "/produk" },
   { label: "Layanan Kami", href: "/layanan" },
   { label: "Tentang Kami", href: "/tentang-kami" },
-
   { label: "Proyek", href: "/proyek" },
-  { label: "Kontak", href: "/layanan" },
+  { label: "Kontak", href: "/kontak" },
 ];
 </script>
 
