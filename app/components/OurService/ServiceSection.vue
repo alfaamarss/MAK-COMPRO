@@ -103,18 +103,6 @@ const services = ref([
       "Solusi pelapisan lantai dekoratif berestetika tinggi seperti Flakes system, Metallic epoxy, atau Quartz sand untuk showroom, kantor, hotel, dan area komersial.",
     highlights: ["Estetika mewah & eksklusif", "Pilihan motif flakes & metallic unik", "Mudah dibersihkan & berkilau"],
   },
-  {
-    slug: "floor-hardener",
-    title: "Floor Hardener",
-    image: "/images/Services/Floor.png",
-    description:
-      "Pengerasan permukaan beton basah menggunakan material floor hardener yang ditaburkan dan diratakan dengan mesin trowel. Meningkatkan ketahanan beban dan abrasi secara maksimal.",
-    highlights: [
-      "Meningkatkan kepadatan & kekuatan beton",
-      "Finishing halus memakai mesin trowel",
-      "Memperpanjang usia pakai lantai",
-    ],
-  },
 ]);
 </script>
 

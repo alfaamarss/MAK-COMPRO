@@ -278,13 +278,6 @@ const prevImage = () => {
             </div>
 
             <!-- Bottom Footer -->
-            <div
-              v-if="item.hasFooter"
-              class="px-4 py-3.5 flex justify-between items-center text-[10px] font-bold text-gray-500 bg-white border-t border-gray-100"
-            >
-              <span class="uppercase tracking-widest truncate mr-3">{{ item.footerLeft }}</span>
-              <span class="text-gray-800 text-right shrink-0 tracking-wide">{{ item.footerRight }}</span>
-            </div>
           </div>
         </div>
       </div>

@@ -52,8 +52,8 @@ export const services: ServiceItem[] = [
   {
     slug: "road-line-marking",
     title: "Road Line Marking",
-    image: "/images/Services/LineMarking.jpeg",
-    images: ["/images/Services/LineMarking.jpeg"],
+    image: "/images/Services/linemarking/linemarking1.jpeg",
+    images: ["/images/Services/linemarking/linemarking1.jpeg"],
     description:
       "Pemasangan marka dan garis batas presisi untuk jalan, gudang, pabrik, serta showroom. Berfungsi mengarahkan alur lalu lintas internal dan membatasi area kerja secara aman.",
     highlights: [
@@ -147,29 +147,7 @@ export const services: ServiceItem[] = [
       { label: "Aplikasi Komersial", value: "Showroom, Lobby, Cafe & Kantor" },
     ],
   },
-  {
-    slug: "floor-hardener",
-    title: "Floor Hardener",
-    image: "/images/Services/Floor.png",
-    images: ["/images/Services/Floor.png"],
-    description:
-      "Pengerasan permukaan beton basah menggunakan material floor hardener yang ditaburkan dan diratakan dengan mesin trowel. Meningkatkan ketahanan beban dan abrasi secara maksimal.",
-    highlights: [
-      "Meningkatkan kepadatan & kekuatan beton",
-      "Finishing halus memakai mesin trowel",
-      "Memperpanjang usia pakai lantai",
-    ],
-    features: [
-      "Menambah ketahanan permukaan beton terhadap beban kejut dan abrasi",
-      "Mencegah timbulnya debu beton (anti-dust) secara permanen",
-      "Pilihan tabur natural (metallic/non-metallic) atau warna",
-    ],
-    specifications: [
-      { label: "Tipe Material", value: "Metallic & Non-Metallic Hardener" },
-      { label: "Metode Tabur", value: "Dry-shake Broadcast & Power Trowel" },
-      { label: "Dosis Aplikasi", value: "3 kg – 5 kg / m²" },
-    ],
-  },
+
   {
     slug: "membran-bakar-waterproofing",
     title: "Membran Bakar Waterproofing",

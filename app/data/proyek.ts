@@ -18,14 +18,12 @@ export const projects: Project[] = [
   // --- LANTAI PRODUKSI (3 Foto) ---
   {
     id: 1,
-    title: "LANTAI PRODUKSI FOOD GRADE",
+    title: "LANTAI EPOXY BASEMENT",
     desc: "Polyurethane Concrete yang aman untuk standar food grade, tahan panas dan bahan kimia ringan.",
     image: "/images/proyek/lantaiProduksi/lantaiProduksi1.PNG",
     status: "Selesai",
     tags: ["Lantai Produksi"],
     hasFooter: true,
-    footerLeft: "PT Indofood CBP",
-    footerRight: "3.200 m²",
   },
   {
     id: 2,

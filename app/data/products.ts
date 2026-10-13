@@ -199,12 +199,7 @@ export const products: Product[] = [
     title: "POLYURETHANE 2K",
     description:
       "Produk polyurethane dua komponen yang digunakan sebagai bagian dari sistem perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
-    features: [
-      "Ketahanan Permukaan",
-      "Perlindungan Tambahan",
-      "Finishing Rapi",
-      "Cocok untuk Kebutuhan Industrial",
-    ],
+    features: ["Ketahanan Permukaan", "Perlindungan Tambahan", "Finishing Rapi", "Cocok untuk Kebutuhan Industrial"],
     specifications: [
       { label: "Kategori Produk", value: "Polyurethane" },
       { label: "Tipe Produk", value: "2K" },
@@ -216,20 +211,15 @@ export const products: Product[] = [
   {
     id: "zinchromate1k",
     slug: "zinchromate-1k",
-    tag: "ZINCHROMATE 1K",
+    tag: "MULTIZINC ZINCROMATE ",
     tagColor: "bg-[#cfa426]",
     weight: "20 kg",
-    image: "/images/produk/produk1.png",
+    image: "/images/produk/produk3.png",
     images: ["/images/produk/produk3.png"],
-    title: "ZINCHROMATE 1K",
+    title: "MULTIZINC ZINCROMATE ",
     description:
       "Produk primer satu komponen yang digunakan sebagai lapisan dasar untuk membantu memberikan perlindungan pada permukaan sebelum aplikasi lapisan berikutnya.",
-    features: [
-      "Lapisan Dasar",
-      "Perlindungan Permukaan",
-      "Aplikasi Praktis",
-      "Cocok untuk Kebutuhan Coating",
-    ],
+    features: ["Lapisan Dasar", "Perlindungan Permukaan", "Aplikasi Praktis", "Cocok untuk Kebutuhan Coating"],
     specifications: [
       { label: "Kategori Produk", value: "Primer" },
       { label: "Tipe Produk", value: "1K" },
@@ -244,17 +234,52 @@ export const products: Product[] = [
     tag: "SYNTHETIC 1K",
     tagColor: "bg-[#cfa426]",
     weight: "20 kg",
-    image: "/images/produk/produk1.png",
+    image: "/images/produk/produk3.png",
     images: ["/images/produk/produk3.png"],
-    title: "SYNTHETIC 1K",
+    title: "SYNTHETIC CAT MINYAK",
     description:
       "Cat synthetic satu komponen yang digunakan untuk kebutuhan perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
-    features: [
-      "Mudah Diaplikasikan",
-      "Finishing Rapi",
-      "Perlindungan Permukaan",
-      "Praktis Digunakan",
+    features: ["Mudah Diaplikasikan", "Finishing Rapi", "Perlindungan Permukaan", "Praktis Digunakan"],
+    specifications: [
+      { label: "Kategori Produk", value: "Synthetic Paint" },
+      { label: "Tipe Produk", value: "1K" },
+      { label: "Kemasan", value: "20 kg" },
+      { label: "Penggunaan", value: "Perlindungan dan finishing" },
     ],
+    tds: null,
+  },
+  {
+    id: "synthetic1k",
+    slug: "synthetic-1k",
+    tag: "SYNTHETIC 1K",
+    tagColor: "bg-[#cfa426]",
+    weight: "25 kg",
+    image: "/images/produk/produk3.png",
+    images: ["/images/produk/produk3.png"],
+    title: "MENI PRIMER",
+    description:
+      "Cat synthetic satu komponen yang digunakan untuk kebutuhan perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
+    features: ["Mudah Diaplikasikan", "Finishing Rapi", "Perlindungan Permukaan", "Praktis Digunakan"],
+    specifications: [
+      { label: "Kategori Produk", value: "Synthetic Paint" },
+      { label: "Tipe Produk", value: "1K" },
+      { label: "Kemasan", value: "20 kg" },
+      { label: "Penggunaan", value: "Perlindungan dan finishing" },
+    ],
+    tds: null,
+  },
+  {
+    id: "synthetic1k",
+    slug: "synthetic-1k",
+    tag: "SYNTHETIC 1K",
+    tagColor: "bg-[#cfa426]",
+    weight: "20 kg",
+    image: "/images/produk/produk3.png",
+    images: ["/images/produk/produk3.png"],
+    title: "CAT MARKA JALAN",
+    description:
+      "Cat synthetic satu komponen yang digunakan untuk kebutuhan perlindungan dan finishing permukaan sesuai dengan kebutuhan aplikasi.",
+    features: ["Mudah Diaplikasikan", "Finishing Rapi", "Perlindungan Permukaan", "Praktis Digunakan"],
     specifications: [
       { label: "Kategori Produk", value: "Synthetic Paint" },
       { label: "Tipe Produk", value: "1K" },

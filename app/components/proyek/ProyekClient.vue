@@ -5,12 +5,14 @@ const row1Logos = [
   { id: 2, name: "Gelora Bung Karno", src: "/images/ourClient/gbk.jpeg" },
   { id: 3, name: "Lippo Group", src: "/images/ourClient/lippo.jpeg" },
   { id: 4, name: "Mayora", src: "/images/ourClient/mayora.jpeg" },
+  { id: 8, name: "Mayora", src: "/images/ourClient/hyundai.jpeg" },
 ];
 
 const row2Logos = [
   { id: 5, name: "Padel", src: "/images/ourClient/padel.jpeg" },
   { id: 6, name: "Sekar Laut", src: "/images/ourClient/SekarLaut.jpeg" },
   { id: 7, name: "Servo", src: "/images/ourClient/servo.jpeg" },
+  { id: 9, name: "Servo", src: "/images/ourClient/puriMedika.jpeg" },
 ];
 </script>
 
