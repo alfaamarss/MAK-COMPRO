@@ -1,6 +1,6 @@
 <template>
   <footer class="w-full font-sans text-white bg-neutral-950">
-    <!-- CTA Callout Banner -->
+    <!-- CTA Callout Banner (Lebih Ringkas di Mobile) -->
     <div
       class="relative overflow-hidden bg-gradient-to-r from-[#7a2021] via-[#c41215] to-[#7a2021] border-b-4 border-[#e5c158] py-8 sm:py-12 px-4 sm:px-6 lg:px-8"
     >
@@ -27,7 +27,7 @@
         <!-- CTA Actions -->
         <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-2.5 sm:gap-4 mb-5">
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6281111852220"
             target="_blank"
             rel="noopener"
             class="inline-flex items-center justify-center gap-2 bg-white text-[#7a2021] hover:bg-neutral-100 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md transition-all"
@@ -63,21 +63,21 @@
     <!-- Main Footer Links & Info -->
     <div class="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div class="grid grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-8 lg:gap-8 pb-8 sm:pb-12 border-b border-neutral-800">
-        <!-- Col 1: Brand Info (Full Width di Mobile / 5 Cols di Desktop) -->
+        <!-- Col 1: Brand Info -->
         <div class="col-span-2 lg:col-span-5 space-y-3">
           <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">PT Multi Artha Kreasindo</h3>
           <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed max-w-sm">
             Solusi profesional epoxy flooring dan coating pelapis permukaan untuk kebutuhan industri, komersial, dan
             fasilitas khusus.
           </p>
-          <div class="inline-block border border-[#e5c158]/50 bg-[#e5c158]/10 px-2.5 py-1 rounded-md">
+          <div class="inline-block border border-[#e5c158]/50 bg-[#e5c158]/10 px-2.5 py-1 rounded-md mt-2">
             <span class="text-[10px] sm:text-xs font-bold text-[#e5c158] tracking-wider uppercase">
               Industrial Certified Quality
             </span>
           </div>
         </div>
 
-        <!-- Col 2: Layanan (Kolom Kiri di Mobile / 3 Cols di Desktop) -->
+        <!-- Col 2: Layanan -->
         <div class="col-span-1 lg:col-span-3">
           <h4
             class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-3 pl-2.5 border-l-2 border-[#c41215]"
@@ -118,39 +118,45 @@
           </ul>
         </div>
 
-        <!-- Col 3: Hubungi Kami (Kolom Kanan di Mobile / 4 Cols di Desktop) -->
-        <div class="col-span-1 lg:col-span-4">
+        <!-- Col 3: Hubungi Kami + Minimap -->
+        <div class="col-span-1 lg:col-span-4 flex flex-col h-full">
           <h4
             class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-3 pl-2.5 border-l-2 border-[#c41215]"
           >
             Hubungi Kami
           </h4>
-          <ul class="space-y-2 text-xs sm:text-sm text-neutral-400">
+
+          <ul class="space-y-2 text-xs sm:text-sm text-neutral-400 mb-4">
             <li class="flex items-center gap-2">
               <span class="text-emerald-400">💬</span>
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6281111852220"
                 target="_blank"
                 rel="noopener"
                 class="hover:text-white transition-colors"
-                >+62 812-3456-7890</a
+                >0811-1185-2220</a
               >
             </li>
             <li class="flex items-center gap-2">
               <span class="text-[#e5c158]">📞</span>
-              <a href="tel:+62211234567" class="hover:text-white transition-colors">(021) 1234-567</a>
+              <a href="tel:082213978167" class="hover:text-white transition-colors">0822-1397-8167</a>
             </li>
             <li class="flex items-center gap-2">
               <span class="text-[#c41215]">✉️</span>
-              <a href="mailto:info@multiarthakreasindo.com" class="hover:text-white transition-colors truncate"
-                >info@multiarthakreasindo.com</a
+              <a href="mailto:multiarthakreasindo@gmail.com" class="hover:text-white transition-colors break-all"
+                >multiarthakreasindo@gmail.com</a
               >
             </li>
             <li class="flex items-start gap-2 pt-0.5">
               <span>📍</span>
-              <span class="text-[11px] sm:text-xs leading-relaxed"
-                >Kawasan Industri & Pergudangan, Jakarta, Indonesia</span
+              <a
+                href="https://maps.app.goo.gl/hyPv41d4S8D9H1R7A"
+                target="_blank"
+                rel="noopener"
+                class="text-[11px] sm:text-xs leading-relaxed hover:text-white transition-colors"
               >
+                PHVG+2P6, depan smpn 2, Sukabakti, Kec. Curug, Kabupaten Tangerang, Banten 15810
+              </a>
             </li>
           </ul>
         </div>

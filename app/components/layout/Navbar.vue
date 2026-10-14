@@ -59,7 +59,7 @@ const navItems = [
       <div class="flex items-center justify-end shrink-0 z-10">
         <!-- Desktop CTA -->
         <NuxtLink
-          to="/"
+          to="/kontak"
           class="hidden lg:inline-flex items-center justify-center rounded-md bg-[#c41215] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#a00f11]"
         >
           Konsultasi Sekarang

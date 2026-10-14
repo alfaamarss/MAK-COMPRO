@@ -1,6 +1,6 @@
 <template>
   <section class="py-20 bg-white text-neutral-900 relative overflow-hidden">
-    <!-- Decorative background glow (disesuaikan untuk background terang) -->
+    <!-- Decorative background glow -->
     <div
       class="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#c41215]/5 blur-[120px] pointer-events-none rounded-full"
     ></div>
@@ -34,13 +34,13 @@
             <h3
               class="text-xl font-bold text-neutral-900 mb-6 border-b border-neutral-200 pb-3 flex items-center gap-2"
             >
-              <span class="text-[#c41215]"></span> Kontak Langsung
+              <span class="text-[#c41215]">✦</span> Kontak Langsung
             </h3>
 
             <div class="space-y-5">
               <!-- WhatsApp -->
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6281111852220"
                 target="_blank"
                 rel="noopener"
                 class="flex items-center gap-4 p-3.5 bg-white hover:bg-emerald-50/60 border border-neutral-200 hover:border-emerald-400 rounded-xl transition-all shadow-sm group"
@@ -48,7 +48,6 @@
                 <div
                   class="w-11 h-11 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform"
                 >
-                  <!-- WhatsApp Icon -->
                   <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
                     <path
                       d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
@@ -56,16 +55,16 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="text-xs text-neutral-500 font-medium">Chat Langsung</p>
+                  <p class="text-xs text-neutral-500 font-medium">WhatsApp Official</p>
                   <p class="text-sm font-bold text-neutral-900 group-hover:text-emerald-600 transition-colors">
-                    +62 812-3456-7890
+                    0811-1185-2220
                   </p>
                 </div>
               </a>
 
               <!-- Phone -->
               <a
-                href="tel:+62211234567"
+                href="tel:082213978167"
                 class="flex items-center gap-4 p-3.5 bg-white hover:bg-amber-50/60 border border-neutral-200 hover:border-amber-400 rounded-xl transition-all shadow-sm group"
               >
                 <div
@@ -83,14 +82,14 @@
                 <div>
                   <p class="text-xs text-neutral-500 font-medium">Telepon Kantor</p>
                   <p class="text-sm font-bold text-neutral-900 group-hover:text-[#b8860b] transition-colors">
-                    (021) 1234-567
+                    0822-1397-8167
                   </p>
                 </div>
               </a>
 
               <!-- Email -->
               <a
-                href="mailto:info@perusahaan.com"
+                href="mailto:multiarthakreasindo@gmail.com"
                 class="flex items-center gap-4 p-3.5 bg-white hover:bg-red-50/60 border border-neutral-200 hover:border-red-300 rounded-xl transition-all shadow-sm group"
               >
                 <div
@@ -105,10 +104,12 @@
                     />
                   </svg>
                 </div>
-                <div>
+                <div class="overflow-hidden">
                   <p class="text-xs text-neutral-500 font-medium">Email Resmi</p>
-                  <p class="text-sm font-bold text-neutral-900 group-hover:text-[#c41215] transition-colors">
-                    info@perusahaan.com
+                  <p
+                    class="text-xs sm:text-sm font-bold text-neutral-900 group-hover:text-[#c41215] transition-colors truncate"
+                  >
+                    multiarthakreasindo@gmail.com
                   </p>
                 </div>
               </a>
@@ -123,9 +124,9 @@
             </p>
 
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <!-- WhatsApp Channel / Group -->
+              <!-- WhatsApp -->
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6281111852220"
                 target="_blank"
                 rel="noopener"
                 class="flex flex-col items-center justify-center gap-2 p-3.5 bg-white hover:bg-emerald-50 border border-neutral-200 hover:border-emerald-300 rounded-xl transition-all shadow-sm group text-center"
@@ -144,7 +145,7 @@
 
               <!-- Instagram -->
               <a
-                href="https://instagram.com/akun_anda"
+                href="https://instagram.com/jasaepoxy_lantai?obrf=MXI2dXIxaG91ajQ1Yw%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener"
                 class="flex flex-col items-center justify-center gap-2 p-3.5 bg-white hover:bg-pink-50 border border-neutral-200 hover:border-pink-300 rounded-xl transition-all shadow-sm group text-center"
@@ -163,7 +164,7 @@
 
               <!-- TikTok -->
               <a
-                href="https://tiktok.com/@akun_anda"
+                href="https://www.tiktok.com/@multipaint_epoxycat?_r=1&_t=ZS-9AXoWWxC7m6"
                 target="_blank"
                 rel="noopener"
                 class="flex flex-col items-center justify-center gap-2 p-3.5 bg-white hover:bg-neutral-100 border border-neutral-200 hover:border-neutral-400 rounded-xl transition-all shadow-sm group text-center"
@@ -183,7 +184,7 @@
           </div>
         </div>
 
-        <!-- KOLOM KANAN: Formulir Pesan / Konsultasi -->
+        <!-- KOLOM KANAN: Formulir Pesan / Konsultasi (Terkirim ke WhatsApp) -->
         <div class="lg:col-span-7">
           <div
             class="bg-neutral-50/80 border border-neutral-200 rounded-2xl p-6 sm:p-10 shadow-sm backdrop-blur-sm relative"
@@ -191,16 +192,17 @@
             <div class="mb-8">
               <h3 class="text-2xl font-bold text-neutral-900 mb-2">Kirim Pesan atau Pertanyaan</h3>
               <p class="text-xs sm:text-sm text-neutral-500">
-                Isi formulir di bawah ini dan tim spesialis kami akan memberikan tanggapan dalam kurun waktu 1x24 jam.
+                Isi formulir di bawah ini dan Anda akan langsung terhubung ke WhatsApp Official kami.
               </p>
             </div>
 
-            <form class="space-y-5">
+            <form @submit.prevent="sendToWhatsapp" class="space-y-5">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <!-- Nama Lengkap -->
                 <div>
                   <label class="block text-xs font-semibold text-neutral-700 mb-2">Nama Lengkap *</label>
                   <input
+                    v-model="form.nama"
                     type="text"
                     placeholder="Contoh: Budi Santoso"
                     required
@@ -212,6 +214,7 @@
                 <div>
                   <label class="block text-xs font-semibold text-neutral-700 mb-2">Nama Perusahaan / Proyek</label>
                   <input
+                    v-model="form.perusahaan"
                     type="text"
                     placeholder="Contoh: PT Industri Jaya"
                     class="w-full bg-white border border-neutral-300 rounded-xl px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-[#c41215] focus:ring-1 focus:ring-[#c41215] transition-all"
@@ -224,6 +227,7 @@
                 <div>
                   <label class="block text-xs font-semibold text-neutral-700 mb-2">Alamat Email *</label>
                   <input
+                    v-model="form.email"
                     type="email"
                     placeholder="budi@perusahaan.com"
                     required
@@ -235,6 +239,7 @@
                 <div>
                   <label class="block text-xs font-semibold text-neutral-700 mb-2">Nomor WhatsApp *</label>
                   <input
+                    v-model="form.whatsapp"
                     type="tel"
                     placeholder="081234567890"
                     required
@@ -247,14 +252,15 @@
               <div>
                 <label class="block text-xs font-semibold text-neutral-700 mb-2">Topik Kebutuhan</label>
                 <select
+                  v-model="form.topik"
                   class="w-full bg-white border border-neutral-300 rounded-xl px-4 py-3 text-sm text-neutral-800 focus:outline-none focus:border-[#c41215] focus:ring-1 focus:ring-[#c41215] transition-all"
                 >
                   <option value="" disabled selected>Pilih Kebutuhan / Konsultasi</option>
-                  <option value="flooring">Coating & Flooring Industri</option>
-                  <option value="catalog">Permintaan Katalog & Spesifikasi Tech</option>
-                  <option value="sample">Permintaan Sampel Produk</option>
-                  <option value="partnership">Kerjasama / Distributor B2B</option>
-                  <option value="other">Lainnya</option>
+                  <option value="Coating & Flooring Industri">Coating & Flooring Industri</option>
+                  <option value="Permintaan Katalog & Spesifikasi Tech">Permintaan Katalog & Spesifikasi Tech</option>
+                  <option value="Permintaan Sampel Produk">Permintaan Sampel Produk</option>
+                  <option value="Kerjasama / Distributor B2B">Kerjasama / Distributor B2B</option>
+                  <option value="Lainnya">Lainnya</option>
                 </select>
               </div>
 
@@ -262,6 +268,7 @@
               <div>
                 <label class="block text-xs font-semibold text-neutral-700 mb-2">Pesan / Detail Proyek *</label>
                 <textarea
+                  v-model="form.pesan"
                   rows="4"
                   placeholder="Jelaskan kebutuhan volume, estimasi area, atau pertanyaan teknis Anda..."
                   required
@@ -274,7 +281,7 @@
                 type="submit"
                 class="w-full bg-[#c41215] hover:bg-[#a80e11] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-red-600/20 hover:shadow-red-600/30 transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
-                <span>Kirim Pesan Sekarang</span>
+                <span>Kirim via WhatsApp Sekarang</span>
                 <svg
                   class="w-4 h-4 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -291,3 +298,31 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const form = ref({
+  nama: "",
+  perusahaan: "",
+  email: "",
+  whatsapp: "",
+  topik: "",
+  pesan: "",
+});
+
+const sendToWhatsapp = () => {
+  const targetNumber = "6281111852220";
+  const text =
+    `Halo PT Multi Artha Kreasindo, saya ingin berkonsultasi:\n\n` +
+    `*Nama:* ${form.value.nama}\n` +
+    `*Perusahaan/Proyek:* ${form.value.perusahaan || "-"}\n` +
+    `*Email:* ${form.value.email}\n` +
+    `*No. WA:* ${form.value.whatsapp}\n` +
+    `*Topik:* ${form.value.topik || "-"}\n` +
+    `*Pesan:* ${form.value.pesan}`;
+
+  const encodedText = encodeURIComponent(text);
+  window.open(`https://wa.me/${targetNumber}?text=${encodedText}`, "_blank");
+};
+</script>
