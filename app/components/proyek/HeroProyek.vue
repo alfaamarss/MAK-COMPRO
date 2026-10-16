@@ -44,7 +44,7 @@
 
           <!-- Main Heading -->
           <h1 class="mb-5 font-extrabold leading-tight tracking-tight">
-            <span class="block text-2xl uppercase tracking-wide text-neutral-200 sm:text-3xl"> DOKUMENTASI </span>
+            <span class="block text-2xl uppercase tracking-wide text-neutral-200 sm:text-3xl"> PORTOFOLIO </span>
 
             <span class="my-1 block text-3xl uppercase text-[#e5c158] drop-shadow-sm sm:text-4xl lg:text-5xl">
               PROYEK KAMI

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-useRoute(); // Memastikan Vue/Nuxt mendeteksi perubahan rute halaman secara reaktif
+const route = useRoute(); // Opsional jika hanya dipanggil, tapi disarankan dimasukkan ke variabel
 
 const isOpen = ref(false);
 
@@ -9,39 +9,33 @@ const navItems = [
   { label: "Produk", href: "/produk" },
   { label: "Layanan Kami", href: "/layanan" },
   { label: "Tentang Kami", href: "/tentang-kami" },
-  { label: "Proyek", href: "/proyek" },
+  { label: "Portofolio Kami", href: "/proyek" },
   { label: "Kontak", href: "/kontak" },
 ];
 </script>
 
 <template>
   <header class="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-white/95 shadow-sm backdrop-blur-md">
-    <div class="mx-auto flex h-20 sm:h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 relative w-full">
+    <div class="mx-auto flex h-20 sm:h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 w-full gap-4">
       <!-- 1. KIRI: Logo & Teks Perusahaan -->
-      <NuxtLink
-        to="/"
-        class="flex items-center gap-3 shrink-0 group -ml-2 sm:-ml-3 z-10"
-        aria-label="Beranda PT Multi Artha Kreasindo"
-      >
-        <img src="/images/PT. MULTI KREASINDO.png" alt="Logo MAK" class="h-12 sm:h-16 lg:h-20 w-auto object-contain" />
+      <NuxtLink to="/" class="flex items-center gap-3 shrink-0 group" aria-label="Beranda PT Multi Artha Kreasindo">
+        <img src="/images/PT. MULTI KREASINDO.png" alt="Logo MAK" class="h-12 sm:h-16 lg:h-16 w-auto object-contain" />
         <div class="flex flex-col max-[380px]:hidden">
           <span
-            class="font-bold text-[#1a2b4c] text-xs sm:text-sm lg:text-base tracking-tight leading-tight uppercase whitespace-nowrap"
+            class="font-bold text-[#1a2b4c] text-sm sm:text-base tracking-tight leading-tight uppercase whitespace-nowrap"
           >
             PT Multi Artha Kreasindo
           </span>
           <span
             class="text-[9px] sm:text-[10px] text-[#7a2021] font-semibold tracking-wider uppercase mt-0.5 whitespace-nowrap"
           >
-            INDUSTRIAL CAT FLOORING & COATING SPECIALIST
+            Industrial Cat Flooring & Coating
           </span>
         </div>
       </NuxtLink>
 
-      <!-- 2. TENGAH: Desktop Navigation (Menggunakan exact-active-class bawaan Nuxt 3 yang bersih) -->
-      <nav
-        class="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-8 items-center gap-6 xl:gap-8 z-0 w-max"
-      >
+      <!-- 2. TENGAH: Desktop Navigation (Menggunakan Flex-1 agar otomatis ke tengah dan tidak menabrak logo) -->
+      <nav class="hidden lg:flex flex-1 justify-center items-center gap-6 xl:gap-8">
         <NuxtLink
           v-for="item in navItems"
           :key="item.href"
@@ -49,14 +43,13 @@ const navItems = [
           class="text-sm lg:text-base font-semibold text-neutral-600 transition-colors duration-200 hover:text-[#c41215] whitespace-nowrap"
           active-class="!text-[#c41215] font-bold"
           exact-active-class="!text-[#c41215] font-bold"
-          exact
         >
           {{ item.label }}
         </NuxtLink>
       </nav>
 
       <!-- 3. KANAN: CTA & Mobile Toggle Wrapper -->
-      <div class="flex items-center justify-end shrink-0 z-10">
+      <div class="flex items-center justify-end shrink-0">
         <!-- Desktop CTA -->
         <NuxtLink
           to="/kontak"
@@ -104,7 +97,6 @@ const navItems = [
             class="block rounded-md px-3 py-3 text-base font-medium text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-[#c41215]"
             active-class="!bg-red-50 !text-[#c41215] font-bold"
             exact-active-class="!bg-red-50 !text-[#c41215] font-bold"
-            exact
             @click="isOpen = false"
           >
             {{ item.label }}
@@ -113,7 +105,7 @@ const navItems = [
           <!-- Pemisah dan Tombol CTA untuk Mobile -->
           <div class="pt-4 pb-2">
             <NuxtLink
-              to="/"
+              to="/kontak"
               class="flex w-full items-center justify-center rounded-md bg-[#c41215] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#a00f11]"
               @click="isOpen = false"
             >

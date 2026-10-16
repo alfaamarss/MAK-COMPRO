@@ -123,7 +123,8 @@
               Dapatkan update produk terbaru, portofolio proyek, dan konten edukasi menarik.
             </p>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- PERBAIKAN 1: Ubah sm:grid-cols-3 menjadi sm:grid-cols-4 agar 4 item pas dalam 1 baris -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               <!-- WhatsApp -->
               <a
                 href="https://wa.me/6281111852220"
@@ -179,6 +180,27 @@
                   </svg>
                 </div>
                 <span class="text-xs font-semibold text-neutral-700 group-hover:text-black">TikTok</span>
+              </a>
+
+              <!-- Facebook -->
+              <!-- PERBAIKAN 2: Link href dikosongkan (sebelumnya tercopy link TikTok), dan warna diubah menjadi tema Facebook (Biru) -->
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                class="flex flex-col items-center justify-center gap-2 p-3.5 bg-white hover:bg-blue-50 border border-neutral-200 hover:border-blue-300 rounded-xl transition-all shadow-sm group text-center"
+              >
+                <div
+                  class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform"
+                >
+                  <!-- PERBAIKAN 3: SVG diubah menggunakan fill-current agar rapi dengan class Tailwind -->
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs font-semibold text-neutral-700 group-hover:text-blue-600">Facebook</span>
               </a>
             </div>
           </div>
