@@ -2,7 +2,7 @@
 import Navbar from "~/components/layout/Navbar.vue";
 import HeroService from "~/components/OurService/HeroService.vue";
 import BeforeAfter from "~/components/OurService/BeforeAfterSlider.vue";
-import Footer from "~/components/home/footer.vue";
+import Footer from "~/components/layout/footer.vue";
 import ServiceSection from "~/components/OurService/ServiceSection.vue";
 </script>
 

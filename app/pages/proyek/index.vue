@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Navbar from "~/components/layout/Navbar.vue";
 import HeroProyek from "~/components/proyek/HeroProyek.vue";
-import Footer from "~/components/home/footer.vue";
+import Footer from "~/components/layout/footer.vue";
 import ProyekSection from "~/components/proyek/ProyekSection.vue";
 import ProyekClient from "~/components/proyek/ProyekClient.vue";
 </script>

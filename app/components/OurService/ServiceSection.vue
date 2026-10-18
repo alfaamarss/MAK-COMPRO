@@ -2,7 +2,7 @@
   <section class="services-section">
     <div class="container">
       <!-- Section Header -->
-      <div class="section-header">
+      <div class="section-header animate-on-scroll">
         <span class="category-badge">LAYANAN KAMI</span>
         <h2 class="title">Layanan Flooring & Coating Profesional</h2>
         <p class="description">
@@ -13,7 +13,13 @@
 
       <!-- Services Grid -->
       <div class="services-grid">
-        <div class="service-card" v-for="(service, index) in services" :key="index">
+        <!-- Tambahan inline style untuk stagger effect menggunakan transition-delay -->
+        <div
+          class="service-card animate-on-scroll"
+          v-for="(service, index) in services"
+          :key="index"
+          :style="{ transitionDelay: `${index * 0.15}s` }"
+        >
           <!-- Card Image Container -->
           <div class="card-image-wrapper">
             <img :src="service.image" :alt="service.title" class="card-img" />
@@ -32,7 +38,7 @@
               </li>
             </ul>
 
-            <!-- Card Footer CTA (Diubah menggunakan NuxtLink dengan dynamic slug) -->
+            <!-- Card Footer CTA -->
             <div class="card-footer">
               <NuxtLink :to="`/layanan/${service.slug}`" class="btn-detail">
                 <span>Lihat Detail</span>
@@ -47,7 +53,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const services = ref([
   {
@@ -104,15 +110,71 @@ const services = ref([
     highlights: ["Estetika mewah & eksklusif", "Pilihan motif flakes & metallic unik", "Mudah dibersihkan & berkilau"],
   },
 ]);
+
+// Variabel untuk menyimpan observer
+let observer = null;
+
+onMounted(() => {
+  // Membuat Intersection Observer baru
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Jika elemen masuk ke dalam viewport layar
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          // Hentikan pantauan setelah elemen muncul agar animasi tidak berulang terus
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      // Threshold 0.1 artinya animasi memicu saat 10% bagian elemen sudah terlihat
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px", // Trigger sedikit lebih cepat sebelum elemen benar-benar di tengah
+    },
+  );
+
+  // Mencari semua elemen dengan class 'animate-on-scroll' lalu memantaunya
+  const elements = document.querySelectorAll(".animate-on-scroll");
+  elements.forEach((el) => observer.observe(el));
+});
+
+onUnmounted(() => {
+  // Membersihkan observer saat komponen dihancurkan (best practice di Vue)
+  if (observer) {
+    observer.disconnect();
+  }
+});
 </script>
 
 <style scoped>
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+========================================= */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  /* Gunakan transition, bukan animation keyframes */
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease; /* Gabung dengan transisi hover */
+}
+
+/* Class ini ditambahkan oleh JavaScript saat elemen terlihat */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* VARIABLES & BASE RESET */
 .services-section {
   padding: 80px 20px;
   background-color: #f8fafc;
   font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #1e293b;
+  overflow: hidden;
 }
 
 .container {
@@ -137,6 +199,11 @@ const services = ref([
   padding: 6px 16px;
   border-radius: 20px;
   margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.category-badge:hover {
+  transform: scale(1.05);
 }
 
 .title {
@@ -165,11 +232,11 @@ const services = ref([
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-card:hover .card-img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* GRID LAYOUT */
@@ -200,13 +267,15 @@ const services = ref([
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.03),
     0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
 }
 
+/* Hover effect diubah sedikit agar tidak bentrok dengan transform awal animasi */
 .service-card:hover {
-  transform: translateY(-6px);
+  /* Hapus translateY(-8px) karena akan override inline style/transition jika terjadi bersamaan,
+     kita gunakan box-shadow saja untuk efek melayang, atau gunakan wrapper lain jika butuh transform spesifik */
+  transform: translateY(-8px) !important;
   box-shadow:
     0 20px 25px -5px rgba(0, 0, 0, 0.08),
     0 10px 10px -5px rgba(0, 0, 0, 0.03);
@@ -240,6 +309,11 @@ const services = ref([
   font-weight: 700;
   color: #0f172a;
   margin: 0 0 12px 0;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .card-title {
+  color: #b30000;
 }
 
 .card-text {
@@ -296,11 +370,11 @@ const services = ref([
   font-weight: 700;
   text-decoration: none;
   font-size: 14px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-detail .arrow {
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .service-card:hover .btn-detail {
@@ -308,6 +382,6 @@ const services = ref([
 }
 
 .service-card:hover .btn-detail .arrow {
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 </style>

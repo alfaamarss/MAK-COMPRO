@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { projects } from "~/data/proyek";
 
 const activeTab = ref("AREA");
@@ -70,8 +70,38 @@ const resetAutoSlide = () => {
   startAutoSlide();
 };
 
-onMounted(() => startAutoSlide());
-onUnmounted(() => stopAutoSlide());
+// ==================== SCROLL OBSERVER ====================
+let observer: IntersectionObserver | null = null;
+
+const initObserver = () => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          if (observer) observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+  );
+
+  const elements = document.querySelectorAll(".animate-on-scroll");
+  elements.forEach((el) => observer?.observe(el));
+};
+
+onMounted(() => {
+  startAutoSlide();
+  // Gunakan nextTick untuk memastikan DOM sudah dirender semua sebelum dipantau
+  nextTick(() => {
+    initObserver();
+  });
+});
+
+onUnmounted(() => {
+  stopAutoSlide();
+  if (observer) observer.disconnect();
+});
 
 // ==================== LOGIKA MODAL LIGHTBOX ====================
 const isModalOpen = ref(false);
@@ -106,10 +136,10 @@ const prevImage = () => {
 </script>
 
 <template>
-  <section class="bg-[#f8fafc] py-16 sm:py-20 font-sans">
+  <section class="bg-[#f8fafc] py-16 sm:py-20 font-sans overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- ================= TITLE (RATA TENGAH) ================= -->
-      <div class="mb-12 flex flex-col items-center text-center">
+      <div class="mb-12 flex flex-col items-center text-center animate-on-scroll">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
           PROYEK YANG TELAH <br />
           <span class="text-[#c41215]">KAMI KERJAKAN</span>
@@ -120,7 +150,11 @@ const prevImage = () => {
       </div>
 
       <!-- ================= HEADER TABS ================= -->
-      <div class="flex justify-center gap-8 md:gap-14 mb-8 border-b border-gray-200/80">
+      <!-- Diberi delay inline style agar muncul berurutan setelah title -->
+      <div
+        class="flex justify-center gap-8 md:gap-14 mb-8 border-b border-gray-200/80 animate-on-scroll"
+        style="transition-delay: 0.15s"
+      >
         <button
           @click="activeTab = 'AREA'"
           :class="[
@@ -165,7 +199,8 @@ const prevImage = () => {
       </div>
 
       <!-- ================= PILL FILTERS ================= -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <!-- Diberi delay inline style -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll" style="transition-delay: 0.25s">
         <button
           @click="activeCategory = 'Semua Proyek'"
           :class="[
@@ -203,18 +238,19 @@ const prevImage = () => {
             @mouseleave="startAutoSlide"
             class="flex md:grid md:grid-cols-2 lg:grid-cols-3 md:grid-flow-dense gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-8 md:pb-0 hide-scrollbar"
           >
+            <!-- Diberi delay bertahap otomatis (0.3s, 0.4s, 0.5s) per project -->
             <div
               v-for="(item, index) in filteredProjects"
               :key="item.id"
               @click="openModal(index)"
               :class="[
                 item.featured ? 'lg:col-span-2' : 'lg:col-span-1',
-                'group cursor-pointer flex flex-col rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300',
-                'w-full min-w-full md:min-w-0 md:w-auto shrink-0 md:shrink snap-center relative',
+                'group cursor-pointer flex flex-col rounded-2xl overflow-hidden bg-white shadow-sm transition-all duration-300 animate-on-scroll',
+                'w-full min-w-full md:min-w-0 md:w-auto shrink-0 md:shrink snap-center relative hover-lift',
               ]"
+              :style="{ transitionDelay: `${0.3 + index * 0.1}s` }"
             >
               <!-- Image Container -->
-              <!-- h-65 dan h-95 diganti menjadi class valid Tailwind (h-64/h-72/h-96) -->
               <div :class="['relative w-full overflow-hidden', item.hasFooter ? 'h-64 sm:h-72' : 'h-80 sm:h-96']">
                 <img
                   :src="item.image"
@@ -222,7 +258,7 @@ const prevImage = () => {
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                <!-- Gradient Overlay (Diperhalus) -->
+                <!-- Gradient Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/40 to-transparent"></div>
 
                 <!-- Top Badges -->
@@ -259,7 +295,7 @@ const prevImage = () => {
     </div>
   </section>
 
-  <!-- ================= MODAL LIGHTBOX ================= -->
+  <!-- ================= MODAL LIGHTBOX (TIDAK BERUBAH) ================= -->
   <Teleport to="body">
     <div
       v-if="isModalOpen"
@@ -335,6 +371,33 @@ const prevImage = () => {
 </template>
 
 <style scoped>
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+========================================= */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  /* Pastikan efek transform hanya transisi, bukan animasi */
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effect khusus setelah animasi memuat (agar tidak bentrok dengan translateY saat loading) */
+.animate-on-scroll.is-visible.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Scrollbar Hide */
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

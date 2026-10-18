@@ -3,7 +3,7 @@ import Navbar from "~/components/layout/Navbar.vue";
 import HeroKontak from "~/components/kontak/HeroKontak.vue";
 import kontakSection from "~/components/kontak/kontakSection.vue";
 
-import Footer from "~/components/home/footer.vue";
+import Footer from "~/components/layout/footer.vue";
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Footer from "~/components/home/footer.vue";
+import Footer from "~/components/layout/footer.vue";
 import Navbar from "~/components/layout/Navbar.vue";
 import HeroSection from "~/components/Product/HeroSection.vue";
 import ProductSection from "~/components/Product/ProductSection.vue";

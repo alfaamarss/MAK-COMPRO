@@ -2,7 +2,7 @@
 import { computed, ref, watch } from "vue";
 import { useRoute, createError, useSeoMeta } from "#imports";
 import Navbar from "~/components/layout/Navbar.vue";
-import Footer from "~/components/home/footer.vue";
+import Footer from "~/components/layout/footer.vue";
 import { services } from "~/data/services";
 
 const route = useRoute();

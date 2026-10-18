@@ -4,7 +4,7 @@ import HeroSection from "~/components/home/HeroSection.vue";
 import ProyekSection from "~/components/proyek/ProyekSection.vue";
 import FeaturedProductSection from "~/components/home/FeaturedProductSection.vue";
 import ProyekClient from "~/components/proyek/ProyekClient.vue";
-import Footer from "~/components/home/footer.vue";
+import Footer from "~/components/layout/footer.vue";
 import ServiceSection from "~/components/OurService/ServiceSection.vue";
 </script>
 
@@ -14,7 +14,7 @@ import ServiceSection from "~/components/OurService/ServiceSection.vue";
     <Navbar />
 
     <!-- Main Content Wrapper (Otomatis mengisi ruang kosong) -->
-    <main class="flex-grow">
+    <main class="grow">
       <HeroSection />
       <ServiceSection />
       <FeaturedProductSection />
