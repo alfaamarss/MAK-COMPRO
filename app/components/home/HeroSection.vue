@@ -83,19 +83,10 @@ onBeforeUnmount(() => {
         </div>
       </Transition>
 
-      <Transition name="content-fade" mode="out-in">
-        <h1 :key="`heading-${currentSlide}`" class="hero-heading">
-          {{ slides[currentSlide].title }}
-
-          <span class="text-yellow">
-            {{ slides[currentSlide].highlight }}
-          </span>
-
-          <br />
-
-          {{ slides[currentSlide].titleAfter }}
-        </h1>
-      </Transition>
+      <h1 class="hero-heading">
+        Solusi Epoxy Lantai & Cat Industrial
+        <span class="text-yellow"> Profesional</span>
+      </h1>
 
       <Transition name="content-fade" mode="out-in">
         <p :key="`description-${currentSlide}`" class="hero-description">
@@ -110,9 +101,7 @@ onBeforeUnmount(() => {
           <span class="arrow">→</span>
         </NuxtLink>
 
-        <NuxtLink to="/proyek" class="btn btn-secondary">
-          Lihat Proyek
-        </NuxtLink>
+        <NuxtLink to="/proyek" class="btn btn-secondary"> Lihat Proyek </NuxtLink>
       </div>
 
       <!-- Features -->
@@ -147,14 +136,7 @@ onBeforeUnmount(() => {
 
     <!-- Slider Controls -->
     <div class="slider-controls">
-      <button
-        type="button"
-        class="slider-arrow"
-        aria-label="Slide sebelumnya"
-        @click="prevSlide"
-      >
-        ←
-      </button>
+      <button type="button" class="slider-arrow" aria-label="Slide sebelumnya" @click="prevSlide">←</button>
 
       <div class="slider-dots">
         <button
@@ -168,14 +150,7 @@ onBeforeUnmount(() => {
         />
       </div>
 
-      <button
-        type="button"
-        class="slider-arrow"
-        aria-label="Slide berikutnya"
-        @click="nextSlide"
-      >
-        →
-      </button>
+      <button type="button" class="slider-arrow" aria-label="Slide berikutnya" @click="nextSlide">→</button>
     </div>
 
     <!-- Counter -->
@@ -558,11 +533,7 @@ onBeforeUnmount(() => {
   }
 
   .hero-overlay {
-    background: linear-gradient(
-      to right,
-      rgba(10, 10, 10, 0.92),
-      rgba(10, 10, 10, 0.7)
-    );
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.7));
   }
 
   .hero-eyebrow {
