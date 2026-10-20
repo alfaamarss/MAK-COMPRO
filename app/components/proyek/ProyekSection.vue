@@ -1,6 +1,23 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { projects } from "~/data/proyek";
+import { useSeoMeta } from "#imports";
+
+// ==================== SEO Halaman Portofolio ====================
+useSeoMeta({
+  title: "Portofolio Proyek Epoxy & Coating | PT Multi Artha Kreasindo",
+  description:
+    "Dokumentasi aktual hasil pengerjaan aplikasi epoxy flooring, coating, dan waterproofing di berbagai sektor industri seperti manufaktur, oil & chemical, dan fasilitas komersial.",
+});
+
+useHead({
+  meta: [
+    {
+      name: "keywords",
+      content: "portofolio epoxy lantai, proyek coating industri, hasil kerja epoxy, kontraktor lantai pabrik",
+    },
+  ],
+});
 
 const activeTab = ref("AREA");
 const activeCategory = ref("Semua Proyek");
@@ -92,7 +109,6 @@ const initObserver = () => {
 
 onMounted(() => {
   startAutoSlide();
-  // Gunakan nextTick untuk memastikan DOM sudah dirender semua sebelum dipantau
   nextTick(() => {
     initObserver();
   });
@@ -150,7 +166,6 @@ const prevImage = () => {
       </div>
 
       <!-- ================= HEADER TABS ================= -->
-      <!-- Diberi delay inline style agar muncul berurutan setelah title -->
       <div
         class="flex justify-center gap-8 md:gap-14 mb-8 border-b border-gray-200/80 animate-on-scroll"
         style="transition-delay: 0.15s"
@@ -199,7 +214,6 @@ const prevImage = () => {
       </div>
 
       <!-- ================= PILL FILTERS ================= -->
-      <!-- Diberi delay inline style -->
       <div class="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll" style="transition-delay: 0.25s">
         <button
           @click="activeCategory = 'Semua Proyek'"
@@ -238,7 +252,6 @@ const prevImage = () => {
             @mouseleave="startAutoSlide"
             class="flex md:grid md:grid-cols-2 lg:grid-cols-3 md:grid-flow-dense gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-8 md:pb-0 hide-scrollbar"
           >
-            <!-- Diberi delay bertahap otomatis (0.3s, 0.4s, 0.5s) per project -->
             <div
               v-for="(item, index) in filteredProjects"
               :key="item.id"
@@ -252,16 +265,15 @@ const prevImage = () => {
             >
               <!-- Image Container -->
               <div :class="['relative w-full overflow-hidden', item.hasFooter ? 'h-64 sm:h-72' : 'h-80 sm:h-96']">
+                <!-- Alt text memanfaatkan judul untuk SEO -->
                 <img
                   :src="item.image"
-                  :alt="item.title"
+                  :alt="`Proyek ${item.title}`"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                <!-- Gradient Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/40 to-transparent"></div>
 
-                <!-- Top Badges -->
                 <div class="absolute top-5 left-5 flex flex-wrap gap-2 z-10">
                   <div
                     class="bg-white/95 backdrop-blur-md text-gray-900 text-[10px] font-black px-3 py-1.5 rounded-md flex items-center gap-2 uppercase tracking-wider shadow-sm"
@@ -270,7 +282,6 @@ const prevImage = () => {
                   </div>
                 </div>
 
-                <!-- Text Content -->
                 <div class="absolute bottom-5 left-5 right-5 z-10">
                   <div class="flex flex-wrap gap-2 mb-3">
                     <span
@@ -295,7 +306,7 @@ const prevImage = () => {
     </div>
   </section>
 
-  <!-- ================= MODAL LIGHTBOX (TIDAK BERUBAH) ================= -->
+  <!-- ================= MODAL LIGHTBOX ================= -->
   <Teleport to="body">
     <div
       v-if="isModalOpen"
@@ -318,15 +329,35 @@ const prevImage = () => {
         <img
           :src="filteredProjects[currentImageIndex]?.image"
           :alt="filteredProjects[currentImageIndex]?.title"
-          class="w-auto max-w-[90vw] md:max-w-full max-h-[60vh] md:max-h-[80vh] object-contain rounded-xl shadow-2xl transition-all"
+          class="w-auto max-w-[90vw] md:max-w-full max-h-[50vh] md:max-h-[65vh] object-contain rounded-xl shadow-2xl transition-all"
         />
 
-        <div class="mt-8 flex flex-col items-center gap-4 w-full">
-          <h4 class="text-white font-bold text-xl md:text-2xl text-center tracking-wide">
+        <div class="mt-6 flex flex-col items-center gap-3 w-full max-w-3xl">
+          <h4 class="text-white font-bold text-xl md:text-3xl text-center tracking-wide">
             {{ filteredProjects[currentImageIndex]?.title }}
           </h4>
 
-          <div v-if="filteredProjects.length > 1" class="flex gap-2.5 flex-wrap justify-center">
+          <!-- Penambahan Teks Deskripsi (SEO & UI Enhancement) -->
+          <p
+            v-if="filteredProjects[currentImageIndex]?.desc"
+            class="text-gray-300 text-sm md:text-base text-center leading-relaxed"
+          >
+            {{ filteredProjects[currentImageIndex]?.desc }}
+          </p>
+
+          <!-- Penambahan Internal Link ke Detail Proyek -->
+          <NuxtLink
+            v-if="filteredProjects[currentImageIndex]?.slug"
+            :to="`/proyek/${filteredProjects[currentImageIndex]?.slug}`"
+            class="mt-3 px-6 py-2.5 bg-[#c41215] text-white rounded-full text-sm font-bold shadow-md hover:bg-[#a00e10] transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-2"
+          >
+            Lihat Detail Proyek
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </NuxtLink>
+
+          <div v-if="filteredProjects.length > 1" class="flex gap-2.5 flex-wrap justify-center mt-4">
             <button
               v-for="(_, index) in filteredProjects"
               :key="index"
@@ -343,7 +374,7 @@ const prevImage = () => {
 
         <!-- Tombol Next/Prev Modal -->
         <div
-          class="absolute w-full flex justify-between top-[40%] md:top-1/2 -translate-y-1/2 px-0 md:-mx-20 pointer-events-none"
+          class="absolute w-full flex justify-between top-[35%] md:top-[40%] -translate-y-1/2 px-0 md:-mx-20 pointer-events-none"
         >
           <button
             v-if="filteredProjects.length > 1"
@@ -377,7 +408,6 @@ const prevImage = () => {
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(40px);
-  /* Pastikan efek transform hanya transisi, bukan animasi */
   transition:
     opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
@@ -389,7 +419,6 @@ const prevImage = () => {
   transform: translateY(0);
 }
 
-/* Hover effect khusus setelah animasi memuat (agar tidak bentrok dengan translateY saat loading) */
 .animate-on-scroll.is-visible.hover-lift:hover {
   transform: translateY(-6px);
   box-shadow:

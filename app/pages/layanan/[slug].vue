@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-import { useRoute, createError, useSeoMeta } from "#imports";
+import { useRoute, createError, useSeoMeta, useHead } from "#imports";
 import Navbar from "~/components/layout/Navbar.vue";
 import Footer from "~/components/layout/footer.vue";
 import { services } from "~/data/services";
@@ -30,9 +30,39 @@ watch(service, (newService) => {
   activeImage.value = newService.image || (newService.images?.[0] ?? "");
 });
 
+// Menggunakan data SEO yang sudah didefinisikan di data/services.ts
 useSeoMeta({
-  title: () => `${service.value?.title ?? "Layanan"} | PT Multi Artha Kreasindo`,
-  description: () => service.value?.description ?? "Informasi layanan flooring dan coating industri.",
+  title: () => service.value?.seo?.metaTitle ?? `${service.value?.title} | PT Multi Artha Kreasindo`,
+  description: () => service.value?.seo?.metaDescription ?? service.value?.description,
+
+  ogTitle: () => service.value?.seo?.metaTitle ?? `${service.value?.title} | PT Multi Artha Kreasindo`,
+  ogDescription: () => service.value?.seo?.metaDescription ?? service.value?.description,
+  ogType: "website",
+  ogUrl: () => `https://www.multiarthakreasindo.com${route.path}`,
+  ogImage: () =>
+    service.value?.image ? new URL(service.value.image, "https://www.multiarthakreasindo.com").href : undefined,
+
+  twitterCard: "summary_large_image",
+});
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json" as const,
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: service.value.title,
+        description: service.value.description,
+        provider: {
+          "@type": "Organization",
+          name: "PT Multi Artha Kreasindo",
+          url: "https://www.multiarthakreasindo.com",
+        },
+        url: `https://www.multiarthakreasindo.com${route.path}`,
+      }),
+    },
+  ],
 });
 </script>
 

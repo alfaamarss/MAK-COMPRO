@@ -33,7 +33,8 @@ const slides = [
   },
 ];
 
-let sliderInterval: ReturnType<typeof setInterval>;
+// Perbaikan: Menambahkan tipe `| undefined` untuk keamanan SSR
+let sliderInterval: ReturnType<typeof setInterval> | undefined;
 
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % slides.length;
@@ -52,7 +53,10 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  clearInterval(sliderInterval);
+  // Perbaikan: Cek eksistensi interval sebelum dibersihkan
+  if (sliderInterval) {
+    clearInterval(sliderInterval);
+  }
 });
 </script>
 
@@ -78,7 +82,8 @@ onBeforeUnmount(() => {
         <div :key="currentSlide" class="hero-eyebrow">
           <span class="eyebrow-square"></span>
           <span class="eyebrow-text">
-            {{ slides[currentSlide].eyebrow }}
+            <!-- Perbaikan: Tambahkan optional chaining (?.) -->
+            {{ slides[currentSlide]?.eyebrow }}
           </span>
         </div>
       </Transition>
@@ -90,7 +95,8 @@ onBeforeUnmount(() => {
 
       <Transition name="content-fade" mode="out-in">
         <p :key="`description-${currentSlide}`" class="hero-description">
-          {{ slides[currentSlide].description }}
+          <!-- Perbaikan: Tambahkan optional chaining (?.) -->
+          {{ slides[currentSlide]?.description }}
         </p>
       </Transition>
 
@@ -169,6 +175,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+/* CSS tetap sama persis seperti sebelumnya */
 .hero-section {
   position: relative;
   min-height: 100svh;

@@ -14,6 +14,12 @@ export interface ServiceItem {
   highlights: string[];
   features: string[];
   specifications: ServiceSpecification[];
+  // Tambahan Properti SEO
+  seo: {
+    metaTitle: string;
+    metaDescription: string;
+    keywords: string[];
+  };
 }
 
 export const services: ServiceItem[] = [
@@ -29,7 +35,7 @@ export const services: ServiceItem[] = [
       "/images/Services/epoxy/EpoxyFlooring3.jpeg",
     ],
     description:
-      "Pengecatan lantai berbasis resin epoxy dan polimer yang melekat kuat pada lapisan beton. Melindungi lantai dari goresan, benturan, dan tumpahan bahan kimia dengan ketebalan 300 - 2000 micron.",
+      "Jasa pengecatan lantai epoxy profesional berbasis resin dan polimer berkualitas tinggi. Melindungi lantai beton pabrik, gudang, dan laboratorium dari goresan, benturan berat, serta tumpahan bahan kimia dengan ketebalan presisi 300 - 2000 micron.",
     highlights: [
       "Tahan goresan & benturan berat",
       "Lantai higienis & tanpa sambungan",
@@ -47,6 +53,18 @@ export const services: ServiceItem[] = [
       { label: "Ketebalan (DFT)", value: "300 – 2000 Micron" },
       { label: "Rekomendasi Area", value: "Pabrik, Gudang, Warehouse & Lab" },
     ],
+    seo: {
+      metaTitle: "Jasa Epoxy Flooring Profesional & Tahan Lama | Kontraktor Lantai Terbaik",
+      metaDescription:
+        "Layanan jasa pengecatan epoxy lantai berkualitas tinggi untuk pabrik, gudang, dan laboratorium. Tahan beban berat, kimia, dan anti-bakteri. Hubungi kami sekarang!",
+      keywords: [
+        "jasa epoxy lantai",
+        "epoxy flooring contractor",
+        "cat lantai epoxy pabrik",
+        "harga epoxy lantai per m2",
+        "jasa pengecatan epoxy",
+      ],
+    },
   },
 
   {
@@ -55,7 +73,7 @@ export const services: ServiceItem[] = [
     image: "/images/Services/linemarking/linemarking1.jpeg",
     images: ["/images/Services/linemarking/linemarking1.jpeg"],
     description:
-      "Pemasangan marka dan garis batas presisi untuk jalan, gudang, pabrik, serta showroom. Berfungsi mengarahkan alur lalu lintas internal dan membatasi area kerja secara aman.",
+      "Kontraktor pemasangan marka jalan dan garis batas garis pabrik (line painting) berpresisi tinggi. Efektif untuk mengatur alur lalu lintas internal, jalur forklift, area parkir, dan zona keselamatan kerja sesuai standar K3.",
     highlights: [
       "Memenuhi standar K3 & lalu lintas",
       "Warna cerah & high-visibility",
@@ -75,6 +93,18 @@ export const services: ServiceItem[] = [
         value: "Zoning Pabrik, Jalur Forklift & Parkiran",
       },
     ],
+    seo: {
+      metaTitle: "Jasa Road Line Marking & Garis Parkir Pabrik Terbaik",
+      metaDescription:
+        "Layanan jasa pengecatan marka jalan, garis jalur forklift, dan line marking gudang profesional berstandar K3. Warna cerah, awet, dan tahan abrasi.",
+      keywords: [
+        "jasa road line marking",
+        "line painting gudang",
+        "cat marka jalan pabrik",
+        "jasa garis parkir",
+        "thermal line marking",
+      ],
+    },
   },
   {
     slug: "protective-coating",
@@ -82,7 +112,7 @@ export const services: ServiceItem[] = [
     image: "/images/Services/Protective.jpeg",
     images: ["/images/Services/Protective.jpeg"],
     description:
-      "Pelapisan khusus permukaan logam maupun non-logam untuk mencegah korosi dan karat akibat cuaca ekstrem atau lingkungan kimia. Cocok untuk pipa, tangki, dan struktur baja.",
+      "Layanan protective coating dan cat anti-korosi terbaik untuk permukaan logam serta non-logam. Melindungi struktur baja, pipa industri, dan tangki penyimpanan dari karat akibat cuaca ekstrem maupun zat kimia agresif.",
     highlights: [
       "Perlindungan anti-korosi jangka panjang",
       "Metode aplikasi yang fleksibel",
@@ -104,6 +134,18 @@ export const services: ServiceItem[] = [
         value: "Struktur Baja, Pipa & Tangki Industri",
       },
     ],
+    seo: {
+      metaTitle: "Jasa Protective Coating & Anti-Korosi Struktur Baja Industri",
+      metaDescription:
+        "Spesialis protective coating untuk tangki, pipa, dan struktur baja industri. Berikan perlindungan maksimal terhadap karat dan bahan kimia agresif.",
+      keywords: [
+        "protective coating indonesia",
+        "jasa cat anti korosi",
+        "coating struktur baja",
+        "cat pipa industri",
+        "epoxy anti corrosion",
+      ],
+    },
   },
   {
     slug: "sport-flooring",
@@ -115,7 +157,7 @@ export const services: ServiceItem[] = [
       "/images/Services/sport/sportflooring3.jpeg",
     ],
     description:
-      "Pengecatan khusus lapangan olahraga outdoor dan indoor (badminton, basket, dll) menggunakan metode Plexipave berkualitas tinggi yang terjamin anti-retak dan bebas genangan air.",
+      "Jasa pengecatan lapangan olahraga indoor dan outdoor (basket, badminton, tenis, futsal) menggunakan sistem akrilik Plexipave berkualitas tinggi. Menghasilkan permukaan yang anti-retak, tahan cuaca, dan bebas genangan air.",
     highlights: ["Metode aplikasi Plexipave", "Anti-retak & ramah cuaca", "Permukaan presisi bebas genangan"],
     features: [
       "Tekstur permukaan dengan tingkat cengkeraman (friction) optimal untuk atlet",
@@ -127,6 +169,18 @@ export const services: ServiceItem[] = [
       { label: "Karakteristik", value: "Anti-Slip & UV Resistant" },
       { label: "Area Lapangan", value: "Basket, Tenis, Badminton & Futsal" },
     ],
+    seo: {
+      metaTitle: "Jasa Pengecatan & Pembuatan Sport Flooring Lapangan Olahraga",
+      metaDescription:
+        "Kontraktor spesialis pembuatan dan pengecatan lapangan basket, tenis, dan badminton menggunakan sistem Plexipave anti-slip tahan cuaca.",
+      keywords: [
+        "jasa cat lapangan olahraga",
+        "sport flooring contractor",
+        "pengecatan lapangan badminton",
+        "plexipave indonesia",
+        "cat lapangan basket",
+      ],
+    },
   },
   {
     slug: "decorative-flooring",
@@ -134,7 +188,7 @@ export const services: ServiceItem[] = [
     image: "/images/Services/Decorative.jpeg",
     images: ["/images/Services/Decorative.jpeg"],
     description:
-      "Solusi pelapisan lantai dekoratif berestetika tinggi seperti Flakes system, Metallic epoxy, atau Quartz sand untuk showroom, kantor, hotel, dan area komersial.",
+      "Solusi pelapisan lantai dekoratif estetis tinggi seperti Metallic epoxy, Flakes system, dan Quartz sand. Sempurna untuk mempercantik interior showroom, kantor mewah, hotel, kafe, dan area komersial lainnya.",
     highlights: ["Estetika mewah & eksklusif", "Pilihan motif flakes & metallic unik", "Mudah dibersihkan & berkilau"],
     features: [
       "Desain visual custom yang elegan untuk meningkatkan prestise interior",
@@ -146,6 +200,18 @@ export const services: ServiceItem[] = [
       { label: "Finishing", value: "Crystal Clear Gloss / Matte" },
       { label: "Aplikasi Komersial", value: "Showroom, Lobby, Cafe & Kantor" },
     ],
+    seo: {
+      metaTitle: "Jasa Decorative Flooring & Metallic Epoxy Showroom Mewah",
+      metaDescription:
+        "Percantik lantai kantor, kafe, dan showroom Anda dengan decorative flooring, metallic epoxy, dan flakes system berestetika tinggi.",
+      keywords: [
+        "decorative flooring",
+        "metallic epoxy lantai",
+        "jasa epoxy dekoratif",
+        "flakes epoxy floor",
+        "lantai showroom aesthetic",
+      ],
+    },
   },
 
   {
@@ -154,7 +220,7 @@ export const services: ServiceItem[] = [
     image: "/images/Services/Membran.png",
     images: ["/images/Services/Membran.png", "/images/Services/WaterProof.png"],
     description:
-      "Metode pelapisan kedap air menggunakan lembaran bitumen dan polimer yang diaplikasikan dengan cara dibakar. Memberikan perlindungan total dari risiko kebocoran air.",
+      "Jasa pemasangan waterproofing membran bakar berkualitas tinggi menggunakan lembaran bitumen dan polimer sistem torch-on. Memberikan proteksi kedap air maksimal dan menyeluruh untuk dak beton atap, basement, serta pondasi bangunan.",
     highlights: [
       "Bahan Bitumen & Polimer berkualitas",
       "Tahan cuaca ekstrem & genangan",
@@ -170,5 +236,17 @@ export const services: ServiceItem[] = [
       { label: "Finish Permukaan", value: "Sand Finish / Mineral Slate" },
       { label: "Metode Pasang", value: "Torch-on System (Pemanasan Gas)" },
     ],
+    seo: {
+      metaTitle: "Jasa Waterproofing Membran Bakar Dak Beton Anti Bocor",
+      metaDescription:
+        "Kontraktor waterproofing membran bakar profesional untuk atap dak beton, basemen, dan gedung. Solusi permanen bebas bocor dengan sistem torch-on.",
+      keywords: [
+        "jasa waterproofing membran bakar",
+        "kontraktor waterproofing dak beton",
+        "membran bakar 3mm 4mm",
+        "jasa anti bocor atap",
+        "waterproofing torch on",
+      ],
+    },
   },
 ];

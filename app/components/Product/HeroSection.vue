@@ -112,3 +112,26 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+useSeoMeta({
+  title: "Produk Coating Industri | PT Multi Artha Kreasindo",
+  description:
+    "Temukan produk coating dan pelapis permukaan dari PT Multi Artha Kreasindo untuk kebutuhan flooring, perlindungan, dan finishing industri.",
+  ogTitle: "Produk Coating Industri | PT Multi Artha Kreasindo",
+  ogDescription: "Pilihan produk coating dan pelapis permukaan untuk kebutuhan flooring dan aplikasi industri.",
+  ogType: "website",
+  ogUrl: "https://www.multiarthakreasindo.com/produk",
+  ogImage: "https://www.multiarthakreasindo.com/images/produk/produk1.png",
+  twitterCard: "summary_large_image",
+});
+
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: "https://www.multiarthakreasindo.com/produk",
+    },
+  ],
+});
+</script>

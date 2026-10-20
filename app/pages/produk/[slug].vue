@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-import { useRoute, createError, useSeoMeta } from "#imports";
+import { useRoute, createError, useSeoMeta, useHead } from "#imports";
 import Navbar from "~/components/layout/Navbar.vue";
 import { products } from "~/data/products";
 
@@ -21,9 +21,7 @@ if (!product.value) {
 // State
 const activeVariant = ref(product.value?.variants?.[0] || null);
 const activeImage = ref(activeVariant.value?.image || product.value?.image);
-const currentWeight = computed(
-  () => activeVariant.value?.weight || product.value?.weight,
-);
+const currentWeight = computed(() => activeVariant.value?.weight || product.value?.weight);
 
 // Fungsi ganti varian
 const selectVariant = (variant: any) => {
@@ -41,43 +39,76 @@ watch(product, (newProduct) => {
   }
 });
 
+// ==================== METADATA SEO ====================
 useSeoMeta({
-  title: () => `${product.value?.title ?? "Produk"} | PT Multi Artha Kreasindo`,
-  description: () =>
-    product.value?.description ?? "Informasi produk coating dan flooring.",
+  title: () => product.value?.seo?.metaTitle ?? `${product.value?.title} | PT Multi Artha Kreasindo`,
+  description: () => product.value?.seo?.metaDescription ?? product.value?.description,
+
+  ogTitle: () => product.value?.seo?.metaTitle ?? `${product.value?.title} | PT Multi Artha Kreasindo`,
+  ogDescription: () => product.value?.seo?.metaDescription ?? product.value?.description,
+  ogType: "website", // Diubah dari "product" agar sesuai dengan tipe UseSeoMetaInput bawaan Nuxt
+  ogUrl: () => `https://www.multiarthakreasindo.com/produk/${slug.value}`,
+  ogImage: () =>
+    product.value?.image ? new URL(product.value.image, "https://www.multiarthakreasindo.com").href : undefined,
+
+  twitterCard: "summary_large_image",
+});
+
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: () => `https://www.multiarthakreasindo.com/produk/${slug.value}`,
+    },
+  ],
+  meta: [
+    {
+      name: "keywords",
+      content: () =>
+        product.value?.seo?.keywords?.join(", ") ?? "cat epoxy lantai, coating industri, cat lantai pabrik",
+    },
+  ],
+  // Tambahan Schema.org (JSON-LD)
+  script: [
+    {
+      // Menggunakan Type Casting as "application/json" untuk mem-bypass TS Error
+      type: "application/ld+json" as "application/json",
+      // Menggunakan innerHTML sesuai standar useHead terbaru
+      innerHTML: computed(() =>
+        JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          name: product.value?.title,
+          image: product.value?.image ? `https://www.multiarthakreasindo.com${product.value.image}` : undefined,
+          description: product.value?.description,
+          brand: {
+            "@type": "Brand",
+            name: "Multi Paint",
+          },
+          manufacturer: {
+            "@type": "Organization",
+            name: "PT Multi Artha Kreasindo",
+          },
+        }),
+      ),
+    },
+  ],
 });
 </script>
 
 <template>
-  <div
-    v-if="product"
-    class="min-h-screen bg-white font-sans text-gray-800 selection:bg-[#9B1C1C] selection:text-white"
-  >
+  <div v-if="product" class="min-h-screen bg-white font-sans text-gray-800 selection:bg-[#9B1C1C] selection:text-white">
     <Navbar />
 
     <main class="pt-20 lg:pt-24 pb-15">
       <!-- ========================================
            BREADCRUMB
       ========================================= -->
-      <section
-        class="bg-gray-50/80 py-3.5 border-b border-gray-200/60 backdrop-blur-sm sticky top-16 lg:top-20 z-30"
-      >
-        <div
-          class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-4"
-        >
-          <nav
-            class="flex items-center gap-2.5 text-sm text-gray-500 font-medium"
-          >
-            <NuxtLink
-              to="/"
-              class="hover:text-[#9B1C1C] transition-colors flex items-center gap-1"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
+      <section class="bg-gray-50/80 py-3.5 border-b border-gray-200/60 backdrop-blur-sm sticky top-16 lg:top-20 z-30">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center gap-4">
+          <nav class="flex items-center gap-2.5 text-sm text-gray-500 font-medium">
+            <NuxtLink to="/" class="hover:text-[#9B1C1C] transition-colors flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                 <path
                   d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
                 />
@@ -85,16 +116,10 @@ useSeoMeta({
               Home
             </NuxtLink>
             <span class="text-gray-300">/</span>
-            <NuxtLink
-              to="/produk"
-              class="hover:text-[#9B1C1C] transition-colors"
-              >Produk</NuxtLink
-            >
+            <NuxtLink to="/produk" class="hover:text-[#9B1C1C] transition-colors">Produk</NuxtLink>
             <span class="text-gray-300">/</span>
-            <span
-              class="text-[#9B1C1C] font-semibold truncate max-w-[180px] sm:max-w-none"
-              >{{ product.title }}</span
-            >
+            <!-- Diperbaiki class max-w-[180px] menjadi max-w-45 -->
+            <span class="text-[#9B1C1C] font-semibold truncate max-w-45 sm:max-w-none">{{ product.title }}</span>
           </nav>
 
           <div
@@ -104,9 +129,7 @@ useSeoMeta({
               <span
                 class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"
               ></span>
-              <span
-                class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
-              ></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             READY STOCK
           </div>
@@ -121,8 +144,9 @@ useSeoMeta({
           <!-- LEFT COLUMN: IMAGES -->
           <div class="lg:col-span-5 flex flex-col gap-5">
             <!-- Main Image Card -->
+            <!-- Diperbaiki class bg-gradient-to-br menjadi bg-linear-to-br -->
             <div
-              class="relative bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200/80 rounded-3xl overflow-hidden flex items-center justify-center aspect-square p-8 group transition-all duration-500 hover:shadow-xl hover:border-gray-300"
+              class="relative bg-linear-to-br from-gray-50 to-gray-100/50 border border-gray-200/80 rounded-3xl overflow-hidden flex items-center justify-center aspect-square p-8 group transition-all duration-500 hover:shadow-xl hover:border-gray-300"
             >
               <!-- Badges -->
               <div class="absolute top-5 left-5 flex flex-col gap-2.5 z-20">
@@ -162,16 +186,13 @@ useSeoMeta({
               <!-- Product Image -->
               <img
                 :src="activeImage"
-                :alt="product.title"
+                :alt="`Kemasan ${product.title}`"
                 class="relative z-10 max-h-full w-full object-contain drop-shadow-2xl mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
 
             <!-- THUMBNAILS GALLERY -->
-            <div
-              v-if="product.variants && product.variants.length > 0"
-              class="grid grid-cols-4 gap-3.5"
-            >
+            <div v-if="product.variants && product.variants.length > 0" class="grid grid-cols-4 gap-3.5">
               <button
                 v-for="(variant, idx) in product.variants.slice(0, 2)"
                 :key="idx"
@@ -191,7 +212,7 @@ useSeoMeta({
                 <img
                   :src="variant.image"
                   class="w-[75%] h-[75%] object-contain mix-blend-multiply transition-transform group-hover:scale-110"
-                  :alt="variant.label"
+                  :alt="`Varian ${variant.label} untuk ${product.title}`"
                 />
               </button>
             </div>
@@ -203,7 +224,7 @@ useSeoMeta({
                 <img
                   :src="product.image"
                   class="w-[80%] h-[80%] object-contain mix-blend-multiply"
-                  alt="Thumbnail"
+                  :alt="product.title"
                 />
               </button>
             </div>
@@ -242,15 +263,8 @@ useSeoMeta({
             </h1>
 
             <!-- PILIHAN UKURAN -->
-            <div
-              v-if="product.variants && product.variants.length > 0"
-              class="mb-7"
-            >
-              <h3
-                class="text-[13px] font-bold uppercase tracking-widest text-gray-500 mb-3.5"
-              >
-                Pilih Ukuran Kemasan
-              </h3>
+            <div v-if="product.variants && product.variants.length > 0" class="mb-7">
+              <h3 class="text-[13px] font-bold uppercase tracking-widest text-gray-500 mb-3.5">Pilih Ukuran Kemasan</h3>
               <div class="flex flex-wrap gap-3">
                 <button
                   v-for="variant in product.variants"
@@ -266,9 +280,7 @@ useSeoMeta({
                   <div
                     :class="[
                       'w-3 h-3 rounded-full border-2',
-                      activeVariant?.label === variant.label
-                        ? 'border-[#9B1C1C] bg-[#9B1C1C]'
-                        : 'border-gray-300',
+                      activeVariant?.label === variant.label ? 'border-[#9B1C1C] bg-[#9B1C1C]' : 'border-gray-300',
                     ]"
                   ></div>
                   {{ variant.label }}
@@ -277,8 +289,9 @@ useSeoMeta({
             </div>
 
             <!-- Deskripsi -->
+            <!-- Diperbaiki class border-l-[4px] dan bg-gradient-to-r menjadi border-l-4 dan bg-linear-to-r -->
             <div
-              class="border-l-[4px] border-[#9B1C1C] bg-gradient-to-r from-red-50/50 to-transparent p-5 mb-10 rounded-r-2xl"
+              class="border-l-4 border-[#9B1C1C] bg-linear-to-r from-red-50/50 to-transparent p-5 mb-10 rounded-r-2xl"
             >
               <p class="text-gray-600 leading-relaxed text-[15px]">
                 {{ product.description }}
@@ -288,9 +301,7 @@ useSeoMeta({
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
               <!-- FITUR PRODUK -->
               <div v-if="product.features && product.features.length > 0">
-                <h3
-                  class="text-[13px] font-bold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2"
-                >
+                <h3 class="text-[13px] font-bold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2">
                   Keunggulan
                 </h3>
                 <ul class="flex flex-col gap-3">
@@ -299,9 +310,7 @@ useSeoMeta({
                     :key="idx"
                     class="flex items-start gap-3 bg-gray-50/50 p-3 rounded-xl border border-gray-100"
                   >
-                    <div
-                      class="bg-emerald-100 p-1 rounded-full shrink-0 mt-0.5"
-                    >
+                    <div class="bg-emerald-100 p-1 rounded-full shrink-0 mt-0.5">
                       <svg
                         class="h-3.5 w-3.5 text-emerald-600"
                         xmlns="http://www.w3.org/2000/svg"
@@ -315,19 +324,14 @@ useSeoMeta({
                         />
                       </svg>
                     </div>
-                    <span
-                      class="text-[14px] text-gray-700 font-medium leading-tight"
-                      >{{ feature }}</span
-                    >
+                    <span class="text-[14px] text-gray-700 font-medium leading-tight">{{ feature }}</span>
                   </li>
                 </ul>
               </div>
 
               <!-- SPESIFIKASI TEKNIS -->
               <div>
-                <h3
-                  class="text-[13px] font-bold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2"
-                >
+                <h3 class="text-[13px] font-bold uppercase tracking-widest text-gray-500 mb-4 flex items-center gap-2">
                   Spesifikasi
                 </h3>
                 <div class="flex flex-col gap-2.5">
@@ -336,25 +340,19 @@ useSeoMeta({
                     :key="index"
                     class="flex justify-between items-center bg-white border border-gray-200 p-3.5 rounded-xl hover:border-gray-300 transition-colors"
                   >
-                    <span class="text-[13px] text-gray-500 font-medium">{{
-                      spec.label
-                    }}</span>
-                    <span
-                      class="text-[14px] font-bold text-gray-900 text-right"
-                      >{{ spec.value }}</span
-                    >
+                    <span class="text-[13px] text-gray-500 font-medium">{{ spec.label }}</span>
+                    <span class="text-[14px] font-bold text-gray-900 text-right">{{ spec.value }}</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- ACTIONS & INFO (Nempel di bawah) -->
-            <div
-              class="mt-auto pt-6 border-t border-gray-100 flex flex-col gap-5"
-            >
+            <div class="mt-auto pt-6 border-t border-gray-100 flex flex-col gap-5">
               <!-- Buttons -->
               <div class="flex flex-col sm:flex-row gap-4">
-                <button
+                <NuxtLink
+                  to="/kontak"
                   class="group flex-1 bg-[#9B1C1C] hover:bg-[#7A1515] text-white px-6 py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2.5 shadow-lg shadow-[#9B1C1C]/25 transition-all duration-300 hover:shadow-[#9B1C1C]/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
                 >
                   <svg
@@ -380,13 +378,9 @@ useSeoMeta({
                     stroke="currentColor"
                     stroke-width="3"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </button>
+                </NuxtLink>
 
                 <!-- Tombol TDS -->
                 <button
@@ -400,10 +394,7 @@ useSeoMeta({
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    :class="[
-                      'h-5 w-5',
-                      product.tds ? 'text-gray-500' : 'text-gray-300',
-                    ]"
+                    :class="['h-5 w-5', product.tds ? 'text-gray-500' : 'text-gray-300']"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -418,9 +409,7 @@ useSeoMeta({
               </div>
 
               <!-- Important Note -->
-              <div
-                class="bg-amber-50/60 border border-amber-200/60 rounded-2xl p-4 flex items-start gap-3"
-              >
+              <div class="bg-amber-50/60 border border-amber-200/60 rounded-2xl p-4 flex items-start gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5 shrink-0 text-amber-500 mt-0.5"
@@ -435,12 +424,9 @@ useSeoMeta({
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <p
-                  class="text-[13px] text-amber-800/90 font-medium leading-relaxed"
-                >
-                  Konsultasikan perhitungan volume m² proyek, kondisi substrat,
-                  dan profil kebutuhan Anda langsung dengan Technical Sales
-                  Engineer kami sebelum pengaplikasian.
+                <p class="text-[13px] text-amber-800/90 font-medium leading-relaxed">
+                  Konsultasikan perhitungan volume m² proyek, kondisi substrat, dan profil kebutuhan Anda langsung
+                  dengan Technical Sales Engineer kami sebelum pengaplikasian.
                 </p>
               </div>
             </div>

@@ -13,7 +13,16 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  modules: ["@nuxtjs/sitemap"],
+  // 1. Tambahkan 'nuxt-gtag' ke dalam array modules
+  modules: ["@nuxtjs/sitemap", "nuxt-gtag"],
+
+  // 2. Tambahkan konfigurasi gtag
+  gtag: {
+    id: "G-37XNC9J0JQ", // WAJIB GANTI: Masukkan Measurement ID dari Google Analytics Anda di sini
+    config: {
+      page_title: "PT Multi Artha Kreasindo",
+    },
+  },
 
   site: {
     url: "https://www.multiarthakreasindo.com",
