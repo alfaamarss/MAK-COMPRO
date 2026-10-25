@@ -7,9 +7,7 @@ import { products } from "~/data/products";
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
 
-const product = computed(() => {
-  return products.find((item) => item.slug === slug.value) || products[0];
-});
+const product = computed(() => products.find((item) => item.slug === slug.value));
 
 if (!product.value) {
   throw createError({
@@ -17,6 +15,18 @@ if (!product.value) {
     statusMessage: "Produk tidak ditemukan",
   });
 }
+
+const siteUrl = "https://www.multiarthakreasindo.com";
+
+const absoluteImageUrl = (image?: string) => {
+  if (!image) return undefined;
+
+  try {
+    return new URL(image, `${siteUrl}/`).href;
+  } catch {
+    return undefined;
+  }
+};
 
 // State
 const activeVariant = ref(product.value?.variants?.[0] || null);
@@ -41,15 +51,19 @@ watch(product, (newProduct) => {
 
 // ==================== METADATA SEO ====================
 useSeoMeta({
-  title: () => product.value?.seo?.metaTitle ?? `${product.value?.title} | PT Multi Artha Kreasindo`,
+  title: () => product.value?.seo?.metaTitle ?? product.value?.title ?? "Produk",
+
   description: () => product.value?.seo?.metaDescription ?? product.value?.description,
 
-  ogTitle: () => product.value?.seo?.metaTitle ?? `${product.value?.title} | PT Multi Artha Kreasindo`,
+  ogTitle: () => product.value?.seo?.metaTitle ?? product.value?.title,
+
   ogDescription: () => product.value?.seo?.metaDescription ?? product.value?.description,
-  ogType: "website", // Diubah dari "product" agar sesuai dengan tipe UseSeoMetaInput bawaan Nuxt
-  ogUrl: () => `https://www.multiarthakreasindo.com/produk/${slug.value}`,
-  ogImage: () =>
-    product.value?.image ? new URL(product.value.image, "https://www.multiarthakreasindo.com").href : undefined,
+
+  ogType: "website",
+
+  ogUrl: () => `${siteUrl}/produk/${slug.value}`,
+
+  ogImage: () => absoluteImageUrl(product.value?.image),
 
   twitterCard: "summary_large_image",
 });
@@ -69,18 +83,25 @@ useHead({
     },
   ],
   // Tambahan Schema.org (JSON-LD)
+
   script: [
     {
-      // Menggunakan Type Casting as "application/json" untuk mem-bypass TS Error
-      type: "application/ld+json" as "application/json",
-      // Menggunakan innerHTML sesuai standar useHead terbaru
-      innerHTML: computed(() =>
-        JSON.stringify({
-          "@context": "https://schema.org/",
+      type: "application/ld+json",
+      innerHTML: computed(() => {
+        const item = product.value;
+
+        if (!item) return "";
+
+        const images = [item.image, ...(item.images ?? [])]
+          .map((image) => absoluteImageUrl(image))
+          .filter((image): image is string => Boolean(image));
+
+        return JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "Product",
-          name: product.value?.title,
-          image: product.value?.image ? `https://www.multiarthakreasindo.com${product.value.image}` : undefined,
-          description: product.value?.description,
+          name: item.title,
+          image: images,
+          description: item.description,
           brand: {
             "@type": "Brand",
             name: "Multi Paint",
@@ -88,9 +109,11 @@ useHead({
           manufacturer: {
             "@type": "Organization",
             name: "PT Multi Artha Kreasindo",
+            url: siteUrl,
           },
-        }),
-      ),
+          url: `${siteUrl}/produk/${item.slug}`,
+        });
+      }),
     },
   ],
 });
@@ -131,7 +154,7 @@ useHead({
               ></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            READY STOCK
+            PRODUK RESMI MULTI ARTHA KREASINDO
           </div>
         </div>
       </section>
@@ -186,7 +209,11 @@ useHead({
               <!-- Product Image -->
               <img
                 :src="activeImage"
-                :alt="`Kemasan ${product.title}`"
+                :alt="`${product.title} - kemasan produk coating Multi Paint dari PT Multi Artha Kreasindo`"
+                width="800"
+                height="800"
+                fetchpriority="high"
+                decoding="async"
                 class="relative z-10 max-h-full w-full object-contain drop-shadow-2xl mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
@@ -224,7 +251,7 @@ useHead({
                 <img
                   :src="product.image"
                   class="w-[80%] h-[80%] object-contain mix-blend-multiply"
-                  :alt="product.title"
+                  :alt="`${product.title} - kemasan produk coating Multi Paint`"
                 />
               </button>
             </div>

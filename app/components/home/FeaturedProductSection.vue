@@ -4,27 +4,30 @@ import { onMounted } from "vue";
 const featuredProducts = [
   {
     tag: "MULTI PAINT PRIMER",
-    tagColor: "bg-[#cfa426]", // Emas
+    tagColor: "bg-[#cfa426]",
     image: "/images/produk/produk1.png",
-    title: "Epoxy Primer Series",
-    description:
-      "Cat dasar berdaya penetrasi tinggi sebagai pengunci pori substrat dan memastikan daya lekat (adhesi) maksimal untuk lapisan berikutnya.",
+    title: "MPP-851 2K Primer SL",
+    alt: "MPP-851 2K Primer SL, cat dasar epoxy lantai",
+    description: "Cat dasar epoxy untuk membantu meningkatkan daya lekat lapisan epoxy berikutnya.",
+    slug: "mpp-851-2k-primer-sl",
   },
   {
     tag: "MULTI PAINT BODYCOAT",
-    tagColor: "bg-[#8b1515]", // Merah gelap
-    image: "/images/produk/produk1.png",
-    title: "Epoxy Bodycoat Series",
-    description:
-      "Lapisan tengah struktural yang diformulasikan sangat kuat untuk menahan beban berat (heavy-duty) dan menciptakan permukaan tanpa sambungan.",
+    tagColor: "bg-[#8b1515]",
+    image: "/images/produk/produk2.png",
+    title: "MPB-852 2K Bodycoat SL",
+    alt: "MPB-852 2K Bodycoat SL, lapisan tengah epoxy lantai",
+    description: "Lapisan tengah epoxy untuk sistem pelapisan lantai industri.",
+    slug: "mpb-852-2k-bodycoat-sl",
   },
   {
     tag: "MULTI PAINT TOPCOAT",
-    tagColor: "bg-[#333333]", // Abu-abu gelap
-    image: "/images/produk/produk1.png",
-    title: "Epoxy Topcoat Series",
-    description:
-      "Lapisan pelindung akhir dengan hasil kilap prima. Memberikan perlindungan ekstra terhadap abrasi, goresan, dan paparan zat kimia.",
+    tagColor: "bg-[#333333]",
+    image: "/images/produk/produk3.png",
+    title: "MPT-870 2K SL Finish Topcoat",
+    alt: "MPT-870 2K SL Finish Topcoat, pelapis akhir epoxy lantai",
+    description: "Lapisan akhir untuk melindungi sistem epoxy lantai.",
+    slug: "mpt-870-2k-sl-finish-topcoat",
   },
 ];
 
@@ -61,25 +64,18 @@ onMounted(() => {
           class="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-neutral-900 mb-4 tracking-tight leading-[1.1]"
         >
           PRODUK
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-[#c41215] to-[#7a2021]"
-            >UNGGULAN</span
-          >
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#c41215] to-[#7a2021]">UNGGULAN</span>
         </h2>
 
         <!-- Sub-judul Pendukung -->
-        <h3
-          class="text-xl md:text-2xl font-semibold text-neutral-700 mb-6 max-w-2xl"
-        >
+        <h3 class="text-xl md:text-2xl font-semibold text-neutral-700 mb-6 max-w-2xl">
           Material Berkualitas untuk Hasil Maksimal
         </h3>
 
         <!-- Deskripsi Utama -->
-        <p
-          class="text-neutral-500 max-w-2xl text-base md:text-lg leading-relaxed"
-        >
-          Kami memproduksi dan menggunakan sistem pelapisan epoxy terlengkap
-          yang disesuaikan dengan standar ketahanan industri modern.
+        <p class="text-neutral-500 max-w-2xl text-base md:text-lg leading-relaxed">
+          Kami memproduksi dan menggunakan sistem pelapisan epoxy terlengkap yang disesuaikan dengan standar ketahanan
+          industri modern.
         </p>
       </div>
 
@@ -99,7 +95,11 @@ onMounted(() => {
             <!-- Gambar Produk (Placeholder sudah dihapus, gambar tampil bersih) -->
             <img
               :src="product.image"
-              :alt="product.title"
+              :alt="product.alt"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105"
             />
 
@@ -114,9 +114,7 @@ onMounted(() => {
 
           <!-- Konten Teks Sederhana -->
           <div>
-            <h3
-              class="text-xl font-bold text-neutral-900 mb-3 group-hover:text-[#991b1b] transition-colors"
-            >
+            <h3 class="text-xl font-bold text-neutral-900 mb-3 group-hover:text-[#991b1b] transition-colors">
               {{ product.title }}
             </h3>
             <p class="text-sm text-neutral-500 leading-relaxed mb-4">
@@ -127,9 +125,7 @@ onMounted(() => {
               class="inline-flex items-center text-sm font-bold text-[#991b1b] hover:text-red-900 transition-colors"
             >
               Pelajari Lebih Lanjut
-              <span class="ml-1 transition-transform group-hover:translate-x-1"
-                >→</span
-              >
+              <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
             </NuxtLink>
           </div>
         </div>
