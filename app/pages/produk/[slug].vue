@@ -84,38 +84,38 @@ useHead({
   ],
   // Tambahan Schema.org (JSON-LD)
 
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: computed(() => {
-        const item = product.value;
+  // script: [
+  //   {
+  //     type: "application/ld+json",
+  //     innerHTML: computed(() => {
+  //       const item = product.value;
 
-        if (!item) return "";
+  //       if (!item) return "";
 
-        const images = [item.image, ...(item.images ?? [])]
-          .map((image) => absoluteImageUrl(image))
-          .filter((image): image is string => Boolean(image));
+  //       const images = [item.image, ...(item.images ?? [])]
+  //         .map((image) => absoluteImageUrl(image))
+  //         .filter((image): image is string => Boolean(image));
 
-        return JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: item.title,
-          image: images,
-          description: item.description,
-          brand: {
-            "@type": "Brand",
-            name: "Multi Paint",
-          },
-          manufacturer: {
-            "@type": "Organization",
-            name: "PT Multi Artha Kreasindo",
-            url: siteUrl,
-          },
-          url: `${siteUrl}/produk/${item.slug}`,
-        });
-      }),
-    },
-  ],
+  //       return JSON.stringify({
+  //         "@context": "https://schema.org",
+  //         "@type": "Product",
+  //         name: item.title,
+  //         image: images,
+  //         description: item.description,
+  //         brand: {
+  //           "@type": "Brand",
+  //           name: "Multi Paint",
+  //         },
+  //         manufacturer: {
+  //           "@type": "Organization",
+  //           name: "PT Multi Artha Kreasindo",
+  //           url: siteUrl,
+  //         },
+  //         url: `${siteUrl}/produk/${item.slug}`,
+  //       });
+  //     }),
+  //   },
+  // ],
 });
 </script>
 
