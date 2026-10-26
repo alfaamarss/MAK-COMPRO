@@ -64,7 +64,7 @@ export const products: Product[] = [
       { label: "Kemasan", value: "5 kg & 20 kg Set" },
       { label: "Penggunaan", value: "Lapisan dasar coating lantai beton" },
     ],
-    tds: null,
+    tds: "/Documents/TDS%20MPP-851%20PRIMER.pdf",
     variants: [
       { label: "5 kg Set", weight: "5 kg Set", image: "/images/produk/produk2.png" },
       { label: "20 kg Set", weight: "20 kg Set", image: "/images/produk/produk3.png" },
@@ -101,7 +101,7 @@ export const products: Product[] = [
       { label: "Kemasan", value: "5 kg & 20 kg Set" },
       { label: "Penggunaan", value: "Lapisan tengah (perata) coating" },
     ],
-    tds: null,
+    tds: "/Documents/TDS%20MPB-852%20BODY%20COAT%20.pdf",
     variants: [
       { label: "5 kg Set", weight: "5 kg Set", image: "/images/produk/produk2.png" },
       { label: "20 kg Set (Pail)", weight: "20 kg Set", image: "/images/produk/produk3.png" },
@@ -148,7 +148,7 @@ export const products: Product[] = [
       { label: "5 kg Set", weight: "5 kg Set", image: "/images/produk/produk2.png" },
       { label: "20 kg Set (Pail)", weight: "20 kg Set", image: "/images/produk/produk3.png" },
     ],
-    tds: null,
+    tds: "/Documents/TDS%20MPT-870%20TOP%20COAT.pdf",
     seo: {
       metaTitle: "Cat Epoxy Topcoat Finish MPT-870 2K SL | Cat Lantai Pabrik",
       metaDescription:
@@ -186,7 +186,7 @@ export const products: Product[] = [
       { label: "5 kg Set", weight: "5 kg Set", image: "/images/produk/produk2.png" },
       { label: "20 kg Set (Pail)", weight: "20 kg Set", image: "/images/produk/produk3.png" },
     ],
-    tds: null,
+    tds: "/Documents/TDS%20MPT-871%20COATING%20FINISH%20.pdf",
     seo: {
       metaTitle: "Epoxy Topcoat Coating MPT-871 2K SL | Finishing Seamless",
       metaDescription:

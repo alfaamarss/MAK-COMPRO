@@ -4,6 +4,7 @@ import { useRoute, createError, useSeoMeta, useHead } from "#imports";
 import Navbar from "~/components/layout/Navbar.vue";
 import { products } from "~/data/products";
 
+const showTdsModal = ref(false);
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
 
@@ -409,19 +410,15 @@ useHead({
                   </svg>
                 </NuxtLink>
 
-                <!-- Tombol TDS -->
                 <button
-                  :disabled="!product.tds"
-                  :class="[
-                    'border-2 px-6 py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2.5 transition-all duration-300 whitespace-nowrap',
-                    product.tds
-                      ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:border-gray-300 active:scale-[0.98]'
-                      : 'bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed',
-                  ]"
+                  v-if="product.tds"
+                  type="button"
+                  @click="showTdsModal = true"
+                  class="border-2 px-6 py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2.5 transition-all duration-300 whitespace-nowrap bg-white hover:bg-gray-50 border-gray-200 text-gray-700 hover:border-gray-300 active:scale-[0.98]"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    :class="['h-5 w-5', product.tds ? 'text-gray-500' : 'text-gray-300']"
+                    class="h-5 w-5 text-gray-500"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -431,8 +428,16 @@ useHead({
                       clip-rule="evenodd"
                     />
                   </svg>
-                  {{ product.tds ? "Unduh TDS" : "TDS Belum Tersedia" }}
+
+                  Lihat TDS (PDF)
                 </button>
+
+                <span
+                  v-else
+                  class="border-2 px-6 py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2.5 whitespace-nowrap bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed"
+                >
+                  TDS Belum Tersedia
+                </span>
               </div>
 
               <!-- Important Note -->
@@ -455,6 +460,67 @@ useHead({
                   Konsultasikan perhitungan volume m² proyek, kondisi substrat, dan profil kebutuhan Anda langsung
                   dengan Technical Sales Engineer kami sebelum pengaplikasian.
                 </p>
+                <Teleport to="body">
+                  <div
+                    v-if="showTdsModal && product?.tds"
+                    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-3 sm:p-6"
+                    @click.self="showTdsModal = false"
+                    @keydown.esc="showTdsModal = false"
+                  >
+                    <div
+                      class="flex h-[96vh] w-[98vw] max-w-[1800px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
+                      role="dialog"
+                      aria-modal="true"
+                      aria-label="Dokumen Technical Data Sheet"
+                    >
+                      <!-- Header modal -->
+                      <div class="flex items-center justify-between gap-4 border-b border-gray-200 px-4 py-3 sm:px-6">
+                        <div class="min-w-0">
+                          <h2 class="truncate text-base font-bold text-gray-900 sm:text-lg">Technical Data Sheet</h2>
+                          <p class="text-sm text-gray-500">
+                            {{ product.title }}
+                          </p>
+                        </div>
+
+                        <button
+                          type="button"
+                          @click="showTdsModal = false"
+                          aria-label="Tutup modal"
+                          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-900"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+
+                      <!-- PDF viewer -->
+                      <div class="min-h-0 flex-1 bg-gray-100">
+                        <iframe :src="product.tds" :title="`TDS ${product.title}`" class="h-full w-full border-0" />
+                      </div>
+
+                      <!-- Footer modal -->
+                      <div class="flex items-center justify-between gap-3 border-t border-gray-200 px-4 py-3 sm:px-6">
+                        <span class="text-xs text-gray-500 sm:text-sm"> Dokumen TDS produk MULTI ARTHA KREASINDO </span>
+
+                        <button
+                          type="button"
+                          @click="showTdsModal = false"
+                          class="rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-700"
+                        >
+                          Tutup
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </Teleport>
               </div>
             </div>
           </div>
