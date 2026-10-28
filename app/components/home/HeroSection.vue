@@ -1,39 +1,79 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useSeoMeta, useHead } from "#imports";
+
+// ==================== SEO OPTIMIZATION ====================
+useSeoMeta({
+  title: "Jasa Epoxy Lantai & Kontraktor Cat Industrial | PT Multi Artha Kreasindo",
+  description:
+    "Layanan jasa epoxy lantai, epoxy coating, dan pengecatan industrial profesional bergaransi untuk pabrik, gudang, dan komersial. Hubungi kami untuk survey gratis!",
+  ogTitle: "Jasa Epoxy Lantai & Kontraktor Cat Industrial Profesional",
+  ogDescription:
+    "Layanan jasa epoxy lantai terpercaya dengan material berkualitas dan aplikator profesional. Bergaransi resmi.",
+  ogImage: "/images/Hero1.jpeg",
+  twitterCard: "summary_large_image",
+});
+
+//JSON - LD;
+useHead({
+  meta: [
+    {
+      name: "keywords",
+      content:
+        "jasa epoxy, jasa epoxy lantai, kontraktor epoxy, harga epoxy lantai, aplikator epoxy, cat industrial, epoxy flooring, industrial coating",
+    },
+  ],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "PT Multi Artha Kreasindo - Spesialis Epoxy",
+        image: "/images/Hero1.jpeg",
+        description: "Penyedia Jasa Epoxy Lantai dan Pengecatan Industrial terpercaya di Indonesia.",
+        priceRange: "$$",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "ID",
+        },
+        offers: {
+          "@type": "Offer",
+          description: "Jasa Epoxy Flooring dan Industrial Coating",
+        },
+      }),
+    },
+  ],
+});
+// ==========================================================
 
 const currentSlide = ref(0);
 
+// Menambahkan atribut 'alt' pada setiap slide untuk dibaca oleh mesin pencari Google
 const slides = [
   {
     image: "/images/Hero1.jpeg",
-    eyebrow: "SOLUSI EPOXY & CAT INDUSTRIAL",
-    title: "Solusi Epoxy & Cat Industrial",
-    highlight: "Profesional",
-    titleAfter: "untuk Berbagai Kebutuhan Industri",
+    alt: "Jasa Epoxy Lantai dan Cat Industrial Profesional untuk Pabrik dan Gudang",
+    eyebrow: "KONTRAKTOR EPOXY & CAT INDUSTRIAL",
     description:
-      "Menghadirkan solusi epoxy flooring, epoxy coating, dan cat industrial untuk kebutuhan industri, gudang, workshop, dan berbagai fasilitas lainnya. Dengan aplikasi profesional untuk hasil yang kuat, tahan lama, dan rapi.",
+      "Menghadirkan solusi jasa epoxy flooring, epoxy coating, dan cat industrial untuk kebutuhan industri, gudang, workshop, dan berbagai fasilitas lainnya. Dengan aplikasi profesional untuk hasil yang kuat, tahan lama, dan rapi.",
   },
   {
     image: "/images/Hero2.jpeg",
-    eyebrow: "EPOXY FLOORING",
-    title: "Lantai Industrial yang",
-    highlight: "Kuat & Tahan Lama",
-    titleAfter: "",
+    alt: "Aplikator Epoxy Flooring dengan Hasil Kuat dan Tahan Lama",
+    eyebrow: "JASA EPOXY FLOORING",
     description:
       "Solusi epoxy flooring dengan permukaan seamless, mudah dibersihkan, dan dirancang untuk menghadapi aktivitas industri dengan intensitas tinggi.",
   },
   {
     image: "/images/Hero3.jpeg",
+    alt: "Layanan Industrial Coating dan Pengecatan Pabrik Profesional",
     eyebrow: "INDUSTRIAL COATING",
-    title: "Perlindungan Permukaan",
-    highlight: "Profesional & Berkualitas",
-    titleAfter: "",
     description:
       "Layanan coating dan pengecatan industrial untuk membantu melindungi permukaan sekaligus memberikan hasil akhir yang rapi dan profesional.",
   },
 ];
 
-// Perbaikan: Menambahkan tipe `| undefined` untuk keamanan SSR
 let sliderInterval: ReturnType<typeof setInterval> | undefined;
 
 const nextSlide = () => {
@@ -53,7 +93,6 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  // Perbaikan: Cek eksistensi interval sebelum dibersihkan
   if (sliderInterval) {
     clearInterval(sliderInterval);
   }
@@ -62,14 +101,17 @@ onBeforeUnmount(() => {
 
 <template>
   <section class="hero-section">
-    <!-- Background Slider -->
+    <!-- Background Slider (Diubah menjadi tag IMG demi performa SEO Gambar) -->
     <TransitionGroup name="slide-fade">
-      <div
+      <img
         v-for="(slide, index) in slides"
         v-show="currentSlide === index"
         :key="slide.image"
+        :src="slide.image"
+        :alt="slide.alt"
         class="hero-background"
-        :style="{ backgroundImage: `url('${slide.image}')` }"
+        :fetchpriority="index === 0 ? 'high' : 'auto'"
+        :loading="index === 0 ? 'eager' : 'lazy'"
       />
     </TransitionGroup>
 
@@ -82,20 +124,19 @@ onBeforeUnmount(() => {
         <div :key="currentSlide" class="hero-eyebrow">
           <span class="eyebrow-square"></span>
           <span class="eyebrow-text">
-            <!-- Perbaikan: Tambahkan optional chaining (?.) -->
             {{ slides[currentSlide]?.eyebrow }}
           </span>
         </div>
       </Transition>
 
+      <!-- H1 Dioptimasi dengan Kata Kunci Pencarian Utama -->
       <h1 class="hero-heading">
-        Solusi Epoxy Lantai & Cat Industrial
+        Jasa Epoxy Lantai & Cat Industrial
         <span class="text-yellow"> Profesional</span>
       </h1>
 
       <Transition name="content-fade" mode="out-in">
         <p :key="`description-${currentSlide}`" class="hero-description">
-          <!-- Perbaikan: Tambahkan optional chaining (?.) -->
           {{ slides[currentSlide]?.description }}
         </p>
       </Transition>
@@ -121,21 +162,21 @@ onBeforeUnmount(() => {
 
         <div class="feature-item">
           <span class="icon"> ✓ </span>
-          <span>Pengerjaan Profesional</span>
+          <span>Aplikator Ahli</span>
         </div>
 
         <span class="dot"></span>
 
         <div class="feature-item">
           <span class="icon"> ✓ </span>
-          <span>Finishing Rapi</span>
+          <span>Bergaransi Resmi</span>
         </div>
 
         <span class="dot"></span>
 
         <div class="feature-item">
           <span class="icon"> ✓ </span>
-          <span>Sesuai Kebutuhan</span>
+          <span>Survey Gratis</span>
         </div>
       </div>
     </div>
@@ -175,7 +216,6 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-/* CSS tetap sama persis seperti sebelumnya */
 .hero-section {
   position: relative;
   min-height: 100svh;
@@ -183,13 +223,15 @@ onBeforeUnmount(() => {
   background: #111;
 }
 
+/* --- PERUBAHAN CSS UNTUK TAG IMG AGAR SEPERTI BACKGROUND --- */
 .hero-background {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Membuat img bertindak persis seperti background-size: cover */
+  object-position: center;
 }
 
 /* Background transition */
@@ -229,10 +271,8 @@ onBeforeUnmount(() => {
 .hero-content {
   position: relative;
   z-index: 10;
-
   width: 100%;
   max-width: 1280px;
-
   margin: 0 auto;
   padding: 7rem 3rem 8rem;
 }
@@ -242,13 +282,10 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   margin-bottom: 20px;
   padding: 7px 14px;
-
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 4px;
-
   background: rgba(30, 30, 30, 0.55);
   backdrop-filter: blur(5px);
 }
@@ -270,11 +307,8 @@ onBeforeUnmount(() => {
 /* Heading */
 .hero-heading {
   max-width: 850px;
-
   margin: 0 0 20px;
-
   color: #fff;
-
   font-size: clamp(42px, 4vw, 58px);
   font-weight: 800;
   line-height: 1.08;
@@ -288,11 +322,8 @@ onBeforeUnmount(() => {
 /* Description */
 .hero-description {
   max-width: 620px;
-
   margin: 0 0 32px;
-
   color: #d4d4d4;
-
   font-size: 16px;
   line-height: 1.65;
 }
@@ -303,7 +334,6 @@ onBeforeUnmount(() => {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-
   margin-bottom: 38px;
 }
 
@@ -311,15 +341,11 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 12px 26px;
-
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-
   cursor: pointer;
-
   transition:
     background-color 0.25s ease,
     transform 0.25s ease;
@@ -359,9 +385,7 @@ onBeforeUnmount(() => {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-
   color: #d4d4d4;
-
   font-size: 13px;
   font-weight: 500;
 }
@@ -375,7 +399,6 @@ onBeforeUnmount(() => {
 .icon {
   display: flex;
   align-items: center;
-
   color: #fce18d;
   font-weight: 700;
 }
@@ -383,9 +406,7 @@ onBeforeUnmount(() => {
 .dot {
   width: 4px;
   height: 4px;
-
   flex-shrink: 0;
-
   border-radius: 50%;
   background: #737373;
 }
@@ -394,10 +415,8 @@ onBeforeUnmount(() => {
 .slider-controls {
   position: absolute;
   z-index: 20;
-
   right: max(3rem, calc((100% - 1280px) / 2));
   bottom: 32px;
-
   display: flex;
   align-items: center;
   gap: 14px;
@@ -406,22 +425,15 @@ onBeforeUnmount(() => {
 .slider-arrow {
   width: 38px;
   height: 38px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: 1px solid rgba(255, 255, 255, 0.25);
-
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
-
   font-size: 16px;
-
   cursor: pointer;
-
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease;
@@ -441,16 +453,11 @@ onBeforeUnmount(() => {
 .slider-dot {
   width: 7px;
   height: 7px;
-
   padding: 0;
-
   border: 0;
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.4);
-
   cursor: pointer;
-
   transition:
     width 0.3s ease,
     background-color 0.3s ease;
@@ -458,9 +465,7 @@ onBeforeUnmount(() => {
 
 .slider-dot.active {
   width: 24px;
-
   border-radius: 4px;
-
   background: #fce18d;
 }
 
@@ -468,16 +473,12 @@ onBeforeUnmount(() => {
 .slide-counter {
   position: absolute;
   z-index: 20;
-
   left: max(3rem, calc((100% - 1280px) / 2));
   bottom: 35px;
-
   display: flex;
   align-items: center;
   gap: 10px;
-
   color: rgba(255, 255, 255, 0.8);
-
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -486,7 +487,6 @@ onBeforeUnmount(() => {
 .counter-line {
   width: 35px;
   height: 1px;
-
   background: rgba(255, 255, 255, 0.4);
 }
 
@@ -514,16 +514,13 @@ onBeforeUnmount(() => {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-
   .hero-heading {
     max-width: 720px;
     font-size: 50px;
   }
-
   .slider-controls {
     right: 2rem;
   }
-
   .slide-counter {
     left: 2rem;
   }
@@ -534,92 +531,72 @@ onBeforeUnmount(() => {
   .hero-section {
     min-height: 100svh;
   }
-
   .hero-content {
     padding: 7rem 1.5rem 8rem;
   }
-
   .hero-overlay {
     background: linear-gradient(to right, rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.7));
   }
-
   .hero-eyebrow {
     margin-bottom: 16px;
     padding: 6px 11px;
   }
-
   .eyebrow-text {
     font-size: 9px;
     letter-spacing: 1.2px;
   }
-
   .hero-heading {
     max-width: 100%;
     font-size: 40px;
     line-height: 1.1;
     letter-spacing: -1px;
   }
-
   .hero-description {
     max-width: 100%;
     margin-bottom: 26px;
-
     font-size: 15px;
     line-height: 1.6;
   }
-
   .hero-buttons {
     flex-direction: column;
     width: 100%;
-
     margin-bottom: 30px;
   }
-
   .btn {
     width: 100%;
     padding: 13px 20px;
   }
-
   .hero-features {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-
     font-size: 12px;
   }
-
   .dot {
     display: none;
   }
-
   .slider-controls {
     right: 1.5rem;
     bottom: 25px;
     gap: 10px;
   }
-
   .slider-arrow {
     width: 34px;
     height: 34px;
     font-size: 14px;
   }
-
   .slider-dot {
     width: 6px;
     height: 6px;
   }
-
   .slider-dot.active {
     width: 20px;
   }
-
   .slide-counter {
     left: 1.5rem;
     bottom: 28px;
-
     font-size: 10px;
   }
-
   .counter-line {
     width: 25px;
   }
@@ -630,15 +607,12 @@ onBeforeUnmount(() => {
   .hero-content {
     padding-top: 6.5rem;
   }
-
   .hero-heading {
     font-size: 34px;
   }
-
   .hero-description {
     font-size: 14px;
   }
-
   .hero-features {
     font-size: 11px;
   }

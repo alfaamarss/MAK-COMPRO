@@ -505,18 +505,48 @@ useHead({
                       <div class="min-h-0 flex-1 bg-gray-100">
                         <iframe :src="product.tds" :title="`TDS ${product.title}`" class="h-full w-full border-0" />
                       </div>
-
                       <!-- Footer modal -->
-                      <div class="flex items-center justify-between gap-3 border-t border-gray-200 px-4 py-3 sm:px-6">
+                      <div
+                        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-gray-200 px-4 py-3 sm:px-6"
+                      >
                         <span class="text-xs text-gray-500 sm:text-sm"> Dokumen TDS produk MULTI ARTHA KREASINDO </span>
 
-                        <button
-                          type="button"
-                          @click="showTdsModal = false"
-                          class="rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-700"
-                        >
-                          Tutup
-                        </button>
+                        <div class="flex items-center justify-end gap-3">
+                          <!-- Tombol Download PDF -->
+                          <a
+                            v-if="product.tds"
+                            :href="product.tds"
+                            :download="`${product.slug}-TDS.pdf`"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:bg-gray-50 active:scale-[0.98]"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="h-5 w-5"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 3v12m0 0l-4-4m4 4l4-4M5 17v3h14v-3"
+                              />
+                            </svg>
+                            Download PDF
+                          </a>
+
+                          <!-- Tombol Tutup -->
+                          <button
+                            type="button"
+                            @click="showTdsModal = false"
+                            class="rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-700 active:scale-[0.98]"
+                          >
+                            Tutup
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

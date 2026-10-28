@@ -4,7 +4,7 @@
     <div class="absolute inset-0 z-0">
       <img
         src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
-        alt="Background Pabrik"
+        alt="Latar Belakang Pabrik Jasa Epoxy Lantai"
         class="w-full h-full object-cover opacity-40 mix-blend-overlay"
       />
       <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-[#7a2021]/70"></div>
@@ -33,24 +33,27 @@
           <!-- Badge -->
           <div class="inline-flex items-center bg-white/95 backdrop-blur-sm rounded-full px-3 py-1 mb-5 shadow-md">
             <span class="w-1.5 h-1.5 rounded-full bg-[#c41215] mr-2"></span>
-            <span class="text-[10px] font-bold text-neutral-800 tracking-wider">LAYANAN PROFESIONAL</span>
+            <span class="text-[10px] font-bold text-neutral-800 tracking-wider">KONTRAKTOR & APLIKATOR RESMI</span>
           </div>
 
-          <!-- Judul Utama -->
+          <!-- Judul Utama (DIOPTIMASI UNTUK SEO H1) -->
           <h1 class="font-extrabold tracking-tight mb-5 leading-tight">
-            <span class="block text-2xl sm:text-3xl text-neutral-200 uppercase tracking-wide"> SOLUSI PENGERJAAN </span>
+            <span class="block text-2xl sm:text-3xl text-neutral-200 uppercase tracking-wide">
+              SPESIALIS KONTRAKTOR &
+            </span>
             <span class="block text-3xl sm:text-4xl lg:text-5xl text-[#e5c158] uppercase my-1 drop-shadow-sm">
-              INDUSTRIAL FLOORING &amp; COATING
+              JASA EPOXY LANTAI
             </span>
             <span class="block text-xl sm:text-2xl lg:text-3xl text-white font-semibold tracking-normal">
-              PROFESIONAL &amp; TERPERCAYA
+              INDUSTRIAL COATING TERPERCAYA
             </span>
           </h1>
 
-          <!-- Deskripsi -->
+          <!-- Deskripsi (DIOPTIMASI DENGAN KEYWORD) -->
           <p class="text-neutral-300 text-sm sm:text-base max-w-xl mb-8 leading-relaxed font-normal">
-            Kami menghadirkan aplikasi pelapisan lantai berstandar industri dengan eksekusi teknis presisi. Mulai dari
-            persiapan substrat mekanis, penambalan retak, hingga finishing kilap cermin tanpa pori bergaransi resmi.
+            Kami merupakan penyedia <strong>jasa epoxy lantai</strong> dan pelapisan lantai berstandar industri dengan
+            eksekusi teknis presisi. Mulai dari persiapan substrat mekanis, perbaikan retak beton, hingga finishing
+            kilap cermin tanpa pori dengan garansi resmi.
           </p>
 
           <!-- 3 Fitur Badges -->
@@ -89,33 +92,32 @@
                   d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
                 />
               </svg>
-              <span class="text-xs text-neutral-200 font-semibold tracking-wide"
-                >Survey &amp; Moisture Test Gratis</span
-              >
+              <span class="text-xs text-neutral-200 font-semibold tracking-wide">Survey & Moisture Test Gratis</span>
             </div>
           </div>
         </div>
 
-        <!-- KOLOM KANAN: Gambar utama digeser sedikit ke kiri -->
+        <!-- KOLOM KANAN: Gambar utama -->
         <div class="lg:col-span-5 relative w-full max-w-md lg:ml-auto mt-8 lg:mt-0 pb-6 flex justify-end">
-          <!-- Gambar Utama (Digeser ke kiri dengan -translate-x-4 atau -translate-x-6) -->
+          <!-- Gambar Utama -->
           <div
             class="relative z-10 w-[75%] rounded-2xl overflow-hidden border border-neutral-700/60 shadow-2xl bg-neutral-900 -translate-x-6 sm:-translate-x-8"
           >
+            <!-- Alt Text dioptimasi dengan Keyword -->
             <img
               src="/images/Services/epoxy/EpoxyFlooring1.jpg"
-              alt="Layanan Epoxy Flooring"
+              alt="Hasil Pengerjaan Jasa Epoxy Lantai Pabrik dan Industri"
               class="w-full h-[260px] sm:h-[300px] object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
 
-          <!-- Gambar Kecil (Floating di Kanan Bawah) -->
+          <!-- Gambar Kecil -->
           <div
             class="absolute right-2 sm:right-0 -bottom-6 w-[48%] rounded-xl overflow-hidden border-2 border-neutral-800 shadow-2xl z-20 bg-neutral-900"
           >
             <img
               src="/images/Services/Hightemp.jpeg"
-              alt="High Temp Coating"
+              alt="Layanan High Temp Coating dan Jasa Pengecatan Lantai"
               class="w-full h-[140px] sm:h-[160px] object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -126,7 +128,47 @@
 </template>
 
 <script setup>
-// Kosongkan atau isi script di sini jika dibutuhkan nantinya
+import { useSeoMeta, useHead } from "#imports";
+
+// 1. Optimasi Meta Tags khusus menargetkan "Jasa Epoxy"
+useSeoMeta({
+  title: "Jasa Epoxy Lantai Profesional & Bergaransi | PT Multi Artha Kreasindo",
+  description:
+    "Mencari jasa epoxy lantai terpercaya? Kami adalah spesialis industrial flooring, coating, dan waterproofing dengan garansi resmi dan survey gratis. Hubungi kami sekarang!",
+  keywords:
+    "jasa epoxy, jasa epoxy lantai, kontraktor epoxy, harga epoxy lantai, aplikator epoxy lantai, pelapisan lantai pabrik, epoxy gudang, industrial coating",
+  ogTitle: "Jasa Epoxy Lantai Profesional & Bergaransi",
+  ogDescription:
+    "Spesialis industrial flooring dan coating dengan garansi resmi. Dapatkan survey dan moisture test gratis untuk pabrik atau gudang Anda.",
+  ogImage: "/images/Services/epoxy/EpoxyFlooring1.jpg",
+  twitterCard: "summary_large_image",
+});
+
+// 2. Schema Markup SEO (Membantu Google memahami bahwa ini adalah halaman penawaran jasa lokal)
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Jasa Epoxy Lantai",
+        provider: {
+          "@type": "LocalBusiness",
+          name: "PT Multi Artha Kreasindo",
+          image: "/images/Services/epoxy/EpoxyFlooring1.jpg",
+        },
+        areaServed: "Indonesia",
+        description:
+          "Layanan jasa epoxy lantai profesional untuk pabrik, gudang, dan fasilitas komersial dengan garansi daya rekat maksimal.",
+        offers: {
+          "@type": "Offer",
+          description: "Survey & Moisture Test Gratis sebelum pengerjaan Epoxy Lantai.",
+        },
+      }),
+    },
+  ],
+});
 </script>
 
 <style scoped>
