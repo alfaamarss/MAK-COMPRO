@@ -55,14 +55,17 @@ const filteredProjects = computed(() => {
   });
 });
 
-// --- LOGIKA SLIDER MOBILE ---
+// --- LOGIKA SLIDER MOBILE (DIPERBAIKI) ---
 const slideRight = () => {
   if (sliderRef.value) {
     const { scrollLeft, scrollWidth, clientWidth } = sliderRef.value;
-    if (scrollLeft + clientWidth >= scrollWidth - 10) {
+
+    // Gunakan Math.ceil agar perhitungan sisa pixel lebih akurat di semua ukuran HP
+    if (Math.ceil(scrollLeft + clientWidth) >= scrollWidth - 10) {
       sliderRef.value.scrollTo({ left: 0, behavior: "smooth" });
     } else {
-      sliderRef.value.scrollBy({ left: 320, behavior: "smooth" });
+      // Geser dinamis sejauh lebar layar (clientWidth), bukan angka statis 320px
+      sliderRef.value.scrollBy({ left: clientWidth, behavior: "smooth" });
     }
   }
 };
@@ -70,7 +73,7 @@ const slideRight = () => {
 const startAutoSlide = () => {
   autoSlideInterval = setInterval(() => {
     if (window.innerWidth < 768) {
-      requestAnimationFrame(slideRight); // Animasi lebih ringan
+      requestAnimationFrame(slideRight); // Animasi DOM lebih ringan
     }
   }, 3500);
 };
@@ -82,7 +85,7 @@ const stopAutoSlide = () => {
   }
 };
 
-// ==================== SCROLL OBSERVER (DIPERBAIKI) ====================
+// ==================== SCROLL OBSERVER ====================
 let observer: IntersectionObserver | null = null;
 
 const initObserver = () => {
@@ -265,9 +268,10 @@ const prevImage = () => {
               :key="item.id"
               @click="openModal(index)"
               :class="[
-                index === 0 ? 'lg:col-span-2' : 'lg:col-span-1', // Cek class featured langsung dari index
+                index === 0 ? 'lg:col-span-2' : 'lg:col-span-1',
                 'group cursor-pointer flex flex-col rounded-2xl overflow-hidden bg-white shadow-sm animate-on-scroll',
-                'w-full min-w-full md:min-w-0 md:w-auto shrink-0 md:shrink snap-center relative hover-lift',
+                /* PERBAIKAN: Menggunakan snap-start agar selalu pas di pinggir kiri layar HP */
+                'w-full min-w-full md:min-w-0 md:w-auto shrink-0 md:shrink snap-start relative hover-lift',
               ]"
               :style="{ transitionDelay: `${0.1 + (index % 5) * 0.05}s` }"
             >
@@ -278,7 +282,6 @@ const prevImage = () => {
                   item.hasFooter ? 'h-64 sm:h-72' : 'h-80 sm:h-96',
                 ]"
               >
-                <!-- OPTIMASI: Lazy load + decoding async biar nggak lag di awal -->
                 <img
                   :src="item.image"
                   :alt="`Proyek ${item.title}`"
